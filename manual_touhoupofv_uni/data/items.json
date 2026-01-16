@@ -1,0 +1,176 @@
+[
+  {
+    "count": 1,
+    "name": "Reimu",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Marisa",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Sakuya",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Youmu",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Reisen",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Cirno",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Lyrica",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Mystia",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Tewi",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Aya",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Medicine",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Yuuka",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Komachi",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": 1,
+    "name": "Shikieiki",
+    "category": ["Characters"],
+    "progression": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Reimu",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Marisa",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Sakuya",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Youmu",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Reisen",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Cirno",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Lyrica",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Mystia",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Tewi",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Aya",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Medicine",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Yuuka",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Komachi",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "7",
+    "name": "Progressive Life - Shikieiki",
+    "category": ["Progressive Lives"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "14",
+    "name": "Ending",
+    "category": ["Endings"],
+    "progression_skip_balancing": true
+  }
+]

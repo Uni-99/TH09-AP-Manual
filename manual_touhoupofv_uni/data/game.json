@@ -1,0 +1,11 @@
+{
+  "game": "TouhouPoFV",
+  "creator": "Uni",
+  "filler_item_name": "Fumo",
+  "starting_items": [
+    {
+      "item_categories": ["Characters"],
+      "random": 1
+    }
+  ]
+}

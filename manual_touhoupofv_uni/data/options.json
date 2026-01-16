@@ -1,0 +1,67 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ManualForArchipelago/Manual/main/schemas/Manual.options.schema.json",
+    "_comment": "Add a _ before an option name to comment it out and it wont be added to the apworld",
+    "core": {
+        "goal":{
+            "_comment": [
+                "Using 'goal' as the name of an option let you override some of the generated goal parameters"
+            ],
+            "display_name": "The End Objective",
+            "description": "How to End your Randomized playthrough.",
+            "aliases": {"easiest": 0},
+            "hidden": false
+        },
+        "death_link": {
+            "default": false
+        }
+    },
+    "user": {
+        "_commented_out_option":{
+            "type": "Toggle",
+            "default": true
+        },
+        "endings_required":{
+            "display_name": "Endings required",
+            "type": "Range",
+            "description": "The number of endings required to goal",
+            "range_start": 1,
+            "default": 5,
+            "range_end": 14,
+            "group": "Goal"
+        },
+        "difficulty_mid":{
+            "type": "Choice",
+            "description": [
+                "Whether clearing stage 6, 7 and 8 requires a life item to be in logic",
+                "3 Lives: All 3 stages requires a life each",
+                "2 Lives: Stage 7 and 8 requires a life each",
+                "1 life: Stage 8 requires a life"
+            ],
+            "values": {
+                "3 Lives":3,
+                "2 Lives":2,
+                "1 Life":1,
+                "Disabled":0
+             },
+            "default": 3,
+            "allow_custom_value": false,
+            "group": "Logic Difficulty"
+        },
+        "difficulty_end":{
+            "display_name": "Difficulty end",
+            "type": "Range",
+            "description": "The number of lives required for stage 9 clear to be in logic",
+            "range_start": 1,
+            "default": 6,
+            "range_end": 7,
+            "group": "Logic Difficulty"
+        },
+        "difficulty_ayamed":{
+            "description": "Whether Aya and Medicine require any lives for their stage clears to be in logic",
+            "type": "Toggle",
+            "default": true,
+            "group": "Logic Difficulty"
+        }
+    }
+
+}
