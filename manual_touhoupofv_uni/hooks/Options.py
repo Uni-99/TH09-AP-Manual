@@ -25,15 +25,43 @@ from typing import Type, Any
 # To add an option, use the before_options_defined hook below and something like this:
 #   options["total_characters_to_win_with"] = TotalCharactersToWinWith
 #
-class TotalCharactersToWinWith(Range):
-    """Instead of having to beat the game with all characters, you can limit locations to a subset of character victory locations."""
-    display_name = "Number of characters to beat the game with before victory"
-    range_start = 10
-    range_end = 50
-    default = 50
+class EndingsRequired(Range):
+    """The number of endings required to goal"""
+    display_name = "endings to goal"
+    range_start = 1
+    range_end = 14
+    default = 4
+
+class DifficultyMid(Choice):
+    """Whether clearing stage 6, 7 and 8 requires a life item to be in logic
+    3_lives: All 3 stages requires a life each
+    2_lives: Stage 7 and 8 requires a life each
+    1_life: Stage 8 requires a life"""
+    display_name = "stage 6/7/8 lives"
+    option_3_lives = 3
+    option_2_lives = 2
+    option_1_life = 1
+    option_none = 0
+    default = 3
+
+class DifficultyEnd(Range):
+    """The number of lives required for clearing stage 9 to be in logic"""
+    display_name = "stage 9 lives"
+    range_start = 1
+    range_end = 7
+    default = 6
+
+class DifficultyAyaMedi(Toggle):
+    """Whether Aya and Medicine require any lives for their stage clears to be in logic"""
+    display_name = "aya and medicine lives"
+    default = 1
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict[str, Type[Option[Any]]]) -> dict[str, Type[Option[Any]]]:
+    # options["endings_required"] = EndingsRequired
+    # options["difficulty_mid"] = DifficultyMid
+    # options["difficulty_end"] = DifficultyEnd
+    # options["difficulty_ayamedi"] = DifficultyAyaMedi
     return options
 
 # This is called after any manual options are defined, in case you want to see what options are defined or want to modify the defined options

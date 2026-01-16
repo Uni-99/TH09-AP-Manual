@@ -2,777 +2,777 @@
   {
     "name": "Reimu - Stage 1 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages"],
+    "category": ["Reimu Stages", "EReimu"],
     "requires": []
   },
   {
     "name": "Reimu - Stage 2 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages"],
+    "category": ["Reimu Stages", "EReimu"],
     "requires": []
   },
   {
     "name": "Reimu - Stage 3 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages"],
+    "category": ["Reimu Stages", "EReimu"],
     "requires": []
   },
   {
     "name": "Reimu - Stage 4 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages"],
+    "category": ["Reimu Stages", "EReimu"],
     "requires": []
   },
   {
     "name": "Reimu - Stage 5 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages"],
+    "category": ["Reimu Stages", "EReimu"],
     "requires": []
   },
   {
     "name": "Reimu - Stage 6 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages"],
-    "requires": "(|Progressive Life - Reimu| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)}"
+    "category": ["Reimu Stages", "EReimu"],
+    "requires": "|Progressive Life - Reimu|"
   },
   {
     "name": "Reimu - Stage 7 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages"],
-    "requires": "(|Progressive Life - Reimu:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Reimu| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)}"
+    "category": ["Reimu Stages", "EReimu"],
+    "requires": "|Progressive Life - Reimu:2|"
   },
   {
     "name": "Reimu - Stage 8 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages"],
-    "requires": "(|Progressive Life - Reimu:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Reimu:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Reimu| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)}"
+    "category": ["Reimu Stages", "EReimu"],
+    "requires": "|Progressive Life - Reimu:3|"
   },
   {
     "name": "Reimu - Stage 9 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages"],
-    "requires": "(|Progressive Life - Reimu:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Reimu:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Reimu:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Reimu:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Reimu:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Reimu:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Reimu:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Reimu:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Reimu:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)})",
-    "place_item": ["Ending"]
+    "category": ["Reimu Stages", "EReimu"],
+    "requires": "|Progressive Life - Reimu:7|",
+    "place_item": ["Ending - Reimu"]
   },
   {
     "name": "Marisa - Stage 1 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages"],
+    "category": ["Marisa Stages", "EMarisa"],
     "requires": []
   },
   {
     "name": "Marisa - Stage 2 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages"],
+    "category": ["Marisa Stages", "EMarisa"],
     "requires": []
   },
   {
     "name": "Marisa - Stage 3 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages"],
+    "category": ["Marisa Stages", "EMarisa"],
     "requires": []
   },
   {
     "name": "Marisa - Stage 4 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages"],
+    "category": ["Marisa Stages", "EMarisa"],
     "requires": []
   },
   {
     "name": "Marisa - Stage 5 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages"],
+    "category": ["Marisa Stages", "EMarisa"],
     "requires": []
   },
   {
     "name": "Marisa - Stage 6 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages"],
-    "requires": "(|Progressive Life - Marisa| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)}"
+    "category": ["Marisa Stages", "EMarisa"],
+    "requires": "|Progressive Life - Marisa|"
   },
   {
     "name": "Marisa - Stage 7 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages"],
-    "requires": "(|Progressive Life - Marisa:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Marisa| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)}"
+    "category": ["Marisa Stages", "EMarisa"],
+    "requires": "|Progressive Life - Marisa:2|"
   },
   {
     "name": "Marisa - Stage 8 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages"],
-    "requires": "(|Progressive Life - Marisa:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Marisa:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Marisa| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)}"
+    "category": ["Marisa Stages", "EMarisa"],
+    "requires": "|Progressive Life - Marisa:3|"
   },
   {
     "name": "Marisa - Stage 9 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages"],
-    "requires": "(|Progressive Life - Marisa:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Marisa:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Marisa:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Marisa:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Marisa:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Marisa:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Marisa:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Marisa:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Marisa:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)})",
-    "place_item": ["Ending"]
+    "category": ["Marisa Stages", "EMarisa"],
+    "requires": "|Progressive Life - Marisa:7|",
+    "place_item": ["Ending - Marisa"]
   },
   {
     "name": "Sakuya - Stage 1 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages"],
+    "category": ["Sakuya Stages", "ESakuya"],
     "requires": []
   },
   {
     "name": "Sakuya - Stage 2 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages"],
+    "category": ["Sakuya Stages", "ESakuya"],
     "requires": []
   },
   {
     "name": "Sakuya - Stage 3 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages"],
+    "category": ["Sakuya Stages", "ESakuya"],
     "requires": []
   },
   {
     "name": "Sakuya - Stage 4 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages"],
+    "category": ["Sakuya Stages", "ESakuya"],
     "requires": []
   },
   {
     "name": "Sakuya - Stage 5 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages"],
+    "category": ["Sakuya Stages", "ESakuya"],
     "requires": []
   },
   {
     "name": "Sakuya - Stage 6 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages"],
-    "requires": "(|Progressive Life - Sakuya| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)}"
+    "category": ["Sakuya Stages", "ESakuya"],
+    "requires": "|Progressive Life - Sakuya|"
   },
   {
     "name": "Sakuya - Stage 7 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages"],
-    "requires": "(|Progressive Life - Sakuya:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Sakuya| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)}"
+    "category": ["Sakuya Stages", "ESakuya"],
+    "requires": "|Progressive Life - Sakuya:2|"
   },
   {
     "name": "Sakuya - Stage 8 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages"],
-    "requires": "(|Progressive Life - Sakuya:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Sakuya:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Sakuya| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)}"
+    "category": ["Sakuya Stages", "ESakuya"],
+    "requires": "|Progressive Life - Sakuya:3|"
   },
   {
     "name": "Sakuya - Stage 9 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages"],
-    "requires": "(|Progressive Life - Sakuya:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Sakuya:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Sakuya:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Sakuya:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Sakuya:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Sakuya:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Sakuya:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Sakuya:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Sakuya:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)})",
-    "place_item": ["Ending"]
+    "category": ["Sakuya Stages", "ESakuya"],
+    "requires": "|Progressive Life - Sakuya:7|",
+    "place_item": ["Ending - Sakuya"]
   },
   {
     "name": "Youmu - Stage 1 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages"],
+    "category": ["Youmu Stages", "EYoumu"],
     "requires": []
   },
   {
     "name": "Youmu - Stage 2 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages"],
+    "category": ["Youmu Stages", "EYoumu"],
     "requires": []
   },
   {
     "name": "Youmu - Stage 3 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages"],
+    "category": ["Youmu Stages", "EYoumu"],
     "requires": []
   },
   {
     "name": "Youmu - Stage 4 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages"],
+    "category": ["Youmu Stages", "EYoumu"],
     "requires": []
   },
   {
     "name": "Youmu - Stage 5 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages"],
+    "category": ["Youmu Stages", "EYoumu"],
     "requires": []
   },
   {
     "name": "Youmu - Stage 6 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages"],
-    "requires": "(|Progressive Life - Youmu| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)}"
+    "category": ["Youmu Stages", "EYoumu"],
+    "requires": "|Progressive Life - Youmu|"
   },
   {
     "name": "Youmu - Stage 7 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages"],
-    "requires": "(|Progressive Life - Youmu:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Youmu| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)}"
+    "category": ["Youmu Stages", "EYoumu"],
+    "requires": "|Progressive Life - Youmu:2|"
   },
   {
     "name": "Youmu - Stage 8 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages"],
-    "requires": "(|Progressive Life - Youmu:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Youmu:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Youmu| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)}"
+    "category": ["Youmu Stages", "EYoumu"],
+    "requires": "|Progressive Life - Youmu:3|"
   },
   {
     "name": "Youmu - Stage 9 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages"],
-    "requires": "(|Progressive Life - Youmu:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Youmu:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Youmu:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Youmu:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Youmu:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Youmu:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Youmu:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Youmu:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Youmu:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)})",
-    "place_item": ["Ending"]
+    "category": ["Youmu Stages", "EYoumu"],
+    "requires": "|Progressive Life - Youmu:7|",
+    "place_item": ["Ending - Youmu"]
   },
   {
     "name": "Reisen - Stage 1 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages"],
+    "category": ["Reisen Stages", "EReisen"],
     "requires": []
   },
   {
     "name": "Reisen - Stage 2 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages"],
+    "category": ["Reisen Stages", "EReisen"],
     "requires": []
   },
   {
     "name": "Reisen - Stage 3 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages"],
+    "category": ["Reisen Stages", "EReisen"],
     "requires": []
   },
   {
     "name": "Reisen - Stage 4 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages"],
+    "category": ["Reisen Stages", "EReisen"],
     "requires": []
   },
   {
     "name": "Reisen - Stage 5 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages"],
+    "category": ["Reisen Stages", "EReisen"],
     "requires": []
   },
   {
     "name": "Reisen - Stage 6 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages"],
-    "requires": "(|Progressive Life - Reisen| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)}"
+    "category": ["Reisen Stages", "EReisen"],
+    "requires": "|Progressive Life - Reisen|"
   },
   {
     "name": "Reisen - Stage 7 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages"],
-    "requires": "(|Progressive Life - Reisen:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Reisen| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)}"
+    "category": ["Reisen Stages", "EReisen"],
+    "requires": "|Progressive Life - Reisen:2|"
   },
   {
     "name": "Reisen - Stage 8 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages"],
-    "requires": "(|Progressive Life - Reisen:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Reisen:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Reisen| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)}"
+    "category": ["Reisen Stages", "EReisen"],
+    "requires": "|Progressive Life - Reisen:3|"
   },
   {
     "name": "Reisen - Stage 9 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages"],
-    "requires": "(|Progressive Life - Reisen:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Reisen:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Reisen:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Reisen:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Reisen:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Reisen:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Reisen:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Reisen:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Reisen:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)})",
-    "place_item": ["Ending"]
+    "category": ["Reisen Stages", "EReisen"],
+    "requires": "|Progressive Life - Reisen:7|",
+    "place_item": ["Ending - Reisen"]
   },
   {
     "name": "Cirno - Stage 1 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages"],
+    "category": ["Cirno Stages", "ECirno"],
     "requires": []
   },
   {
     "name": "Cirno - Stage 2 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages"],
+    "category": ["Cirno Stages", "ECirno"],
     "requires": []
   },
   {
     "name": "Cirno - Stage 3 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages"],
+    "category": ["Cirno Stages", "ECirno"],
     "requires": []
   },
   {
     "name": "Cirno - Stage 4 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages"],
+    "category": ["Cirno Stages", "ECirno"],
     "requires": []
   },
   {
     "name": "Cirno - Stage 5 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages"],
+    "category": ["Cirno Stages", "ECirno"],
     "requires": []
   },
   {
     "name": "Cirno - Stage 6 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages"],
-    "requires": "(|Progressive Life - Cirno| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)}"
+    "category": ["Cirno Stages", "ECirno"],
+    "requires": "|Progressive Life - Cirno|"
   },
   {
     "name": "Cirno - Stage 7 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages"],
-    "requires": "(|Progressive Life - Cirno:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Cirno| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)}"
+    "category": ["Cirno Stages", "ECirno"],
+    "requires": "|Progressive Life - Cirno:2|"
   },
   {
     "name": "Cirno - Stage 8 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages"],
-    "requires": "(|Progressive Life - Cirno:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Cirno:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Cirno| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)}"
+    "category": ["Cirno Stages", "ECirno"],
+    "requires": "|Progressive Life - Cirno:3|"
   },
   {
     "name": "Cirno - Stage 9 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages"],
-    "requires": "(|Progressive Life - Cirno:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Cirno:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Cirno:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Cirno:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Cirno:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Cirno:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Cirno:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Cirno:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Cirno:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)})",
-    "place_item": ["Ending"]
+    "category": ["Cirno Stages", "ECirno"],
+    "requires": "|Progressive Life - Cirno:7|",
+    "place_item": ["Ending - Cirno"]
   },
   {
     "name": "Lyrica - Stage 1 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages"],
+    "category": ["Lyrica Stages", "ELyrica"],
     "requires": []
   },
   {
     "name": "Lyrica - Stage 2 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages"],
+    "category": ["Lyrica Stages", "ELyrica"],
     "requires": []
   },
   {
     "name": "Lyrica - Stage 3 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages"],
+    "category": ["Lyrica Stages", "ELyrica"],
     "requires": []
   },
   {
     "name": "Lyrica - Stage 4 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages"],
+    "category": ["Lyrica Stages", "ELyrica"],
     "requires": []
   },
   {
     "name": "Lyrica - Stage 5 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages"],
+    "category": ["Lyrica Stages", "ELyrica"],
     "requires": []
   },
   {
     "name": "Lyrica - Stage 6 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages"],
-    "requires": "(|Progressive Life - Lyrica| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)}"
+    "category": ["Lyrica Stages", "ELyrica"],
+    "requires": "|Progressive Life - Lyrica|"
   },
   {
     "name": "Lyrica - Stage 7 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages"],
-    "requires": "(|Progressive Life - Lyrica:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Lyrica| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)}"
+    "category": ["Lyrica Stages", "ELyrica"],
+    "requires": "|Progressive Life - Lyrica:2|"
   },
   {
     "name": "Lyrica - Stage 8 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages"],
-    "requires": "(|Progressive Life - Lyrica:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Lyrica:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Lyrica| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)}"
+    "category": ["Lyrica Stages", "ELyrica"],
+    "requires": "|Progressive Life - Lyrica:3|"
   },
   {
     "name": "Lyrica - Stage 9 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages"],
-    "requires": "(|Progressive Life - Lyrica:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Lyrica:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Lyrica:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Lyrica:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Lyrica:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Lyrica:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Lyrica:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Lyrica:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Lyrica:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)})",
-    "place_item": ["Ending"]
+    "category": ["Lyrica Stages", "ELyrica"],
+    "requires": "|Progressive Life - Lyrica:7|",
+    "place_item": ["Ending - Lyrica"]
   },
   {
     "name": "Mystia - Stage 1 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages"],
+    "category": ["Mystia Stages", "EMystia"],
     "requires": []
   },
   {
     "name": "Mystia - Stage 2 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages"],
+    "category": ["Mystia Stages", "EMystia"],
     "requires": []
   },
   {
     "name": "Mystia - Stage 3 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages"],
+    "category": ["Mystia Stages", "EMystia"],
     "requires": []
   },
   {
     "name": "Mystia - Stage 4 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages"],
+    "category": ["Mystia Stages", "EMystia"],
     "requires": []
   },
   {
     "name": "Mystia - Stage 5 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages"],
+    "category": ["Mystia Stages", "EMystia"],
     "requires": []
   },
   {
     "name": "Mystia - Stage 6 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages"],
-    "requires": "(|Progressive Life - Mystia| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)}"
+    "category": ["Mystia Stages", "EMystia"],
+    "requires": "|Progressive Life - Mystia|"
   },
   {
     "name": "Mystia - Stage 7 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages"],
-    "requires": "(|Progressive Life - Mystia:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Mystia| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)}"
+    "category": ["Mystia Stages", "EMystia"],
+    "requires": "|Progressive Life - Mystia:2|"
   },
   {
     "name": "Mystia - Stage 8 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages"],
-    "requires": "(|Progressive Life - Mystia:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Mystia:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Mystia| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)}"
+    "category": ["Mystia Stages", "EMystia"],
+    "requires": "|Progressive Life - Mystia:3|"
   },
   {
     "name": "Mystia - Stage 9 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages"],
-    "requires": "(|Progressive Life - Mystia:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Mystia:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Mystia:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Mystia:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Mystia:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Mystia:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Mystia:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Mystia:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Mystia:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)})",
-    "place_item": ["Ending"]
+    "category": ["Mystia Stages", "EMystia"],
+    "requires": "|Progressive Life - Mystia:7|",
+    "place_item": ["Ending - Mystia"]
   },
   {
     "name": "Tewi - Stage 1 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages"],
+    "category": ["Tewi Stages", "ETewi"],
     "requires": []
   },
   {
     "name": "Tewi - Stage 2 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages"],
+    "category": ["Tewi Stages", "ETewi"],
     "requires": []
   },
   {
     "name": "Tewi - Stage 3 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages"],
+    "category": ["Tewi Stages", "ETewi"],
     "requires": []
   },
   {
     "name": "Tewi - Stage 4 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages"],
+    "category": ["Tewi Stages", "ETewi"],
     "requires": []
   },
   {
     "name": "Tewi - Stage 5 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages"],
+    "category": ["Tewi Stages", "ETewi"],
     "requires": []
   },
   {
     "name": "Tewi - Stage 6 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages"],
-    "requires": "(|Progressive Life - Tewi| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)}"
+    "category": ["Tewi Stages", "ETewi"],
+    "requires": "|Progressive Life - Tewi|"
   },
   {
     "name": "Tewi - Stage 7 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages"],
-    "requires": "(|Progressive Life - Tewi:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Tewi| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)}"
+    "category": ["Tewi Stages", "ETewi"],
+    "requires": "|Progressive Life - Tewi:2|"
   },
   {
     "name": "Tewi - Stage 8 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages"],
-    "requires": "(|Progressive Life - Tewi:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Tewi:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Tewi| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)}"
+    "category": ["Tewi Stages", "ETewi"],
+    "requires": "|Progressive Life - Tewi:3|"
   },
   {
     "name": "Tewi - Stage 9 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages"],
-    "requires": "(|Progressive Life - Tewi:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Tewi:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Tewi:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Tewi:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Tewi:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Tewi:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Tewi:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Tewi:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Tewi:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)})",
-    "place_item": ["Ending"]
+    "category": ["Tewi Stages", "ETewi"],
+    "requires": "|Progressive Life - Tewi:7|",
+    "place_item": ["Ending - Tewi"]
   },
   {
     "name": "Aya - Stage 1 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages"],
+    "category": ["Aya Stages", "EAya"],
     "requires": []
   },
   {
     "name": "Aya - Stage 2 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages"],
+    "category": ["Aya Stages", "EAya"],
     "requires": []
   },
   {
     "name": "Aya - Stage 3 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages"],
+    "category": ["Aya Stages", "EAya"],
     "requires": []
   },
   {
     "name": "Aya - Stage 4 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages"],
+    "category": ["Aya Stages", "EAya"],
     "requires": []
   },
   {
     "name": "Aya - Stage 5 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages"],
+    "category": ["Aya Stages", "EAya"],
     "requires": []
   },
   {
     "name": "Aya - Stage 6 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages"],
-    "requires": "(|Progressive Life - Aya| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)} or {YamlDisabled(difficulty_ayamed)}"
+    "category": ["Aya Stages", "EAya"],
+    "requires": "|Progressive Life - Aya|"
   },
   {
     "name": "Aya - Stage 7 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages"],
-    "requires": "(|Progressive Life - Aya:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Aya| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)} or {YamlDisabled(difficulty_ayamed)}"
+    "category": ["Aya Stages", "EAya"],
+    "requires": "|Progressive Life - Aya:2|"
   },
   {
     "name": "Aya - Stage 8 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages"],
-    "requires": "(|Progressive Life - Aya:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Aya:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Aya| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)} or {YamlDisabled(difficulty_ayamed)}"
+    "category": ["Aya Stages", "EAya"],
+    "requires": "|Progressive Life - Aya:3|"
   },
   {
     "name": "Aya - Stage 9 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages"],
-    "requires": "(|Progressive Life - Aya:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Aya:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Aya:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Aya:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Aya:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Aya:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Aya:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Aya:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Aya:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)}) or {YamlDisabled(difficulty_ayamed)}",
-    "place_item": ["Ending"]
+    "category": ["Aya Stages", "EAya"],
+    "requires": "|Progressive Life - Aya:7|",
+    "place_item": ["Ending - Aya"]
   },
   {
     "name": "Medicine - Stage 1 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages"],
+    "category": ["Medicine Stages", "EMedicine"],
     "requires": []
   },
   {
     "name": "Medicine - Stage 2 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages"],
+    "category": ["Medicine Stages", "EMedicine"],
     "requires": []
   },
   {
     "name": "Medicine - Stage 3 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages"],
+    "category": ["Medicine Stages", "EMedicine"],
     "requires": []
   },
   {
     "name": "Medicine - Stage 4 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages"],
+    "category": ["Medicine Stages", "EMedicine"],
     "requires": []
   },
   {
     "name": "Medicine - Stage 5 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages"],
+    "category": ["Medicine Stages", "EMedicine"],
     "requires": []
   },
   {
     "name": "Medicine - Stage 6 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages"],
-    "requires": "(|Progressive Life - Medicine| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)} or {YamlDisabled(difficulty_ayamed)}"
+    "category": ["Medicine Stages", "EMedicine"],
+    "requires": "|Progressive Life - Medicine|"
   },
   {
     "name": "Medicine - Stage 7 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages"],
-    "requires": "(|Progressive Life - Medicine:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Medicine| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)} or {YamlDisabled(difficulty_ayamed)}"
+    "category": ["Medicine Stages", "EMedicine"],
+    "requires": "|Progressive Life - Medicine:2|"
   },
   {
     "name": "Medicine - Stage 8 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages"],
-    "requires": "(|Progressive Life - Medicine:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Medicine:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Medicine| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)} or {YamlDisabled(difficulty_ayamed)}"
+    "category": ["Medicine Stages", "EMedicine"],
+    "requires": "|Progressive Life - Medicine:3|"
   },
   {
     "name": "Medicine - Stage 9 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages"],
-    "requires": "(|Progressive Life - Medicine:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Medicine:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Medicine:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Medicine:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Medicine:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Medicine:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Medicine:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Medicine:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Medicine:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)}) or {YamlDisabled(difficulty_ayamed)}",
-    "place_item": ["Ending"]
+    "category": ["Medicine Stages", "EMedicine"],
+    "requires": "|Progressive Life - Medicine:7|",
+    "place_item": ["Ending - Medicine"]
   },
   {
     "name": "Yuuka - Stage 1 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages"],
+    "category": ["Yuuka Stages", "EYuuka"],
     "requires": []
   },
   {
     "name": "Yuuka - Stage 2 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages"],
+    "category": ["Yuuka Stages", "EYuuka"],
     "requires": []
   },
   {
     "name": "Yuuka - Stage 3 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages"],
+    "category": ["Yuuka Stages", "EYuuka"],
     "requires": []
   },
   {
     "name": "Yuuka - Stage 4 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages"],
+    "category": ["Yuuka Stages", "EYuuka"],
     "requires": []
   },
   {
     "name": "Yuuka - Stage 5 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages"],
+    "category": ["Yuuka Stages", "EYuuka"],
     "requires": []
   },
   {
     "name": "Yuuka - Stage 6 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages"],
-    "requires": "(|Progressive Life - Yuuka| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)}"
+    "category": ["Yuuka Stages", "EYuuka"],
+    "requires": "|Progressive Life - Yuuka|"
   },
   {
     "name": "Yuuka - Stage 7 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages"],
-    "requires": "(|Progressive Life - Yuuka:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Yuuka| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)}"
+    "category": ["Yuuka Stages", "EYuuka"],
+    "requires": "|Progressive Life - Yuuka:2|"
   },
   {
     "name": "Yuuka - Stage 8 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages"],
-    "requires": "(|Progressive Life - Yuuka:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Yuuka:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Yuuka| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)}"
+    "category": ["Yuuka Stages", "EYuuka"],
+    "requires": "|Progressive Life - Yuuka:3|"
   },
   {
     "name": "Yuuka - Stage 9 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages"],
-    "requires": "(|Progressive Life - Yuuka:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Yuuka:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Yuuka:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Yuuka:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Yuuka:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Yuuka:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Yuuka:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Yuuka:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Yuuka:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)})",
-    "place_item": ["Ending"]
+    "category": ["Yuuka Stages", "EYuuka"],
+    "requires": "|Progressive Life - Yuuka:7|",
+    "place_item": ["Ending - Yuuka"]
   },
   {
     "name": "Komachi - Stage 1 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages"],
+    "category": ["Komachi Stages", "EKomachi"],
     "requires": []
   },
   {
     "name": "Komachi - Stage 2 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages"],
+    "category": ["Komachi Stages", "EKomachi"],
     "requires": []
   },
   {
     "name": "Komachi - Stage 3 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages"],
+    "category": ["Komachi Stages", "EKomachi"],
     "requires": []
   },
   {
     "name": "Komachi - Stage 4 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages"],
+    "category": ["Komachi Stages", "EKomachi"],
     "requires": []
   },
   {
     "name": "Komachi - Stage 5 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages"],
+    "category": ["Komachi Stages", "EKomachi"],
     "requires": []
   },
   {
     "name": "Komachi - Stage 6 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages"],
-    "requires": "(|Progressive Life - Komachi| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)}"
+    "category": ["Komachi Stages", "EKomachi"],
+    "requires": "|Progressive Life - Komachi|"
   },
   {
     "name": "Komachi - Stage 7 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages"],
-    "requires": "(|Progressive Life - Komachi:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Komachi| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)}"
+    "category": ["Komachi Stages", "EKomachi"],
+    "requires": "|Progressive Life - Komachi:2|"
   },
   {
     "name": "Komachi - Stage 8 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages"],
-    "requires": "(|Progressive Life - Komachi:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Komachi:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Komachi| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)}"
+    "category": ["Komachi Stages", "EKomachi"],
+    "requires": "|Progressive Life - Komachi:3|"
   },
   {
     "name": "Komachi - Stage 9 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages"],
-    "requires": "(|Progressive Life - Komachi:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Komachi:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Komachi:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Komachi:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Komachi:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Komachi:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Komachi:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Komachi:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Komachi:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)})",
-    "place_item": ["Ending"]
+    "category": ["Komachi Stages", "EKomachi"],
+    "requires": "|Progressive Life - Komachi:7|",
+    "place_item": ["Ending - Komachi"]
   },
   {
     "name": "Shikieiki - Stage 1 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages"],
+    "category": ["Shikieiki Stages", "EShikieiki"],
     "requires": []
   },
   {
     "name": "Shikieiki - Stage 2 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages"],
+    "category": ["Shikieiki Stages", "EShikieiki"],
     "requires": []
   },
   {
     "name": "Shikieiki - Stage 3 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages"],
+    "category": ["Shikieiki Stages", "EShikieiki"],
     "requires": []
   },
   {
     "name": "Shikieiki - Stage 4 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages"],
+    "category": ["Shikieiki Stages", "EShikieiki"],
     "requires": []
   },
   {
     "name": "Shikieiki - Stage 5 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages"],
+    "category": ["Shikieiki Stages", "EShikieiki"],
     "requires": []
   },
   {
     "name": "Shikieiki - Stage 6 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages"],
-    "requires": "(|Progressive Life - Shikieiki| and {YamlCompare(difficulty_mid == 3)}) or {YamlCompare(difficulty_mid < 3)}"
+    "category": ["Shikieiki Stages", "EShikieiki"],
+    "requires": "|Progressive Life - Shikieiki|"
   },
   {
     "name": "Shikieiki - Stage 7 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages"],
-    "requires": "(|Progressive Life - Shikieiki:2| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Shikieiki| and {YamlCompare(difficulty_mid == 2)}) or {YamlCompare(difficulty_mid < 2)}"
+    "category": ["Shikieiki Stages", "EShikieiki"],
+    "requires": "|Progressive Life - Shikieiki:2|"
   },
   {
     "name": "Shikieiki - Stage 8 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages"],
-    "requires": "(|Progressive Life - Shikieiki:3| and {YamlCompare(difficulty_mid == 3)}) or (|Progressive Life - Shikieiki:2| and {YamlCompare(difficulty_mid == 2)}) or (|Progressive Life - Shikieiki| and {YamlCompare(difficulty_mid == 1)}) or {YamlCompare(difficulty_mid == 0)}"
+    "category": ["Shikieiki Stages", "EShikieiki"],
+    "requires": "|Progressive Life - Shikieiki:3|"
   },
   {
     "name": "Shikieiki - Stage 9 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages"],
-    "requires": "(|Progressive Life - Shikieiki:7| and {YamlCompare(difficulty_end == 7)}) or (|Progressive Life - Shikieiki:6| and {YamlCompare(difficulty_end == 6)}) or (|Progressive Life - Shikieiki:5| and {YamlCompare(difficulty_end == 5)}) or (|Progressive Life - Shikieiki:4| and {YamlCompare(difficulty_end == 4)}) or (|Progressive Life - Shikieiki:3| and {YamlCompare(difficulty_end == 3)}) or (((|Progressive Life - Shikieiki:2| and {YamlCompare(difficulty_mid < 3)}) or (|Progressive Life - Shikieiki:3| and {YamlCompare(difficulty_mid == 3)})) and {YamlCompare(difficulty_end == 2)}) or (((|Progressive Life - Shikieiki:1| and {YamlCompare(difficulty_mid < 2)}) or (|Progressive Life - Shikieiki:2| and {YamlCompare(difficulty_mid > 1)})) and {YamlCompare(difficulty_end == 1)})",
-    "place_item": ["Ending"]
+    "category": ["Shikieiki Stages", "EShikieiki"],
+    "requires": "|Progressive Life - Shikieiki:7|",
+    "place_item": ["Ending - Shikieiki"]
   },
   {
     "victory": true,
     "name": "Resolve Incident",
-    "category": ["Goal"],
-    "requires": "(|Ending| and {YamlCompare(endings_required == 1)}) or (|Ending:2| and {YamlCompare(endings_required == 2)}) or (|Ending:3| and {YamlCompare(endings_required == 3)}) or (|Ending:4| and {YamlCompare(endings_required == 4)}) or (|Ending:5| and {YamlCompare(endings_required == 5)}) or (|Ending:6| and {YamlCompare(endings_required == 6)}) or (|Ending:7| and {YamlCompare(endings_required == 7)}) or (|Ending:8| and {YamlCompare(endings_required == 8)}) or (|Ending:9| and {YamlCompare(endings_required == 9)}) or (|Ending:10| and {YamlCompare(endings_required == 10)}) or (|Ending:11| and {YamlCompare(endings_required == 11)}) or (|Ending:12| and {YamlCompare(endings_required == 12)}) or (|Ending:13| and {YamlCompare(endings_required == 13)}) or (|Ending:14| and {YamlCompare(endings_required == 14)})"
+    "category": ["[Goal]"],
+    "requires": "|@Endings:14|"
   }
 ]

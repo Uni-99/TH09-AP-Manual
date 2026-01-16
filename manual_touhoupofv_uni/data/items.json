@@ -2,175 +2,253 @@
   {
     "count": 1,
     "name": "Reimu",
-    "category": ["Characters"],
+    "category": ["Characters", "EReimu"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Marisa",
-    "category": ["Characters"],
+    "category": ["Characters", "EMarisa"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Sakuya",
-    "category": ["Characters"],
+    "category": ["Characters", "ESakuya"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Youmu",
-    "category": ["Characters"],
+    "category": ["Characters", "EYoumu"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Reisen",
-    "category": ["Characters"],
+    "category": ["Characters", "EReisen"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Cirno",
-    "category": ["Characters"],
+    "category": ["Characters", "ECirno"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Lyrica",
-    "category": ["Characters"],
+    "category": ["Characters", "ELyrica"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Mystia",
-    "category": ["Characters"],
+    "category": ["Characters", "EMystia"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Tewi",
-    "category": ["Characters"],
+    "category": ["Characters", "ETewi"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Aya",
-    "category": ["Characters"],
+    "category": ["Characters", "EAya"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Medicine",
-    "category": ["Characters"],
+    "category": ["Characters", "EMedicine"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Yuuka",
-    "category": ["Characters"],
+    "category": ["Characters", "EYuuka"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Komachi",
-    "category": ["Characters"],
+    "category": ["Characters", "EKomachi"],
     "progression": true
   },
   {
     "count": 1,
     "name": "Shikieiki",
-    "category": ["Characters"],
+    "category": ["Characters", "EShikieiki"],
     "progression": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Reimu",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "EReimu"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Marisa",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "EMarisa"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Sakuya",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "ESakuya"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Youmu",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "EYoumu"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Reisen",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "EReisen"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Cirno",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "ECirno"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Lyrica",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "ELyrica"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Mystia",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "EMystia"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Tewi",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "ETewi"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Aya",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "EAya"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Medicine",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "EMedicine"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Yuuka",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "EYuuka"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Komachi",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "EKomachi"],
     "progression_skip_balancing": true
   },
   {
     "count": "7",
     "name": "Progressive Life - Shikieiki",
-    "category": ["Progressive Lives"],
+    "category": ["Progressive Lives", "EShikieiki"],
     "progression_skip_balancing": true
   },
   {
-    "count": "14",
-    "name": "Ending",
-    "category": ["Endings"],
+    "count": 1,
+    "name": "Ending - Reimu",
+    "category": ["Endings", "EReimu"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Marisa",
+    "category": ["Endings", "EMarisa"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Sakuya",
+    "category": ["Endings", "ESakuya"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Youmu",
+    "category": ["Endings", "EYoumu"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Reisen",
+    "category": ["Endings", "EReisen"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Cirno",
+    "category": ["Endings", "ECirno"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Lyrica",
+    "category": ["Endings", "ELyrica"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Mystia",
+    "category": ["Endings", "EMystia"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Tewi",
+    "category": ["Endings", "ETewi"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Aya",
+    "category": ["Endings", "EAya"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Medicine",
+    "category": ["Endings", "EMedicine"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Yuuka",
+    "category": ["Endings", "EYuuka"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Komachi",
+    "category": ["Endings", "EKomachi"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Ending - Shikieiki",
+    "category": ["Endings", "EShikieiki"],
     "progression_skip_balancing": true
   }
 ]

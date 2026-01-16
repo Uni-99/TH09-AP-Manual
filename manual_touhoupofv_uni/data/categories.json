@@ -1,1 +1,58 @@
-{}
+{
+    "EReimu": {
+        "yaml_option": ["enable_reimu"],
+        "hidden": true
+    },
+    "EMarisa": {
+        "yaml_option": ["enable_marisa"],
+        "hidden": true
+    },
+    "ESakuya": {
+        "yaml_option": ["enable_sakuya"],
+        "hidden": true
+    },
+    "EYoumu": {
+        "yaml_option": ["enable_youmu"],
+        "hidden": true
+    },
+    "EReisen": {
+        "yaml_option": ["enable_reisen"],
+        "hidden": true
+    },
+    "ECirno": {
+        "yaml_option": ["enable_cirno"],
+        "hidden": true
+    },
+    "ELyrica": {
+        "yaml_option": ["enable_lyrica"],
+        "hidden": true
+    },
+    "EMystia": {
+        "yaml_option": ["enable_mystia"],
+        "hidden": true
+    },
+    "ETewi": {
+        "yaml_option": ["enable_tewi"],
+        "hidden": true
+    },
+    "EAya": {
+        "yaml_option": ["enable_aya"],
+        "hidden": true
+    },
+    "EMedicine": {
+        "yaml_option": ["enable_medicine"],
+        "hidden": true
+    },
+    "EYuuka": {
+        "yaml_option": ["enable_yuuka"],
+        "hidden": true
+    },
+    "EKomachi": {
+        "yaml_option": ["enable_komachi"],
+        "hidden": true
+    },
+    "EShikieiki": {
+        "yaml_option": ["enable_shikieiki"],
+        "hidden": true
+    }
+}

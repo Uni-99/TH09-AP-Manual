@@ -104,6 +104,179 @@ def before_set_rules(world: World, multiworld: MultiWorld, player: int):
 def after_set_rules(world: World, multiworld: MultiWorld, player: int):
     # Use this hook to modify the access rules for a given location
 
+    # Fetching yaml option values
+    endings_required = get_option_value(multiworld, player, "endings_required")
+    difficulty_mid = get_option_value(multiworld, player, "difficulty_mid")
+    difficulty_end = get_option_value(multiworld, player, "difficulty_end")
+    difficulty_ayamedi = get_option_value(multiworld, player, "difficulty_ayamedi")
+
+    enable_reimu = get_option_value(multiworld, player, "enable_reimu")
+    enable_marisa = get_option_value(multiworld, player, "enable_marisa")
+    enable_sakuya = get_option_value(multiworld, player, "enable_sakuya")
+    enable_youmu = get_option_value(multiworld, player, "enable_youmu")
+    enable_reisen = get_option_value(multiworld, player, "enable_reisen")
+    enable_cirno = get_option_value(multiworld, player, "enable_cirno")
+    enable_lyrica = get_option_value(multiworld, player, "enable_lyrica")
+    enable_mystia = get_option_value(multiworld, player, "enable_mystia")
+    enable_tewi = get_option_value(multiworld, player, "enable_tewi")
+    enable_aya = get_option_value(multiworld, player, "enable_aya")
+    enable_medicine = get_option_value(multiworld, player, "enable_medicine")
+    enable_yuuka = get_option_value(multiworld, player, "enable_yuuka")
+    enable_komachi = get_option_value(multiworld, player, "enable_komachi")
+    enable_shikieiki = get_option_value(multiworld, player, "enable_shikieiki")
+
+    # Goal access rules
+    ending = multiworld.get_location("Resolve Incident", player)
+    ending.access_rule = lambda state: (state.count_group("Endings", world.player) >= endings_required)
+
+    # Stage access rules
+    midaccess = difficulty_mid
+
+    if difficulty_mid >= difficulty_end:
+        s9access = difficulty_mid + 1
+    else:
+        s9access = difficulty_end
+
+    if enable_reimu == True:
+        s6reimu = multiworld.get_location("Reimu - Stage 6 Clear", player)
+        s7reimu = multiworld.get_location("Reimu - Stage 7 Clear", player)
+        s8reimu = multiworld.get_location("Reimu - Stage 8 Clear", player)
+        s9reimu = multiworld.get_location("Reimu - Stage 9 Clear", player)
+        s6reimu.access_rule = lambda state: (state.count("Progressive Life - Reimu", world.player) >= midaccess - 2)
+        s7reimu.access_rule = lambda state: (state.count("Progressive Life - Reimu", world.player) >= midaccess - 1)
+        s8reimu.access_rule = lambda state: (state.count("Progressive Life - Reimu", world.player) >= midaccess)
+        s9reimu.access_rule = lambda state: (state.count("Progressive Life - Reimu", world.player) >= s9access)
+    if enable_marisa == True:
+        s6marisa = multiworld.get_location("Marisa - Stage 6 Clear", player)
+        s7marisa = multiworld.get_location("Marisa - Stage 7 Clear", player)
+        s8marisa = multiworld.get_location("Marisa - Stage 8 Clear", player)
+        s9marisa = multiworld.get_location("Marisa - Stage 9 Clear", player)
+        s6marisa.access_rule = lambda state: (state.count("Progressive Life - Marisa", world.player) >= midaccess - 2)
+        s7marisa.access_rule = lambda state: (state.count("Progressive Life - Marisa", world.player) >= midaccess - 1)
+        s8marisa.access_rule = lambda state: (state.count("Progressive Life - Marisa", world.player) >= midaccess)
+        s9marisa.access_rule = lambda state: (state.count("Progressive Life - Marisa", world.player) >= s9access)
+    if enable_sakuya == True:
+        s6sakuya = multiworld.get_location("Sakuya - Stage 6 Clear", player)
+        s7sakuya = multiworld.get_location("Sakuya - Stage 7 Clear", player)
+        s8sakuya = multiworld.get_location("Sakuya - Stage 8 Clear", player)
+        s9sakuya = multiworld.get_location("Sakuya - Stage 9 Clear", player)
+        s6sakuya.access_rule = lambda state: (state.count("Progressive Life - Sakuya", world.player) >= midaccess - 2)
+        s7sakuya.access_rule = lambda state: (state.count("Progressive Life - Sakuya", world.player) >= midaccess - 1)
+        s8sakuya.access_rule = lambda state: (state.count("Progressive Life - Sakuya", world.player) >= midaccess)
+        s9sakuya.access_rule = lambda state: (state.count("Progressive Life - Sakuya", world.player) >= s9access)
+    if enable_youmu == True:
+        s6youmu = multiworld.get_location("Youmu - Stage 6 Clear", player)
+        s7youmu = multiworld.get_location("Youmu - Stage 7 Clear", player)
+        s8youmu = multiworld.get_location("Youmu - Stage 8 Clear", player)
+        s9youmu = multiworld.get_location("Youmu - Stage 9 Clear", player)
+        s6youmu.access_rule = lambda state: (state.count("Progressive Life - Youmu", world.player) >= midaccess - 2)
+        s7youmu.access_rule = lambda state: (state.count("Progressive Life - Youmu", world.player) >= midaccess - 1)
+        s8youmu.access_rule = lambda state: (state.count("Progressive Life - Youmu", world.player) >= midaccess)
+        s9youmu.access_rule = lambda state: (state.count("Progressive Life - Youmu", world.player) >= s9access)
+    if enable_reisen == True:
+        s6reisen = multiworld.get_location("Reisen - Stage 6 Clear", player)
+        s7reisen = multiworld.get_location("Reisen - Stage 7 Clear", player)
+        s8reisen = multiworld.get_location("Reisen - Stage 8 Clear", player)
+        s9reisen = multiworld.get_location("Reisen - Stage 9 Clear", player)
+        s6reisen.access_rule = lambda state: (state.count("Progressive Life - Reisen", world.player) >= midaccess - 2)
+        s7reisen.access_rule = lambda state: (state.count("Progressive Life - Reisen", world.player) >= midaccess - 1)
+        s8reisen.access_rule = lambda state: (state.count("Progressive Life - Reisen", world.player) >= midaccess)
+        s9reisen.access_rule = lambda state: (state.count("Progressive Life - Reisen", world.player) >= s9access)
+    if enable_cirno == True:
+        s6cirno = multiworld.get_location("Cirno - Stage 6 Clear", player)
+        s7cirno = multiworld.get_location("Cirno - Stage 7 Clear", player)
+        s8cirno = multiworld.get_location("Cirno - Stage 8 Clear", player)
+        s9cirno = multiworld.get_location("Cirno - Stage 9 Clear", player)
+        s6cirno.access_rule = lambda state: (state.count("Progressive Life - Cirno", world.player) >= midaccess - 2)
+        s7cirno.access_rule = lambda state: (state.count("Progressive Life - Cirno", world.player) >= midaccess - 1)
+        s8cirno.access_rule = lambda state: (state.count("Progressive Life - Cirno", world.player) >= midaccess)
+        s9cirno.access_rule = lambda state: (state.count("Progressive Life - Cirno", world.player) >= s9access)
+    if enable_lyrica == True:
+        s6lyrica = multiworld.get_location("Lyrica - Stage 6 Clear", player)
+        s7lyrica = multiworld.get_location("Lyrica - Stage 7 Clear", player)
+        s8lyrica = multiworld.get_location("Lyrica - Stage 8 Clear", player)
+        s9lyrica = multiworld.get_location("Lyrica - Stage 9 Clear", player)
+        s6lyrica.access_rule = lambda state: (state.count("Progressive Life - Lyrica", world.player) >= midaccess - 2)
+        s7lyrica.access_rule = lambda state: (state.count("Progressive Life - Lyrica", world.player) >= midaccess - 1)
+        s8lyrica.access_rule = lambda state: (state.count("Progressive Life - Lyrica", world.player) >= midaccess)
+        s9lyrica.access_rule = lambda state: (state.count("Progressive Life - Lyrica", world.player) >= s9access)
+    if enable_mystia == True:
+        s6mystia = multiworld.get_location("Mystia - Stage 6 Clear", player)
+        s7mystia = multiworld.get_location("Mystia - Stage 7 Clear", player)
+        s8mystia = multiworld.get_location("Mystia - Stage 8 Clear", player)
+        s9mystia = multiworld.get_location("Mystia - Stage 9 Clear", player)
+        s6mystia.access_rule = lambda state: (state.count("Progressive Life - Mystia", world.player) >= midaccess - 2)
+        s7mystia.access_rule = lambda state: (state.count("Progressive Life - Mystia", world.player) >= midaccess - 1)
+        s8mystia.access_rule = lambda state: (state.count("Progressive Life - Mystia", world.player) >= midaccess)
+        s9mystia.access_rule = lambda state: (state.count("Progressive Life - Mystia", world.player) >= s9access)
+    if enable_tewi == True:
+        s6tewi = multiworld.get_location("Tewi - Stage 6 Clear", player)
+        s7tewi = multiworld.get_location("Tewi - Stage 7 Clear", player)
+        s8tewi = multiworld.get_location("Tewi - Stage 8 Clear", player)
+        s9tewi = multiworld.get_location("Tewi - Stage 9 Clear", player)
+        s6tewi.access_rule = lambda state: (state.count("Progressive Life - Tewi", world.player) >= midaccess - 2)
+        s7tewi.access_rule = lambda state: (state.count("Progressive Life - Tewi", world.player) >= midaccess - 1)
+        s8tewi.access_rule = lambda state: (state.count("Progressive Life - Tewi", world.player) >= midaccess)
+        s9tewi.access_rule = lambda state: (state.count("Progressive Life - Tewi", world.player) >= s9access)
+    if enable_yuuka == True:
+        s6yuuka = multiworld.get_location("Yuuka - Stage 6 Clear", player)
+        s7yuuka = multiworld.get_location("Yuuka - Stage 7 Clear", player)
+        s8yuuka = multiworld.get_location("Yuuka - Stage 8 Clear", player)
+        s9yuuka = multiworld.get_location("Yuuka - Stage 9 Clear", player)
+        s6yuuka.access_rule = lambda state: (state.count("Progressive Life - Yuuka", world.player) >= midaccess - 2)
+        s7yuuka.access_rule = lambda state: (state.count("Progressive Life - Yuuka", world.player) >= midaccess - 1)
+        s8yuuka.access_rule = lambda state: (state.count("Progressive Life - Yuuka", world.player) >= midaccess)
+        s9yuuka.access_rule = lambda state: (state.count("Progressive Life - Yuuka", world.player) >= s9access)
+    if enable_komachi == True:
+        s6komachi = multiworld.get_location("Komachi - Stage 6 Clear", player)
+        s7komachi = multiworld.get_location("Komachi - Stage 7 Clear", player)
+        s8komachi = multiworld.get_location("Komachi - Stage 8 Clear", player)
+        s9komachi = multiworld.get_location("Komachi - Stage 9 Clear", player)
+        s6komachi.access_rule = lambda state: (state.count("Progressive Life - Komachi", world.player) >= midaccess - 2)
+        s7komachi.access_rule = lambda state: (state.count("Progressive Life - Komachi", world.player) >= midaccess - 1)
+        s8komachi.access_rule = lambda state: (state.count("Progressive Life - Komachi", world.player) >= midaccess)
+        s9komachi.access_rule = lambda state: (state.count("Progressive Life - Komachi", world.player) >= s9access)
+    if enable_shikieiki == True:
+        s6shikieiki = multiworld.get_location("Shikieiki - Stage 6 Clear", player)
+        s7shikieiki = multiworld.get_location("Shikieiki - Stage 7 Clear", player)
+        s8shikieiki = multiworld.get_location("Shikieiki - Stage 8 Clear", player)
+        s9shikieiki = multiworld.get_location("Shikieiki - Stage 9 Clear", player)
+        s6shikieiki.access_rule = lambda state: (state.count("Progressive Life - Shikieiki", world.player) >= midaccess - 2)
+        s7shikieiki.access_rule = lambda state: (state.count("Progressive Life - Shikieiki", world.player) >= midaccess - 1)
+        s8shikieiki.access_rule = lambda state: (state.count("Progressive Life - Shikieiki", world.player) >= midaccess)
+        s9shikieiki.access_rule = lambda state: (state.count("Progressive Life - Shikieiki", world.player) >= s9access)
+
+    if enable_aya == True:
+        s6aya = multiworld.get_location("Aya - Stage 6 Clear", player)
+        s7aya = multiworld.get_location("Aya - Stage 7 Clear", player)
+        s8aya = multiworld.get_location("Aya - Stage 8 Clear", player)
+        s9aya = multiworld.get_location("Aya - Stage 9 Clear", player)
+        if difficulty_ayamedi == False:
+            s6aya.access_rule = lambda state: (state.count("Progressive Life - Aya", world.player) >= 0)
+            s7aya.access_rule = lambda state: (state.count("Progressive Life - Aya", world.player) >= 0)
+            s8aya.access_rule = lambda state: (state.count("Progressive Life - Aya", world.player) >= 0)
+            s9aya.access_rule = lambda state: (state.count("Progressive Life - Aya", world.player) >= 0)
+        else:
+            s6aya.access_rule = lambda state: (state.count("Progressive Life - Aya", world.player) >= midaccess - 2)
+            s7aya.access_rule = lambda state: (state.count("Progressive Life - Aya", world.player) >= midaccess - 1)
+            s8aya.access_rule = lambda state: (state.count("Progressive Life - Aya", world.player) >= midaccess)
+            s9aya.access_rule = lambda state: (state.count("Progressive Life - Aya", world.player) >= s9access)
+    if enable_medicine == True:
+        s6medicine = multiworld.get_location("Medicine - Stage 6 Clear", player)
+        s7medicine = multiworld.get_location("Medicine - Stage 7 Clear", player)
+        s8medicine = multiworld.get_location("Medicine - Stage 8 Clear", player)
+        s9medicine = multiworld.get_location("Medicine - Stage 9 Clear", player)
+        if difficulty_ayamedi == False:
+            s6medicine.access_rule = lambda state: (state.count("Progressive Life - Medicine", world.player) >= 0)
+            s7medicine.access_rule = lambda state: (state.count("Progressive Life - Medicine", world.player) >= 0)
+            s8medicine.access_rule = lambda state: (state.count("Progressive Life - Medicine", world.player) >= 0)
+            s9medicine.access_rule = lambda state: (state.count("Progressive Life - Medicine", world.player) >= 0)
+        else:
+            s6medicine.access_rule = lambda state: (state.count("Progressive Life - Medicine", world.player) >= midaccess - 2)
+            s7medicine.access_rule = lambda state: (state.count("Progressive Life - Medicine", world.player) >= midaccess - 1)
+            s8medicine.access_rule = lambda state: (state.count("Progressive Life - Medicine", world.player) >= midaccess)
+            s9medicine.access_rule = lambda state: (state.count("Progressive Life - Medicine", world.player) >= s9access)
+
     def Example_Rule(state: CollectionState) -> bool:
         # Calculated rules take a CollectionState object and return a boolean
         # True if the player can access the location
