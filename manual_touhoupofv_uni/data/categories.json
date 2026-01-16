@@ -1,4 +1,12 @@
 {
+    "Story Mode": {
+        "yaml_option": ["!mode"],
+        "hidden": true
+    },
+    "Match Mode": {
+        "yaml_option": ["mode"],
+        "hidden": true
+    },
     "EReimu": {
         "yaml_option": ["enable_reimu"],
         "hidden": true
@@ -53,6 +61,14 @@
     },
     "EShikieiki": {
         "yaml_option": ["enable_shikieiki"],
+        "hidden": true
+    },
+    "EMerlin": {
+        "yaml_option": ["enable_merlin"],
+        "hidden": true
+    },
+    "ELunasa": {
+        "yaml_option": ["enable_lunasa"],
         "hidden": true
     }
 }

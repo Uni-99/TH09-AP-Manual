@@ -1,772 +1,772 @@
 [
   {
-    "name": "Reimu - Stage 1 Clear",
+    "name": "[Reimu] Stage 1 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages", "EReimu"],
+    "category": ["Reimu Stages", "EReimu", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Reimu - Stage 2 Clear",
+    "name": "[Reimu] Stage 2 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages", "EReimu"],
+    "category": ["Reimu Stages", "EReimu", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Reimu - Stage 3 Clear",
+    "name": "[Reimu] Stage 3 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages", "EReimu"],
+    "category": ["Reimu Stages", "EReimu", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Reimu - Stage 4 Clear",
+    "name": "[Reimu] Stage 4 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages", "EReimu"],
+    "category": ["Reimu Stages", "EReimu", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Reimu - Stage 5 Clear",
+    "name": "[Reimu] Stage 5 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages", "EReimu"],
+    "category": ["Reimu Stages", "EReimu", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Reimu - Stage 6 Clear",
+    "name": "[Reimu] Stage 6 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages", "EReimu"],
-    "requires": "|Progressive Life - Reimu|"
+    "category": ["Reimu Stages", "EReimu", "Story Mode"],
+    "requires": "|+1 Life - Reimu|"
   },
   {
-    "name": "Reimu - Stage 7 Clear",
+    "name": "[Reimu] Stage 7 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages", "EReimu"],
-    "requires": "|Progressive Life - Reimu:2|"
+    "category": ["Reimu Stages", "EReimu", "Story Mode"],
+    "requires": "|+1 Life - Reimu:2|"
   },
   {
-    "name": "Reimu - Stage 8 Clear",
+    "name": "[Reimu] Stage 8 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages", "EReimu"],
-    "requires": "|Progressive Life - Reimu:3|"
+    "category": ["Reimu Stages", "EReimu", "Story Mode"],
+    "requires": "|+1 Life - Reimu:3|"
   },
   {
-    "name": "Reimu - Stage 9 Clear",
+    "name": "[Reimu] Stage 9 Clear",
     "region": "Reimu Story Mode",
-    "category": ["Reimu Stages", "EReimu"],
-    "requires": "|Progressive Life - Reimu:7|",
+    "category": ["Reimu Stages", "EReimu", "Story Mode"],
+    "requires": "|+1 Life - Reimu:7|",
     "place_item": ["Ending - Reimu"]
   },
   {
-    "name": "Marisa - Stage 1 Clear",
+    "name": "[Marisa] Stage 1 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages", "EMarisa"],
+    "category": ["Marisa Stages", "EMarisa", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Marisa - Stage 2 Clear",
+    "name": "[Marisa] Stage 2 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages", "EMarisa"],
+    "category": ["Marisa Stages", "EMarisa", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Marisa - Stage 3 Clear",
+    "name": "[Marisa] Stage 3 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages", "EMarisa"],
+    "category": ["Marisa Stages", "EMarisa", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Marisa - Stage 4 Clear",
+    "name": "[Marisa] Stage 4 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages", "EMarisa"],
+    "category": ["Marisa Stages", "EMarisa", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Marisa - Stage 5 Clear",
+    "name": "[Marisa] Stage 5 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages", "EMarisa"],
+    "category": ["Marisa Stages", "EMarisa", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Marisa - Stage 6 Clear",
+    "name": "[Marisa] Stage 6 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages", "EMarisa"],
-    "requires": "|Progressive Life - Marisa|"
+    "category": ["Marisa Stages", "EMarisa", "Story Mode"],
+    "requires": "|+1 Life - Marisa|"
   },
   {
-    "name": "Marisa - Stage 7 Clear",
+    "name": "[Marisa] Stage 7 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages", "EMarisa"],
-    "requires": "|Progressive Life - Marisa:2|"
+    "category": ["Marisa Stages", "EMarisa", "Story Mode"],
+    "requires": "|+1 Life - Marisa:2|"
   },
   {
-    "name": "Marisa - Stage 8 Clear",
+    "name": "[Marisa] Stage 8 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages", "EMarisa"],
-    "requires": "|Progressive Life - Marisa:3|"
+    "category": ["Marisa Stages", "EMarisa", "Story Mode"],
+    "requires": "|+1 Life - Marisa:3|"
   },
   {
-    "name": "Marisa - Stage 9 Clear",
+    "name": "[Marisa] Stage 9 Clear",
     "region": "Marisa Story Mode",
-    "category": ["Marisa Stages", "EMarisa"],
-    "requires": "|Progressive Life - Marisa:7|",
+    "category": ["Marisa Stages", "EMarisa", "Story Mode"],
+    "requires": "|+1 Life - Marisa:7|",
     "place_item": ["Ending - Marisa"]
   },
   {
-    "name": "Sakuya - Stage 1 Clear",
+    "name": "[Sakuya] Stage 1 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages", "ESakuya"],
+    "category": ["Sakuya Stages", "ESakuya", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Sakuya - Stage 2 Clear",
+    "name": "[Sakuya] Stage 2 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages", "ESakuya"],
+    "category": ["Sakuya Stages", "ESakuya", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Sakuya - Stage 3 Clear",
+    "name": "[Sakuya] Stage 3 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages", "ESakuya"],
+    "category": ["Sakuya Stages", "ESakuya", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Sakuya - Stage 4 Clear",
+    "name": "[Sakuya] Stage 4 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages", "ESakuya"],
+    "category": ["Sakuya Stages", "ESakuya", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Sakuya - Stage 5 Clear",
+    "name": "[Sakuya] Stage 5 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages", "ESakuya"],
+    "category": ["Sakuya Stages", "ESakuya", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Sakuya - Stage 6 Clear",
+    "name": "[Sakuya] Stage 6 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages", "ESakuya"],
-    "requires": "|Progressive Life - Sakuya|"
+    "category": ["Sakuya Stages", "ESakuya", "Story Mode"],
+    "requires": "|+1 Life - Sakuya|"
   },
   {
-    "name": "Sakuya - Stage 7 Clear",
+    "name": "[Sakuya] Stage 7 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages", "ESakuya"],
-    "requires": "|Progressive Life - Sakuya:2|"
+    "category": ["Sakuya Stages", "ESakuya", "Story Mode"],
+    "requires": "|+1 Life - Sakuya:2|"
   },
   {
-    "name": "Sakuya - Stage 8 Clear",
+    "name": "[Sakuya] Stage 8 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages", "ESakuya"],
-    "requires": "|Progressive Life - Sakuya:3|"
+    "category": ["Sakuya Stages", "ESakuya", "Story Mode"],
+    "requires": "|+1 Life - Sakuya:3|"
   },
   {
-    "name": "Sakuya - Stage 9 Clear",
+    "name": "[Sakuya] Stage 9 Clear",
     "region": "Sakuya Story Mode",
-    "category": ["Sakuya Stages", "ESakuya"],
-    "requires": "|Progressive Life - Sakuya:7|",
+    "category": ["Sakuya Stages", "ESakuya", "Story Mode"],
+    "requires": "|+1 Life - Sakuya:7|",
     "place_item": ["Ending - Sakuya"]
   },
   {
-    "name": "Youmu - Stage 1 Clear",
+    "name": "[Youmu] Stage 1 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages", "EYoumu"],
+    "category": ["Youmu Stages", "EYoumu", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Youmu - Stage 2 Clear",
+    "name": "[Youmu] Stage 2 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages", "EYoumu"],
+    "category": ["Youmu Stages", "EYoumu", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Youmu - Stage 3 Clear",
+    "name": "[Youmu] Stage 3 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages", "EYoumu"],
+    "category": ["Youmu Stages", "EYoumu", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Youmu - Stage 4 Clear",
+    "name": "[Youmu] Stage 4 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages", "EYoumu"],
+    "category": ["Youmu Stages", "EYoumu", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Youmu - Stage 5 Clear",
+    "name": "[Youmu] Stage 5 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages", "EYoumu"],
+    "category": ["Youmu Stages", "EYoumu", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Youmu - Stage 6 Clear",
+    "name": "[Youmu] Stage 6 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages", "EYoumu"],
-    "requires": "|Progressive Life - Youmu|"
+    "category": ["Youmu Stages", "EYoumu", "Story Mode"],
+    "requires": "|+1 Life - Youmu|"
   },
   {
-    "name": "Youmu - Stage 7 Clear",
+    "name": "[Youmu] Stage 7 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages", "EYoumu"],
-    "requires": "|Progressive Life - Youmu:2|"
+    "category": ["Youmu Stages", "EYoumu", "Story Mode"],
+    "requires": "|+1 Life - Youmu:2|"
   },
   {
-    "name": "Youmu - Stage 8 Clear",
+    "name": "[Youmu] Stage 8 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages", "EYoumu"],
-    "requires": "|Progressive Life - Youmu:3|"
+    "category": ["Youmu Stages", "EYoumu", "Story Mode"],
+    "requires": "|+1 Life - Youmu:3|"
   },
   {
-    "name": "Youmu - Stage 9 Clear",
+    "name": "[Youmu] Stage 9 Clear",
     "region": "Youmu Story Mode",
-    "category": ["Youmu Stages", "EYoumu"],
-    "requires": "|Progressive Life - Youmu:7|",
+    "category": ["Youmu Stages", "EYoumu", "Story Mode"],
+    "requires": "|+1 Life - Youmu:7|",
     "place_item": ["Ending - Youmu"]
   },
   {
-    "name": "Reisen - Stage 1 Clear",
+    "name": "[Reisen] Stage 1 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages", "EReisen"],
+    "category": ["Reisen Stages", "EReisen", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Reisen - Stage 2 Clear",
+    "name": "[Reisen] Stage 2 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages", "EReisen"],
+    "category": ["Reisen Stages", "EReisen", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Reisen - Stage 3 Clear",
+    "name": "[Reisen] Stage 3 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages", "EReisen"],
+    "category": ["Reisen Stages", "EReisen", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Reisen - Stage 4 Clear",
+    "name": "[Reisen] Stage 4 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages", "EReisen"],
+    "category": ["Reisen Stages", "EReisen", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Reisen - Stage 5 Clear",
+    "name": "[Reisen] Stage 5 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages", "EReisen"],
+    "category": ["Reisen Stages", "EReisen", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Reisen - Stage 6 Clear",
+    "name": "[Reisen] Stage 6 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages", "EReisen"],
-    "requires": "|Progressive Life - Reisen|"
+    "category": ["Reisen Stages", "EReisen", "Story Mode"],
+    "requires": "|+1 Life - Reisen|"
   },
   {
-    "name": "Reisen - Stage 7 Clear",
+    "name": "[Reisen] Stage 7 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages", "EReisen"],
-    "requires": "|Progressive Life - Reisen:2|"
+    "category": ["Reisen Stages", "EReisen", "Story Mode"],
+    "requires": "|+1 Life - Reisen:2|"
   },
   {
-    "name": "Reisen - Stage 8 Clear",
+    "name": "[Reisen] Stage 8 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages", "EReisen"],
-    "requires": "|Progressive Life - Reisen:3|"
+    "category": ["Reisen Stages", "EReisen", "Story Mode"],
+    "requires": "|+1 Life - Reisen:3|"
   },
   {
-    "name": "Reisen - Stage 9 Clear",
+    "name": "[Reisen] Stage 9 Clear",
     "region": "Reisen Story Mode",
-    "category": ["Reisen Stages", "EReisen"],
-    "requires": "|Progressive Life - Reisen:7|",
+    "category": ["Reisen Stages", "EReisen", "Story Mode"],
+    "requires": "|+1 Life - Reisen:7|",
     "place_item": ["Ending - Reisen"]
   },
   {
-    "name": "Cirno - Stage 1 Clear",
+    "name": "[Cirno] Stage 1 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages", "ECirno"],
+    "category": ["Cirno Stages", "ECirno", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Cirno - Stage 2 Clear",
+    "name": "[Cirno] Stage 2 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages", "ECirno"],
+    "category": ["Cirno Stages", "ECirno", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Cirno - Stage 3 Clear",
+    "name": "[Cirno] Stage 3 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages", "ECirno"],
+    "category": ["Cirno Stages", "ECirno", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Cirno - Stage 4 Clear",
+    "name": "[Cirno] Stage 4 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages", "ECirno"],
+    "category": ["Cirno Stages", "ECirno", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Cirno - Stage 5 Clear",
+    "name": "[Cirno] Stage 5 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages", "ECirno"],
+    "category": ["Cirno Stages", "ECirno", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Cirno - Stage 6 Clear",
+    "name": "[Cirno] Stage 6 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages", "ECirno"],
-    "requires": "|Progressive Life - Cirno|"
+    "category": ["Cirno Stages", "ECirno", "Story Mode"],
+    "requires": "|+1 Life - Cirno|"
   },
   {
-    "name": "Cirno - Stage 7 Clear",
+    "name": "[Cirno] Stage 7 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages", "ECirno"],
-    "requires": "|Progressive Life - Cirno:2|"
+    "category": ["Cirno Stages", "ECirno", "Story Mode"],
+    "requires": "|+1 Life - Cirno:2|"
   },
   {
-    "name": "Cirno - Stage 8 Clear",
+    "name": "[Cirno] Stage 8 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages", "ECirno"],
-    "requires": "|Progressive Life - Cirno:3|"
+    "category": ["Cirno Stages", "ECirno", "Story Mode"],
+    "requires": "|+1 Life - Cirno:3|"
   },
   {
-    "name": "Cirno - Stage 9 Clear",
+    "name": "[Cirno] Stage 9 Clear",
     "region": "Cirno Story Mode",
-    "category": ["Cirno Stages", "ECirno"],
-    "requires": "|Progressive Life - Cirno:7|",
+    "category": ["Cirno Stages", "ECirno", "Story Mode"],
+    "requires": "|+1 Life - Cirno:7|",
     "place_item": ["Ending - Cirno"]
   },
   {
-    "name": "Lyrica - Stage 1 Clear",
+    "name": "[Lyrica] Stage 1 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages", "ELyrica"],
+    "category": ["Lyrica Stages", "ELyrica", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Lyrica - Stage 2 Clear",
+    "name": "[Lyrica] Stage 2 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages", "ELyrica"],
+    "category": ["Lyrica Stages", "ELyrica", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Lyrica - Stage 3 Clear",
+    "name": "[Lyrica] Stage 3 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages", "ELyrica"],
+    "category": ["Lyrica Stages", "ELyrica", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Lyrica - Stage 4 Clear",
+    "name": "[Lyrica] Stage 4 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages", "ELyrica"],
+    "category": ["Lyrica Stages", "ELyrica", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Lyrica - Stage 5 Clear",
+    "name": "[Lyrica] Stage 5 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages", "ELyrica"],
+    "category": ["Lyrica Stages", "ELyrica", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Lyrica - Stage 6 Clear",
+    "name": "[Lyrica] Stage 6 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages", "ELyrica"],
-    "requires": "|Progressive Life - Lyrica|"
+    "category": ["Lyrica Stages", "ELyrica", "Story Mode"],
+    "requires": "|+1 Life - Lyrica|"
   },
   {
-    "name": "Lyrica - Stage 7 Clear",
+    "name": "[Lyrica] Stage 7 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages", "ELyrica"],
-    "requires": "|Progressive Life - Lyrica:2|"
+    "category": ["Lyrica Stages", "ELyrica", "Story Mode"],
+    "requires": "|+1 Life - Lyrica:2|"
   },
   {
-    "name": "Lyrica - Stage 8 Clear",
+    "name": "[Lyrica] Stage 8 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages", "ELyrica"],
-    "requires": "|Progressive Life - Lyrica:3|"
+    "category": ["Lyrica Stages", "ELyrica", "Story Mode"],
+    "requires": "|+1 Life - Lyrica:3|"
   },
   {
-    "name": "Lyrica - Stage 9 Clear",
+    "name": "[Lyrica] Stage 9 Clear",
     "region": "Lyrica Story Mode",
-    "category": ["Lyrica Stages", "ELyrica"],
-    "requires": "|Progressive Life - Lyrica:7|",
+    "category": ["Lyrica Stages", "ELyrica", "Story Mode"],
+    "requires": "|+1 Life - Lyrica:7|",
     "place_item": ["Ending - Lyrica"]
   },
   {
-    "name": "Mystia - Stage 1 Clear",
+    "name": "[Mystia] Stage 1 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages", "EMystia"],
+    "category": ["Mystia Stages", "EMystia", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Mystia - Stage 2 Clear",
+    "name": "[Mystia] Stage 2 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages", "EMystia"],
+    "category": ["Mystia Stages", "EMystia", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Mystia - Stage 3 Clear",
+    "name": "[Mystia] Stage 3 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages", "EMystia"],
+    "category": ["Mystia Stages", "EMystia", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Mystia - Stage 4 Clear",
+    "name": "[Mystia] Stage 4 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages", "EMystia"],
+    "category": ["Mystia Stages", "EMystia", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Mystia - Stage 5 Clear",
+    "name": "[Mystia] Stage 5 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages", "EMystia"],
+    "category": ["Mystia Stages", "EMystia", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Mystia - Stage 6 Clear",
+    "name": "[Mystia] Stage 6 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages", "EMystia"],
-    "requires": "|Progressive Life - Mystia|"
+    "category": ["Mystia Stages", "EMystia", "Story Mode"],
+    "requires": "|+1 Life - Mystia|"
   },
   {
-    "name": "Mystia - Stage 7 Clear",
+    "name": "[Mystia] Stage 7 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages", "EMystia"],
-    "requires": "|Progressive Life - Mystia:2|"
+    "category": ["Mystia Stages", "EMystia", "Story Mode"],
+    "requires": "|+1 Life - Mystia:2|"
   },
   {
-    "name": "Mystia - Stage 8 Clear",
+    "name": "[Mystia] Stage 8 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages", "EMystia"],
-    "requires": "|Progressive Life - Mystia:3|"
+    "category": ["Mystia Stages", "EMystia", "Story Mode"],
+    "requires": "|+1 Life - Mystia:3|"
   },
   {
-    "name": "Mystia - Stage 9 Clear",
+    "name": "[Mystia] Stage 9 Clear",
     "region": "Mystia Story Mode",
-    "category": ["Mystia Stages", "EMystia"],
-    "requires": "|Progressive Life - Mystia:7|",
+    "category": ["Mystia Stages", "EMystia", "Story Mode"],
+    "requires": "|+1 Life - Mystia:7|",
     "place_item": ["Ending - Mystia"]
   },
   {
-    "name": "Tewi - Stage 1 Clear",
+    "name": "[Tewi] Stage 1 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages", "ETewi"],
+    "category": ["Tewi Stages", "ETewi", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Tewi - Stage 2 Clear",
+    "name": "[Tewi] Stage 2 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages", "ETewi"],
+    "category": ["Tewi Stages", "ETewi", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Tewi - Stage 3 Clear",
+    "name": "[Tewi] Stage 3 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages", "ETewi"],
+    "category": ["Tewi Stages", "ETewi", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Tewi - Stage 4 Clear",
+    "name": "[Tewi] Stage 4 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages", "ETewi"],
+    "category": ["Tewi Stages", "ETewi", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Tewi - Stage 5 Clear",
+    "name": "[Tewi] Stage 5 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages", "ETewi"],
+    "category": ["Tewi Stages", "ETewi", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Tewi - Stage 6 Clear",
+    "name": "[Tewi] Stage 6 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages", "ETewi"],
-    "requires": "|Progressive Life - Tewi|"
+    "category": ["Tewi Stages", "ETewi", "Story Mode"],
+    "requires": "|+1 Life - Tewi|"
   },
   {
-    "name": "Tewi - Stage 7 Clear",
+    "name": "[Tewi] Stage 7 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages", "ETewi"],
-    "requires": "|Progressive Life - Tewi:2|"
+    "category": ["Tewi Stages", "ETewi", "Story Mode"],
+    "requires": "|+1 Life - Tewi:2|"
   },
   {
-    "name": "Tewi - Stage 8 Clear",
+    "name": "[Tewi] Stage 8 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages", "ETewi"],
-    "requires": "|Progressive Life - Tewi:3|"
+    "category": ["Tewi Stages", "ETewi", "Story Mode"],
+    "requires": "|+1 Life - Tewi:3|"
   },
   {
-    "name": "Tewi - Stage 9 Clear",
+    "name": "[Tewi] Stage 9 Clear",
     "region": "Tewi Story Mode",
-    "category": ["Tewi Stages", "ETewi"],
-    "requires": "|Progressive Life - Tewi:7|",
+    "category": ["Tewi Stages", "ETewi", "Story Mode"],
+    "requires": "|+1 Life - Tewi:7|",
     "place_item": ["Ending - Tewi"]
   },
   {
-    "name": "Aya - Stage 1 Clear",
+    "name": "[Aya] Stage 1 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages", "EAya"],
+    "category": ["Aya Stages", "EAya", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Aya - Stage 2 Clear",
+    "name": "[Aya] Stage 2 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages", "EAya"],
+    "category": ["Aya Stages", "EAya", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Aya - Stage 3 Clear",
+    "name": "[Aya] Stage 3 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages", "EAya"],
+    "category": ["Aya Stages", "EAya", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Aya - Stage 4 Clear",
+    "name": "[Aya] Stage 4 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages", "EAya"],
+    "category": ["Aya Stages", "EAya", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Aya - Stage 5 Clear",
+    "name": "[Aya] Stage 5 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages", "EAya"],
+    "category": ["Aya Stages", "EAya", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Aya - Stage 6 Clear",
+    "name": "[Aya] Stage 6 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages", "EAya"],
-    "requires": "|Progressive Life - Aya|"
+    "category": ["Aya Stages", "EAya", "Story Mode"],
+    "requires": "|+1 Life - Aya|"
   },
   {
-    "name": "Aya - Stage 7 Clear",
+    "name": "[Aya] Stage 7 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages", "EAya"],
-    "requires": "|Progressive Life - Aya:2|"
+    "category": ["Aya Stages", "EAya", "Story Mode"],
+    "requires": "|+1 Life - Aya:2|"
   },
   {
-    "name": "Aya - Stage 8 Clear",
+    "name": "[Aya] Stage 8 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages", "EAya"],
-    "requires": "|Progressive Life - Aya:3|"
+    "category": ["Aya Stages", "EAya", "Story Mode"],
+    "requires": "|+1 Life - Aya:3|"
   },
   {
-    "name": "Aya - Stage 9 Clear",
+    "name": "[Aya] Stage 9 Clear",
     "region": "Aya Story Mode",
-    "category": ["Aya Stages", "EAya"],
-    "requires": "|Progressive Life - Aya:7|",
+    "category": ["Aya Stages", "EAya", "Story Mode"],
+    "requires": "|+1 Life - Aya:7|",
     "place_item": ["Ending - Aya"]
   },
   {
-    "name": "Medicine - Stage 1 Clear",
+    "name": "[Medicine] Stage 1 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages", "EMedicine"],
+    "category": ["Medicine Stages", "EMedicine", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Medicine - Stage 2 Clear",
+    "name": "[Medicine] Stage 2 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages", "EMedicine"],
+    "category": ["Medicine Stages", "EMedicine", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Medicine - Stage 3 Clear",
+    "name": "[Medicine] Stage 3 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages", "EMedicine"],
+    "category": ["Medicine Stages", "EMedicine", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Medicine - Stage 4 Clear",
+    "name": "[Medicine] Stage 4 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages", "EMedicine"],
+    "category": ["Medicine Stages", "EMedicine", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Medicine - Stage 5 Clear",
+    "name": "[Medicine] Stage 5 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages", "EMedicine"],
+    "category": ["Medicine Stages", "EMedicine", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Medicine - Stage 6 Clear",
+    "name": "[Medicine] Stage 6 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages", "EMedicine"],
-    "requires": "|Progressive Life - Medicine|"
+    "category": ["Medicine Stages", "EMedicine", "Story Mode"],
+    "requires": "|+1 Life - Medicine|"
   },
   {
-    "name": "Medicine - Stage 7 Clear",
+    "name": "[Medicine] Stage 7 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages", "EMedicine"],
-    "requires": "|Progressive Life - Medicine:2|"
+    "category": ["Medicine Stages", "EMedicine", "Story Mode"],
+    "requires": "|+1 Life - Medicine:2|"
   },
   {
-    "name": "Medicine - Stage 8 Clear",
+    "name": "[Medicine] Stage 8 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages", "EMedicine"],
-    "requires": "|Progressive Life - Medicine:3|"
+    "category": ["Medicine Stages", "EMedicine", "Story Mode"],
+    "requires": "|+1 Life - Medicine:3|"
   },
   {
-    "name": "Medicine - Stage 9 Clear",
+    "name": "[Medicine] Stage 9 Clear",
     "region": "Medicine Story Mode",
-    "category": ["Medicine Stages", "EMedicine"],
-    "requires": "|Progressive Life - Medicine:7|",
+    "category": ["Medicine Stages", "EMedicine", "Story Mode"],
+    "requires": "|+1 Life - Medicine:7|",
     "place_item": ["Ending - Medicine"]
   },
   {
-    "name": "Yuuka - Stage 1 Clear",
+    "name": "[Yuuka] Stage 1 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages", "EYuuka"],
+    "category": ["Yuuka Stages", "EYuuka", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Yuuka - Stage 2 Clear",
+    "name": "[Yuuka] Stage 2 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages", "EYuuka"],
+    "category": ["Yuuka Stages", "EYuuka", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Yuuka - Stage 3 Clear",
+    "name": "[Yuuka] Stage 3 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages", "EYuuka"],
+    "category": ["Yuuka Stages", "EYuuka", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Yuuka - Stage 4 Clear",
+    "name": "[Yuuka] Stage 4 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages", "EYuuka"],
+    "category": ["Yuuka Stages", "EYuuka", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Yuuka - Stage 5 Clear",
+    "name": "[Yuuka] Stage 5 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages", "EYuuka"],
+    "category": ["Yuuka Stages", "EYuuka", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Yuuka - Stage 6 Clear",
+    "name": "[Yuuka] Stage 6 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages", "EYuuka"],
-    "requires": "|Progressive Life - Yuuka|"
+    "category": ["Yuuka Stages", "EYuuka", "Story Mode"],
+    "requires": "|+1 Life - Yuuka|"
   },
   {
-    "name": "Yuuka - Stage 7 Clear",
+    "name": "[Yuuka] Stage 7 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages", "EYuuka"],
-    "requires": "|Progressive Life - Yuuka:2|"
+    "category": ["Yuuka Stages", "EYuuka", "Story Mode"],
+    "requires": "|+1 Life - Yuuka:2|"
   },
   {
-    "name": "Yuuka - Stage 8 Clear",
+    "name": "[Yuuka] Stage 8 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages", "EYuuka"],
-    "requires": "|Progressive Life - Yuuka:3|"
+    "category": ["Yuuka Stages", "EYuuka", "Story Mode"],
+    "requires": "|+1 Life - Yuuka:3|"
   },
   {
-    "name": "Yuuka - Stage 9 Clear",
+    "name": "[Yuuka] Stage 9 Clear",
     "region": "Yuuka Story Mode",
-    "category": ["Yuuka Stages", "EYuuka"],
-    "requires": "|Progressive Life - Yuuka:7|",
+    "category": ["Yuuka Stages", "EYuuka", "Story Mode"],
+    "requires": "|+1 Life - Yuuka:7|",
     "place_item": ["Ending - Yuuka"]
   },
   {
-    "name": "Komachi - Stage 1 Clear",
+    "name": "[Komachi] Stage 1 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages", "EKomachi"],
+    "category": ["Komachi Stages", "EKomachi", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Komachi - Stage 2 Clear",
+    "name": "[Komachi] Stage 2 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages", "EKomachi"],
+    "category": ["Komachi Stages", "EKomachi", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Komachi - Stage 3 Clear",
+    "name": "[Komachi] Stage 3 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages", "EKomachi"],
+    "category": ["Komachi Stages", "EKomachi", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Komachi - Stage 4 Clear",
+    "name": "[Komachi] Stage 4 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages", "EKomachi"],
+    "category": ["Komachi Stages", "EKomachi", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Komachi - Stage 5 Clear",
+    "name": "[Komachi] Stage 5 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages", "EKomachi"],
+    "category": ["Komachi Stages", "EKomachi", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Komachi - Stage 6 Clear",
+    "name": "[Komachi] Stage 6 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages", "EKomachi"],
-    "requires": "|Progressive Life - Komachi|"
+    "category": ["Komachi Stages", "EKomachi", "Story Mode"],
+    "requires": "|+1 Life - Komachi|"
   },
   {
-    "name": "Komachi - Stage 7 Clear",
+    "name": "[Komachi] Stage 7 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages", "EKomachi"],
-    "requires": "|Progressive Life - Komachi:2|"
+    "category": ["Komachi Stages", "EKomachi", "Story Mode"],
+    "requires": "|+1 Life - Komachi:2|"
   },
   {
-    "name": "Komachi - Stage 8 Clear",
+    "name": "[Komachi] Stage 8 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages", "EKomachi"],
-    "requires": "|Progressive Life - Komachi:3|"
+    "category": ["Komachi Stages", "EKomachi", "Story Mode"],
+    "requires": "|+1 Life - Komachi:3|"
   },
   {
-    "name": "Komachi - Stage 9 Clear",
+    "name": "[Komachi] Stage 9 Clear",
     "region": "Komachi Story Mode",
-    "category": ["Komachi Stages", "EKomachi"],
-    "requires": "|Progressive Life - Komachi:7|",
+    "category": ["Komachi Stages", "EKomachi", "Story Mode"],
+    "requires": "|+1 Life - Komachi:7|",
     "place_item": ["Ending - Komachi"]
   },
   {
-    "name": "Shikieiki - Stage 1 Clear",
+    "name": "[Shikieiki] Stage 1 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages", "EShikieiki"],
+    "category": ["Shikieiki Stages", "EShikieiki", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Shikieiki - Stage 2 Clear",
+    "name": "[Shikieiki] Stage 2 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages", "EShikieiki"],
+    "category": ["Shikieiki Stages", "EShikieiki", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Shikieiki - Stage 3 Clear",
+    "name": "[Shikieiki] Stage 3 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages", "EShikieiki"],
+    "category": ["Shikieiki Stages", "EShikieiki", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Shikieiki - Stage 4 Clear",
+    "name": "[Shikieiki] Stage 4 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages", "EShikieiki"],
+    "category": ["Shikieiki Stages", "EShikieiki", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Shikieiki - Stage 5 Clear",
+    "name": "[Shikieiki] Stage 5 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages", "EShikieiki"],
+    "category": ["Shikieiki Stages", "EShikieiki", "Story Mode"],
     "requires": []
   },
   {
-    "name": "Shikieiki - Stage 6 Clear",
+    "name": "[Shikieiki] Stage 6 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages", "EShikieiki"],
-    "requires": "|Progressive Life - Shikieiki|"
+    "category": ["Shikieiki Stages", "EShikieiki", "Story Mode"],
+    "requires": "|+1 Life - Shikieiki|"
   },
   {
-    "name": "Shikieiki - Stage 7 Clear",
+    "name": "[Shikieiki] Stage 7 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages", "EShikieiki"],
-    "requires": "|Progressive Life - Shikieiki:2|"
+    "category": ["Shikieiki Stages", "EShikieiki", "Story Mode"],
+    "requires": "|+1 Life - Shikieiki:2|"
   },
   {
-    "name": "Shikieiki - Stage 8 Clear",
+    "name": "[Shikieiki] Stage 8 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages", "EShikieiki"],
-    "requires": "|Progressive Life - Shikieiki:3|"
+    "category": ["Shikieiki Stages", "EShikieiki", "Story Mode"],
+    "requires": "|+1 Life - Shikieiki:3|"
   },
   {
-    "name": "Shikieiki - Stage 9 Clear",
+    "name": "[Shikieiki] Stage 9 Clear",
     "region": "Shikieiki Story Mode",
-    "category": ["Shikieiki Stages", "EShikieiki"],
-    "requires": "|Progressive Life - Shikieiki:7|",
+    "category": ["Shikieiki Stages", "EShikieiki", "Story Mode"],
+    "requires": "|+1 Life - Shikieiki:7|",
     "place_item": ["Ending - Shikieiki"]
   },
   {
@@ -774,5 +774,885 @@
     "name": "Resolve Incident",
     "category": ["[Goal]"],
     "requires": "|@Endings:14|"
+  },
+  {
+    "name": "[Reimu] VS Cirno - 1:00",
+    "region": "Reimu Story Mode",
+    "category": ["Reimu Matches", "EReimu", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Reimu] VS Mystia - 1:00",
+    "region": "Reimu Story Mode",
+    "category": ["Reimu Matches", "EReimu", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Reimu] VS Lyrica - 2:00",
+    "region": "Reimu Story Mode",
+    "category": ["Reimu Matches", "EReimu", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Reimu] VS Youmu - 2:00",
+    "region": "Reimu Story Mode",
+    "category": ["Reimu Matches", "EReimu", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Reimu] VS Sakuya - 4:00",
+    "region": "Reimu Story Mode",
+    "category": ["Reimu Matches", "EReimu", "Match Mode"],
+    "requires": "|-1 Minute - Reimu:2|"
+  },
+  {
+    "name": "[Reimu] VS Marisa - 4:00",
+    "region": "Reimu Story Mode",
+    "category": ["Reimu Matches", "EReimu", "Match Mode"],
+    "requires": "|-1 Minute - Reimu:2|"
+  },
+  {
+    "name": "[Reimu] VS Aya - 6:00",
+    "region": "Reimu Story Mode",
+    "category": ["Reimu Matches", "EReimu", "Match Mode"],
+    "requires": "|-1 Minute - Reimu:4|"
+  },
+  {
+    "name": "[Reimu] VS Komachi - 6:00",
+    "region": "Reimu Story Mode",
+    "category": ["Reimu Matches", "EReimu", "Match Mode"],
+    "requires": "|-1 Minute - Reimu:4|"
+  },
+  {
+    "name": "[Reimu] Finale: VS Shikieiki - 8:00",
+    "region": "Reimu Story Mode",
+    "category": ["Reimu Matches", "EReimu", "Match Mode"],
+    "requires": "|-1 Minute - Reimu:6|",
+    "place_item": ["Ending - Reimu"]
+  },
+  {
+    "name": "[Marisa] VS Cirno - 1:00",
+    "region": "Marisa Story Mode",
+    "category": ["Marisa Matches", "EMarisa", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Marisa] VS Mystia - 1:00",
+    "region": "Marisa Story Mode",
+    "category": ["Marisa Matches", "EMarisa", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Marisa] VS Tewi - 2:00",
+    "region": "Marisa Story Mode",
+    "category": ["Marisa Matches", "EMarisa", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Marisa] VS Reisen - 2:00",
+    "region": "Marisa Story Mode",
+    "category": ["Marisa Matches", "EMarisa", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Marisa] VS Youmu - 4:00",
+    "region": "Marisa Story Mode",
+    "category": ["Marisa Matches", "EMarisa", "Match Mode"],
+    "requires": "|-1 Minute - Marisa:2|"
+  },
+  {
+    "name": "[Marisa] VS Reimu - 4:00",
+    "region": "Marisa Story Mode",
+    "category": ["Marisa Matches", "EMarisa", "Match Mode"],
+    "requires": "|-1 Minute - Marisa:2|"
+  },
+  {
+    "name": "[Marisa] VS Aya - 6:00",
+    "region": "Marisa Story Mode",
+    "category": ["Marisa Matches", "EMarisa", "Match Mode"],
+    "requires": "|-1 Minute - Marisa:4|"
+  },
+  {
+    "name": "[Marisa] VS Komachi - 6:00",
+    "region": "Marisa Story Mode",
+    "category": ["Marisa Matches", "EMarisa", "Match Mode"],
+    "requires": "|-1 Minute - Marisa:4|"
+  },
+  {
+    "name": "[Marisa] Finale: VS Shikieiki - 8:00",
+    "region": "Marisa Story Mode",
+    "category": ["Marisa Matches", "EMarisa", "Match Mode"],
+    "requires": "|-1 Minute - Marisa:6|",
+    "place_item": ["Ending - Marisa"]
+  },
+  {
+    "name": "[Sakuya] VS Cirno - 1:00",
+    "region": "Sakuya Story Mode",
+    "category": ["Sakuya Matches", "ESakuya", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Sakuya] VS Mystia - 1:00",
+    "region": "Sakuya Story Mode",
+    "category": ["Sakuya Matches", "ESakuya", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Sakuya] VS Lyrica - 2:00",
+    "region": "Sakuya Story Mode",
+    "category": ["Sakuya Matches", "ESakuya", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Sakuya] VS Reisen - 2:00",
+    "region": "Sakuya Story Mode",
+    "category": ["Sakuya Matches", "ESakuya", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Sakuya] VS Reimu - 4:00",
+    "region": "Sakuya Story Mode",
+    "category": ["Sakuya Matches", "ESakuya", "Match Mode"],
+    "requires": "|-1 Minute - Sakuya:2|"
+  },
+  {
+    "name": "[Sakuya] VS Tewi - 4:00",
+    "region": "Sakuya Story Mode",
+    "category": ["Sakuya Matches", "ESakuya", "Match Mode"],
+    "requires": "|-1 Minute - Sakuya:2|"
+  },
+  {
+    "name": "[Sakuya] VS Medicine - 6:00",
+    "region": "Sakuya Story Mode",
+    "category": ["Sakuya Matches", "ESakuya", "Match Mode"],
+    "requires": "|-1 Minute - Sakuya:4|"
+  },
+  {
+    "name": "[Sakuya] VS Komachi - 6:00",
+    "region": "Sakuya Story Mode",
+    "category": ["Sakuya Matches", "ESakuya", "Match Mode"],
+    "requires": "|-1 Minute - Sakuya:4|"
+  },
+  {
+    "name": "[Sakuya] Finale: VS Shikieiki - 8:00",
+    "region": "Sakuya Story Mode",
+    "category": ["Sakuya Matches", "ESakuya", "Match Mode"],
+    "requires": "|-1 Minute - Sakuya:6|",
+    "place_item": ["Ending - Sakuya"]
+  },
+  {
+    "name": "[Youmu] VS Cirno - 1:00",
+    "region": "Youmu Story Mode",
+    "category": ["Youmu Matches", "EYoumu", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Youmu] VS Mystia - 1:00",
+    "region": "Youmu Story Mode",
+    "category": ["Youmu Matches", "EYoumu", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Youmu] VS Lyrica - 2:00",
+    "region": "Youmu Story Mode",
+    "category": ["Youmu Matches", "EYoumu", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Youmu] VS Marisa - 2:00",
+    "region": "Youmu Story Mode",
+    "category": ["Youmu Matches", "EYoumu", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Youmu] VS Reisen - 4:00",
+    "region": "Youmu Story Mode",
+    "category": ["Youmu Matches", "EYoumu", "Match Mode"],
+    "requires": "|-1 Minute - Youmu:2|"
+  },
+  {
+    "name": "[Youmu] VS Sakuya - 4:00",
+    "region": "Youmu Story Mode",
+    "category": ["Youmu Matches", "EYoumu", "Match Mode"],
+    "requires": "|-1 Minute - Youmu:2|"
+  },
+  {
+    "name": "[Youmu] VS Aya - 6:00",
+    "region": "Youmu Story Mode",
+    "category": ["Youmu Matches", "EYoumu", "Match Mode"],
+    "requires": "|-1 Minute - Youmu:4|"
+  },
+  {
+    "name": "[Youmu] VS Komachi - 6:00",
+    "region": "Youmu Story Mode",
+    "category": ["Youmu Matches", "EYoumu", "Match Mode"],
+    "requires": "|-1 Minute - Youmu:4|"
+  },
+  {
+    "name": "[Youmu] Finale: VS Shikieiki - 8:00",
+    "region": "Youmu Story Mode",
+    "category": ["Youmu Matches", "EYoumu", "Match Mode"],
+    "requires": "|-1 Minute - Youmu:6|",
+    "place_item": ["Ending - Youmu"]
+  },
+  {
+    "name": "[Reisen] VS Cirno - 1:00",
+    "region": "Reisen Story Mode",
+    "category": ["Reisen Matches", "EReisen", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Reisen] VS Mystia - 1:00",
+    "region": "Reisen Story Mode",
+    "category": ["Reisen Matches", "EReisen", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Reisen] VS Tewi - 2:00",
+    "region": "Reisen Story Mode",
+    "category": ["Reisen Matches", "EReisen", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Reisen] VS Marisa - 2:00",
+    "region": "Reisen Story Mode",
+    "category": ["Reisen Matches", "EReisen", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Reisen] VS Youmu - 4:00",
+    "region": "Reisen Story Mode",
+    "category": ["Reisen Matches", "EReisen", "Match Mode"],
+    "requires": "|-1 Minute - Reisen:2|"
+  },
+  {
+    "name": "[Reisen] VS Sakuya - 4:00",
+    "region": "Reisen Story Mode",
+    "category": ["Reisen Matches", "EReisen", "Match Mode"],
+    "requires": "|-1 Minute - Reisen:2|"
+  },
+  {
+    "name": "[Reisen] VS Medicine - 6:00",
+    "region": "Reisen Story Mode",
+    "category": ["Reisen Matches", "EReisen", "Match Mode"],
+    "requires": "|-1 Minute - Reisen:4|"
+  },
+  {
+    "name": "[Reisen] VS Komachi - 6:00",
+    "region": "Reisen Story Mode",
+    "category": ["Reisen Matches", "EReisen", "Match Mode"],
+    "requires": "|-1 Minute - Reisen:4|"
+  },
+  {
+    "name": "[Reisen] Finale: VS Shikieiki - 8:00",
+    "region": "Reisen Story Mode",
+    "category": ["Reisen Matches", "EReisen", "Match Mode"],
+    "requires": "|-1 Minute - Reisen:6|",
+    "place_item": ["Ending - Reisen"]
+  },
+  {
+    "name": "[Cirno] VS Mystia - 1:00",
+    "region": "Cirno Story Mode",
+    "category": ["Cirno Matches", "ECirno", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Cirno] VS Lyrica - 1:00",
+    "region": "Cirno Story Mode",
+    "category": ["Cirno Matches", "ECirno", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Cirno] VS Marisa - 2:00",
+    "region": "Cirno Story Mode",
+    "category": ["Cirno Matches", "ECirno", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Cirno] VS Sakuya - 2:00",
+    "region": "Cirno Story Mode",
+    "category": ["Cirno Matches", "ECirno", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Cirno] VS Reimu - 4:00",
+    "region": "Cirno Story Mode",
+    "category": ["Cirno Matches", "ECirno", "Match Mode"],
+    "requires": "|-1 Minute - Cirno:2|"
+  },
+  {
+    "name": "[Cirno] VS Reisen - 4:00",
+    "region": "Cirno Story Mode",
+    "category": ["Cirno Matches", "ECirno", "Match Mode"],
+    "requires": "|-1 Minute - Cirno:2|"
+  },
+  {
+    "name": "[Cirno] VS Aya - 6:00",
+    "region": "Cirno Story Mode",
+    "category": ["Cirno Matches", "ECirno", "Match Mode"],
+    "requires": "|-1 Minute - Cirno:4|"
+  },
+  {
+    "name": "[Cirno] VS Yuuka - 6:00",
+    "region": "Cirno Story Mode",
+    "category": ["Cirno Matches", "ECirno", "Match Mode"],
+    "requires": "|-1 Minute - Cirno:4|"
+  },
+  {
+    "name": "[Cirno] Finale: VS Shikieiki - 8:00",
+    "region": "Cirno Story Mode",
+    "category": ["Cirno Matches", "ECirno", "Match Mode"],
+    "requires": "|-1 Minute - Cirno:6|",
+    "place_item": ["Ending - Cirno"]
+  },
+  {
+    "name": "[Lyrica] VS Cirno - 1:00",
+    "region": "Lyrica Story Mode",
+    "category": ["Lyrica Matches", "ELyrica", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Lyrica] VS Mystia - 1:00",
+    "region": "Lyrica Story Mode",
+    "category": ["Lyrica Matches", "ELyrica", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Lyrica] VS Tewi - 2:00",
+    "region": "Lyrica Story Mode",
+    "category": ["Lyrica Matches", "ELyrica", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Lyrica] VS Reisen - 2:00",
+    "region": "Lyrica Story Mode",
+    "category": ["Lyrica Matches", "ELyrica", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Lyrica] VS Marisa - 4:00",
+    "region": "Lyrica Story Mode",
+    "category": ["Lyrica Matches", "ELyrica", "Match Mode"],
+    "requires": "|-1 Minute - Lyrica:2|"
+  },
+  {
+    "name": "[Lyrica] VS Youmu - 4:00",
+    "region": "Lyrica Story Mode",
+    "category": ["Lyrica Matches", "ELyrica", "Match Mode"],
+    "requires": "|-1 Minute - Lyrica:2|"
+  },
+  {
+    "name": "[Lyrica] VS Aya - 6:00",
+    "region": "Lyrica Story Mode",
+    "category": ["Lyrica Matches", "ELyrica", "Match Mode"],
+    "requires": "|-1 Minute - Lyrica:4|"
+  },
+  {
+    "name": "[Lyrica] VS Yuuka - 6:00",
+    "region": "Lyrica Story Mode",
+    "category": ["Lyrica Matches", "ELyrica", "Match Mode"],
+    "requires": "|-1 Minute - Lyrica:4|"
+  },
+  {
+    "name": "[Lyrica] Finale: VS Shikieiki - 8:00",
+    "region": "Lyrica Story Mode",
+    "category": ["Lyrica Matches", "ELyrica", "Match Mode"],
+    "requires": "|-1 Minute - Lyrica:6|",
+    "place_item": ["Ending - Lyrica"]
+  },
+  {
+    "name": "[Merlin] VS Cirno - 1:00",
+    "region": "Merlin Story Mode",
+    "category": ["Merlin Matches", "EMerlin", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Merlin] VS Mystia - 1:00",
+    "region": "Merlin Story Mode",
+    "category": ["Merlin Matches", "EMerlin", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Merlin] VS Tewi - 2:00",
+    "region": "Merlin Story Mode",
+    "category": ["Merlin Matches", "EMerlin", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Merlin] VS Reisen - 2:00",
+    "region": "Merlin Story Mode",
+    "category": ["Merlin Matches", "EMerlin", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Merlin] VS Sakuya - 4:00",
+    "region": "Merlin Story Mode",
+    "category": ["Merlin Matches", "EMerlin", "Match Mode"],
+    "requires": "|-1 Minute - Merlin:2|"
+  },
+  {
+    "name": "[Merlin] VS Youmu - 4:00",
+    "region": "Merlin Story Mode",
+    "category": ["Merlin Matches", "EMerlin", "Match Mode"],
+    "requires": "|-1 Minute - Merlin:2|"
+  },
+  {
+    "name": "[Merlin] VS Aya - 6:00",
+    "region": "Merlin Story Mode",
+    "category": ["Merlin Matches", "EMerlin", "Match Mode"],
+    "requires": "|-1 Minute - Merlin:4|"
+  },
+  {
+    "name": "[Merlin] VS Yuuka - 6:00",
+    "region": "Merlin Story Mode",
+    "category": ["Merlin Matches", "EMerlin", "Match Mode"],
+    "requires": "|-1 Minute - Merlin:4|"
+  },
+  {
+    "name": "[Merlin] Finale: VS Shikieiki - 8:00",
+    "region": "Merlin Story Mode",
+    "category": ["Merlin Matches", "EMerlin", "Match Mode"],
+    "requires": "|-1 Minute - Merlin:6|",
+    "place_item": ["Ending - Merlin"]
+  },
+  {
+    "name": "[Lunasa] VS Cirno - 1:00",
+    "region": "Lunasa Story Mode",
+    "category": ["Lunasa Matches", "ELunasa", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Lunasa] VS Mystia - 1:00",
+    "region": "Lunasa Story Mode",
+    "category": ["Lunasa Matches", "ELunasa", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Lunasa] VS Tewi - 2:00",
+    "region": "Lunasa Story Mode",
+    "category": ["Lunasa Matches", "ELunasa", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Lunasa] VS Reisen - 2:00",
+    "region": "Lunasa Story Mode",
+    "category": ["Lunasa Matches", "ELunasa", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Lunasa] VS Reimu - 4:00",
+    "region": "Lunasa Story Mode",
+    "category": ["Lunasa Matches", "ELunasa", "Match Mode"],
+    "requires": "|-1 Minute - Lunasa:2|"
+  },
+  {
+    "name": "[Lunasa] VS Youmu - 4:00",
+    "region": "Lunasa Story Mode",
+    "category": ["Lunasa Matches", "ELunasa", "Match Mode"],
+    "requires": "|-1 Minute - Lunasa:2|"
+  },
+  {
+    "name": "[Lunasa] VS Aya - 6:00",
+    "region": "Lunasa Story Mode",
+    "category": ["Lunasa Matches", "ELunasa", "Match Mode"],
+    "requires": "|-1 Minute - Lunasa:4|"
+  },
+  {
+    "name": "[Lunasa] VS Yuuka - 6:00",
+    "region": "Lunasa Story Mode",
+    "category": ["Lunasa Matches", "ELunasa", "Match Mode"],
+    "requires": "|-1 Minute - Lunasa:4|"
+  },
+  {
+    "name": "[Lunasa] Finale: VS Shikieiki - 8:00",
+    "region": "Lunasa Story Mode",
+    "category": ["Lunasa Matches", "ELunasa", "Match Mode"],
+    "requires": "|-1 Minute - Lunasa:6|",
+    "place_item": ["Ending - Lunasa"]
+  },
+  {
+    "name": "[Mystia] VS Cirno - 1:00",
+    "region": "Mystia Story Mode",
+    "category": ["Mystia Matches", "EMystia", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Mystia] VS Tewi - 1:00",
+    "region": "Mystia Story Mode",
+    "category": ["Mystia Matches", "EMystia", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Mystia] VS Lyrica - 2:00",
+    "region": "Mystia Story Mode",
+    "category": ["Mystia Matches", "EMystia", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Mystia] VS Marisa - 2:00",
+    "region": "Mystia Story Mode",
+    "category": ["Mystia Matches", "EMystia", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Mystia] VS Sakuya - 4:00",
+    "region": "Mystia Story Mode",
+    "category": ["Mystia Matches", "EMystia", "Match Mode"],
+    "requires": "|-1 Minute - Mystia:2|"
+  },
+  {
+    "name": "[Mystia] VS Reimu - 4:00",
+    "region": "Mystia Story Mode",
+    "category": ["Mystia Matches", "EMystia", "Match Mode"],
+    "requires": "|-1 Minute - Mystia:2|"
+  },
+  {
+    "name": "[Mystia] VS Medicine - 6:00",
+    "region": "Mystia Story Mode",
+    "category": ["Mystia Matches", "EMystia", "Match Mode"],
+    "requires": "|-1 Minute - Mystia:4|"
+  },
+  {
+    "name": "[Mystia] VS Yuuka - 6:00",
+    "region": "Mystia Story Mode",
+    "category": ["Mystia Matches", "EMystia", "Match Mode"],
+    "requires": "|-1 Minute - Mystia:4|"
+  },
+  {
+    "name": "[Mystia] Finale: VS Shikieiki - 8:00",
+    "region": "Mystia Story Mode",
+    "category": ["Mystia Matches", "EMystia", "Match Mode"],
+    "requires": "|-1 Minute - Mystia:6|",
+    "place_item": ["Ending - Mystia"]
+  },
+  {
+    "name": "[Tewi] VS Cirno - 1:00",
+    "region": "Tewi Story Mode",
+    "category": ["Tewi Matches", "ETewi", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Tewi] VS Mystia - 1:00",
+    "region": "Tewi Story Mode",
+    "category": ["Tewi Matches", "ETewi", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Tewi] VS Lyrica - 2:00",
+    "region": "Tewi Story Mode",
+    "category": ["Tewi Matches", "ETewi", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Tewi] VS Sakuya - 2:00",
+    "region": "Tewi Story Mode",
+    "category": ["Tewi Matches", "ETewi", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Tewi] VS Marisa - 4:00",
+    "region": "Tewi Story Mode",
+    "category": ["Tewi Matches", "ETewi", "Match Mode"],
+    "requires": "|-1 Minute - Tewi:2|"
+  },
+  {
+    "name": "[Tewi] VS Reisen - 4:00",
+    "region": "Tewi Story Mode",
+    "category": ["Tewi Matches", "ETewi", "Match Mode"],
+    "requires": "|-1 Minute - Tewi:2|"
+  },
+  {
+    "name": "[Tewi] VS Medicine - 6:00",
+    "region": "Tewi Story Mode",
+    "category": ["Tewi Matches", "ETewi", "Match Mode"],
+    "requires": "|-1 Minute - Tewi:4|"
+  },
+  {
+    "name": "[Tewi] VS Komachi - 6:00",
+    "region": "Tewi Story Mode",
+    "category": ["Tewi Matches", "ETewi", "Match Mode"],
+    "requires": "|-1 Minute - Tewi:4|"
+  },
+  {
+    "name": "[Tewi] Finale: VS Shikieiki - 8:00",
+    "region": "Tewi Story Mode",
+    "category": ["Tewi Matches", "ETewi", "Match Mode"],
+    "requires": "|-1 Minute - Tewi:6|",
+    "place_item": ["Ending - Tewi"]
+  },
+  {
+    "name": "[Aya] VS Cirno - 1:00",
+    "region": "Aya Story Mode",
+    "category": ["Aya Matches", "EAya", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Aya] VS Mystia - 1:00",
+    "region": "Aya Story Mode",
+    "category": ["Aya Matches", "EAya", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Aya] VS Lyrica - 2:00",
+    "region": "Aya Story Mode",
+    "category": ["Aya Matches", "EAya", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Aya] VS Reimu - 2:00",
+    "region": "Aya Story Mode",
+    "category": ["Aya Matches", "EAya", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Aya] VS Reisen - 4:00",
+    "region": "Aya Story Mode",
+    "category": ["Aya Matches", "EAya", "Match Mode"],
+    "requires": "|-1 Minute - Aya:2|"
+  },
+  {
+    "name": "[Aya] VS Marisa - 4:00",
+    "region": "Aya Story Mode",
+    "category": ["Aya Matches", "EAya", "Match Mode"],
+    "requires": "|-1 Minute - Aya:2|"
+  },
+  {
+    "name": "[Aya] VS Medicine - 6:00",
+    "region": "Aya Story Mode",
+    "category": ["Aya Matches", "EAya", "Match Mode"],
+    "requires": "|-1 Minute - Aya:4|"
+  },
+  {
+    "name": "[Aya] VS Komachi - 6:00",
+    "region": "Aya Story Mode",
+    "category": ["Aya Matches", "EAya", "Match Mode"],
+    "requires": "|-1 Minute - Aya:4|"
+  },
+  {
+    "name": "[Aya] Finale: VS Shikieiki - 8:00",
+    "region": "Aya Story Mode",
+    "category": ["Aya Matches", "EAya", "Match Mode"],
+    "requires": "|-1 Minute - Aya:6|",
+    "place_item": ["Ending - Aya"]
+  },
+  {
+    "name": "[Medicine] VS Mystia - 1:00",
+    "region": "Medicine Story Mode",
+    "category": ["Medicine Matches", "EMedicine", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Medicine] VS Lyrica - 1:00",
+    "region": "Medicine Story Mode",
+    "category": ["Medicine Matches", "EMedicine", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Medicine] VS Tewi - 2:00",
+    "region": "Medicine Story Mode",
+    "category": ["Medicine Matches", "EMedicine", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Medicine] VS Reimu - 2:00",
+    "region": "Medicine Story Mode",
+    "category": ["Medicine Matches", "EMedicine", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Medicine] VS Reisen - 4:00",
+    "region": "Medicine Story Mode",
+    "category": ["Medicine Matches", "EMedicine", "Match Mode"],
+    "requires": "|-1 Minute - Medicine:2|"
+  },
+  {
+    "name": "[Medicine] VS Sakuya - 4:00",
+    "region": "Medicine Story Mode",
+    "category": ["Medicine Matches", "EMedicine", "Match Mode"],
+    "requires": "|-1 Minute - Medicine:2|"
+  },
+  {
+    "name": "[Medicine] VS Yuuka - 6:00",
+    "region": "Medicine Story Mode",
+    "category": ["Medicine Matches", "EMedicine", "Match Mode"],
+    "requires": "|-1 Minute - Medicine:4|"
+  },
+  {
+    "name": "[Medicine] VS Komachi - 6:00",
+    "region": "Medicine Story Mode",
+    "category": ["Medicine Matches", "EMedicine", "Match Mode"],
+    "requires": "|-1 Minute - Medicine:4|"
+  },
+  {
+    "name": "[Medicine] Finale: VS Shikieiki - 8:00",
+    "region": "Medicine Story Mode",
+    "category": ["Medicine Matches", "EMedicine", "Match Mode"],
+    "requires": "|-1 Minute - Medicine:6|",
+    "place_item": ["Ending - Medicine"]
+  },
+  {
+    "name": "[Yuuka] VS Cirno - 1:00",
+    "region": "Yuuka Story Mode",
+    "category": ["Yuuka Matches", "EYuuka", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Yuuka] VS Mystia - 1:00",
+    "region": "Yuuka Story Mode",
+    "category": ["Yuuka Matches", "EYuuka", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Yuuka] VS Marisa - 2:00",
+    "region": "Yuuka Story Mode",
+    "category": ["Yuuka Matches", "EYuuka", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Yuuka] VS Sakuya - 2:00",
+    "region": "Yuuka Story Mode",
+    "category": ["Yuuka Matches", "EYuuka", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Yuuka] VS Youmu - 4:00",
+    "region": "Yuuka Story Mode",
+    "category": ["Yuuka Matches", "EYuuka", "Match Mode"],
+    "requires": "|-1 Minute - Yuuka:2|"
+  },
+  {
+    "name": "[Yuuka] VS Reimu - 4:00",
+    "region": "Yuuka Story Mode",
+    "category": ["Yuuka Matches", "EYuuka", "Match Mode"],
+    "requires": "|-1 Minute - Yuuka:2|"
+  },
+  {
+    "name": "[Yuuka] VS Aya - 6:00",
+    "region": "Yuuka Story Mode",
+    "category": ["Yuuka Matches", "EYuuka", "Match Mode"],
+    "requires": "|-1 Minute - Yuuka:4|"
+  },
+  {
+    "name": "[Yuuka] VS Komachi - 6:00",
+    "region": "Yuuka Story Mode",
+    "category": ["Yuuka Matches", "EYuuka", "Match Mode"],
+    "requires": "|-1 Minute - Yuuka:4|"
+  },
+  {
+    "name": "[Yuuka] Finale: VS Shikieiki - 8:00",
+    "region": "Yuuka Story Mode",
+    "category": ["Yuuka Matches", "EYuuka", "Match Mode"],
+    "requires": "|-1 Minute - Yuuka:6|",
+    "place_item": ["Ending - Yuuka"]
+  },
+  {
+    "name": "[Komachi] VS Cirno - 1:00",
+    "region": "Komachi Story Mode",
+    "category": ["Komachi Matches", "EKomachi", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Komachi] VS Reisen - 1:00",
+    "region": "Komachi Story Mode",
+    "category": ["Komachi Matches", "EKomachi", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Komachi] VS Sakuya - 2:00",
+    "region": "Komachi Story Mode",
+    "category": ["Komachi Matches", "EKomachi", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Komachi] VS Tewi - 2:00",
+    "region": "Komachi Story Mode",
+    "category": ["Komachi Matches", "EKomachi", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Komachi] VS Youmu - 4:00",
+    "region": "Komachi Story Mode",
+    "category": ["Komachi Matches", "EKomachi", "Match Mode"],
+    "requires": "|-1 Minute - Komachi:2|"
+  },
+  {
+    "name": "[Komachi] VS Marisa - 4:00",
+    "region": "Komachi Story Mode",
+    "category": ["Komachi Matches", "EKomachi", "Match Mode"],
+    "requires": "|-1 Minute - Komachi:2|"
+  },
+  {
+    "name": "[Komachi] VS Yuuka - 6:00",
+    "region": "Komachi Story Mode",
+    "category": ["Komachi Matches", "EKomachi", "Match Mode"],
+    "requires": "|-1 Minute - Komachi:4|"
+  },
+  {
+    "name": "[Komachi] VS Reimu - 6:00",
+    "region": "Komachi Story Mode",
+    "category": ["Komachi Matches", "EKomachi", "Match Mode"],
+    "requires": "|-1 Minute - Komachi:4|"
+  },
+  {
+    "name": "[Komachi] Finale: VS Shikieiki - 8:00",
+    "region": "Komachi Story Mode",
+    "category": ["Komachi Matches", "EKomachi", "Match Mode"],
+    "requires": "|-1 Minute - Komachi:6|",
+    "place_item": ["Ending - Komachi"]
+  },
+  {
+    "name": "[Shikieiki] VS Cirno - 1:00",
+    "region": "Shikieiki Story Mode",
+    "category": ["Shikieiki Matches", "EShikieiki", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Shikieiki] VS Mystia - 1:00",
+    "region": "Shikieiki Story Mode",
+    "category": ["Shikieiki Matches", "EShikieiki", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Shikieiki] VS Tewi - 2:00",
+    "region": "Shikieiki Story Mode",
+    "category": ["Shikieiki Matches", "EShikieiki", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Shikieiki] VS Reisen - 2:00",
+    "region": "Shikieiki Story Mode",
+    "category": ["Shikieiki Matches", "EShikieiki", "Match Mode"],
+    "requires": []
+  },
+  {
+    "name": "[Shikieiki] VS Sakuya - 4:00",
+    "region": "Shikieiki Story Mode",
+    "category": ["Shikieiki Matches", "EShikieiki", "Match Mode"],
+    "requires": "|-1 Minute - Shikieiki:2|"
+  },
+  {
+    "name": "[Shikieiki] VS Marisa - 4:00",
+    "region": "Shikieiki Story Mode",
+    "category": ["Shikieiki Matches", "EShikieiki", "Match Mode"],
+    "requires": "|-1 Minute - Shikieiki:2|"
+  },
+  {
+    "name": "[Shikieiki] VS Aya - 6:00",
+    "region": "Shikieiki Story Mode",
+    "category": ["Shikieiki Matches", "EShikieiki", "Match Mode"],
+    "requires": "|-1 Minute - Shikieiki:4|"
+  },
+  {
+    "name": "[Shikieiki] VS Komachi - 6:00",
+    "region": "Shikieiki Story Mode",
+    "category": ["Shikieiki Matches", "EShikieiki", "Match Mode"],
+    "requires": "|-1 Minute - Shikieiki:4|"
+  },
+  {
+    "name": "[Shikieiki] Finale: VS Reimu - 8:00",
+    "region": "Shikieiki Story Mode",
+    "category": ["Shikieiki Matches", "EShikieiki", "Match Mode"],
+    "requires": "|-1 Minute - Shikieiki:6|",
+    "place_item": ["Ending - Shikieiki"]
   }
 ]

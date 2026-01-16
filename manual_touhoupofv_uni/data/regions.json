@@ -1,58 +1,66 @@
 {
   "Reimu Story Mode": {
     "connects_to": [],
-    "requires": "|Reimu|"
+    "requires": "|Character Unlock - Reimu|"
   },
   "Marisa Story Mode": {
     "connects_to": [],
-    "requires": "|Marisa|"
+    "requires": "|Character Unlock - Marisa|"
   },
   "Sakuya Story Mode": {
     "connects_to": [],
-    "requires": "|Sakuya|"
+    "requires": "|Character Unlock - Sakuya|"
   },
   "Youmu Story Mode": {
     "connects_to": [],
-    "requires": "|Youmu|"
+    "requires": "|Character Unlock - Youmu|"
   },
   "Reisen Story Mode": {
     "connects_to": [],
-    "requires": "|Reisen|"
+    "requires": "|Character Unlock - Reisen|"
   },
   "Cirno Story Mode": {
     "connects_to": [],
-    "requires": "|Cirno|"
+    "requires": "|Character Unlock - Cirno|"
   },
   "Lyrica Story Mode": {
     "connects_to": [],
-    "requires": "|Lyrica|"
+    "requires": "|Character Unlock - Lyrica|"
+  },
+  "Merlin Story Mode": {
+    "connects_to": [],
+    "requires": "|Character Unlock - Merlin|"
+  },
+  "Lunasa Story Mode": {
+    "connects_to": [],
+    "requires": "|Character Unlock - Lunasa|"
   },
   "Mystia Story Mode": {
     "connects_to": [],
-    "requires": "|Mystia|"
+    "requires": "|Character Unlock - Mystia|"
   },
   "Tewi Story Mode": {
     "connects_to": [],
-    "requires": "|Tewi|"
+    "requires": "|Character Unlock - Tewi|"
   },
   "Aya Story Mode": {
     "connects_to": [],
-    "requires": "|Aya|"
+    "requires": "|Character Unlock - Aya|"
   },
   "Medicine Story Mode": {
     "connects_to": [],
-    "requires": "|Medicine|"
+    "requires": "|Character Unlock - Medicine|"
   },
   "Yuuka Story Mode": {
     "connects_to": [],
-    "requires": "|Yuuka|"
+    "requires": "|Character Unlock - Yuuka|"
   },
   "Komachi Story Mode": {
     "connects_to": [],
-    "requires": "|Komachi|"
+    "requires": "|Character Unlock - Komachi|"
   },
   "Shikieiki Story Mode": {
     "connects_to": [],
-    "requires": "|Shikieiki|"
+    "requires": "|Character Unlock - Shikieiki|"
   }
 }
