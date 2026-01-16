@@ -29,8 +29,6 @@ import logging
 ## The fill_slot_data method will be used to send data to the Manual client for later use, like deathlink.
 ########################################################################################
 
-
-
 # Use this function to change the valid filler items to be created to replace item links or starting items.
 # Default value is the `filler_item_name` from game.json
 def hook_get_filler_item_name(world: World, multiworld: MultiWorld, player: int) -> str | bool:
@@ -42,15 +40,160 @@ def before_create_regions(world: World, multiworld: MultiWorld, player: int):
 
 # Called after regions and locations are created, in case you want to see or modify that information. Victory location is included.
 def after_create_regions(world: World, multiworld: MultiWorld, player: int):
-    # Use this hook to remove locations from the world
-    locationNamesToRemove: list[str] = [] # List of location names
+
+    # Getting option values
+    game_mode = get_option_value(multiworld, player, "game_mode")
+    match_difficulty_base = get_option_value(multiworld, player, "match_difficulty_base")
+    match_random = get_option_value(multiworld, player, "match_random")
+    character_random_choice = get_option_value(multiworld, player, "character_random_choice")
+
+    enable_reimu = get_option_value(multiworld, player, "enable_reimu")
+    enable_marisa = get_option_value(multiworld, player, "enable_marisa")
+    enable_sakuya = get_option_value(multiworld, player, "enable_sakuya")
+    enable_youmu = get_option_value(multiworld, player, "enable_youmu")
+    enable_reisen = get_option_value(multiworld, player, "enable_reisen")
+    enable_cirno = get_option_value(multiworld, player, "enable_cirno")
+    enable_lyrica = get_option_value(multiworld, player, "enable_lyrica")
+    enable_mystia = get_option_value(multiworld, player, "enable_mystia")
+    enable_tewi = get_option_value(multiworld, player, "enable_tewi")
+    enable_aya = get_option_value(multiworld, player, "enable_aya")
+    enable_medicine = get_option_value(multiworld, player, "enable_medicine")
+    enable_yuuka = get_option_value(multiworld, player, "enable_yuuka")
+    enable_komachi = get_option_value(multiworld, player, "enable_komachi")
+    enable_shikieiki = get_option_value(multiworld, player, "enable_shikieiki")
+    enable_merlin = get_option_value(multiworld, player, "enable_merlin")
+    enable_lunasa = get_option_value(multiworld, player, "enable_lunasa")
+
+    # I don't know, I just feel like doing this just incase
+    world.character_matchups = {}
+    world.in_pool_characters = []
+    world.d_char = []
+    world.e_char = []
+
+    # Character matchups for Match Mode
+    characters = ["Reimu", "Marisa", "Sakuya", "Youmu", "Reisen", "Cirno", "Lyrica", "Merlin", "Lunasa", "Mystia", "Tewi", "Aya", "Medicine", "Yuuka", "Komachi", "Shikieiki"]
+    if not match_random:
+        world.character_matchups["Reimu"] = ["Cirno", "Mystia", "Lyrica", "Youmu", "Sakuya", "Marisa", "Aya", "Komachi", "Shikieiki"]
+        world.character_matchups["Marisa"] = ["Cirno", "Mystia", "Tewi", "Reisen", "Youmu", "Reimu", "Aya", "Komachi", "Shikieiki"]
+        world.character_matchups["Sakuya"] = ["Cirno", "Mystia", "Lyrica", "Reisen", "Reimu", "Tewi", "Medicine", "Komachi", "Shikieiki"]
+        world.character_matchups["Youmu"] = ["Cirno", "Mystia", "Lyrica", "Marisa", "Reisen", "Sakuya", "Aya", "Komachi", "Shikieiki"]
+        world.character_matchups["Reisen"] = ["Cirno", "Mystia", "Tewi", "Marisa", "Youmu", "Sakuya", "Medicine", "Komachi", "Shikieiki"]
+        world.character_matchups["Cirno"] = ["Mystia", "Lyrica", "Marisa", "Sakuya", "Reimu", "Reisen", "Aya", "Yuuka", "Shikieiki"]
+        world.character_matchups["Lyrica"] = ["Cirno", "Mystia", "Tewi", "Reisen", "Marisa", "Youmu", "Aya", "Yuuka", "Shikieiki"]
+        world.character_matchups["Merlin"] = ["Cirno", "Mystia", "Tewi", "Reisen", "Sakuya", "Youmu", "Aya", "Yuuka", "Shikieiki"]
+        world.character_matchups["Lunasa"] = ["Cirno", "Mystia", "Tewi", "Reisen", "Reimu", "Youmu", "Aya", "Yuuka", "Shikieiki"]
+        world.character_matchups["Mystia"] = ["Cirno", "Tewi", "Lyrica", "Marisa", "Sakuya", "Reimu", "Medicine", "Yuuka", "Shikieiki"]
+        world.character_matchups["Tewi"] = ["Cirno", "Mystia", "Lyrica", "Sakuya", "Marisa", "Reisen", "Medicine", "Komachi", "Shikieiki"]
+        world.character_matchups["Aya"] = ["Cirno", "Mystia", "Lyrica", "Reimu", "Reisen", "Marisa", "Medicine", "Komachi", "Shikieiki"]
+        world.character_matchups["Medicine"] = ["Mystia", "Lyrica", "Tewi", "Reimu", "Reisen", "Sakuya", "Yuuka", "Komachi", "Shikieiki"]
+        world.character_matchups["Yuuka"] = ["Cirno", "Mystia", "Marisa", "Sakuya", "Youmu", "Reimu", "Aya", "Komachi", "Shikieiki"]
+        world.character_matchups["Komachi"] = ["Cirno", "Reisen", "Sakuya", "Tewi", "Youmu", "Marisa", "Yuuka", "Reimu", "Shikieiki"]
+        world.character_matchups["Shikieiki"] = ["Cirno", "Mystia", "Tewi", "Reisen", "Sakuya", "Marisa", "Aya", "Komachi", "Reimu"]
+
+    d_char = characters.copy() # List of disabled characters
+    if enable_reimu: d_char.remove("Reimu")
+    if enable_marisa: d_char.remove("Marisa")
+    if enable_sakuya: d_char.remove("Sakuya")
+    if enable_youmu: d_char.remove("Youmu")
+    if enable_reisen: d_char.remove("Reisen")
+    if enable_cirno: d_char.remove("Cirno")
+    if enable_lyrica: d_char.remove("Lyrica")
+    if enable_merlin and game_mode: d_char.remove("Merlin")
+    if enable_lunasa and game_mode: d_char.remove("Lunasa")
+    if enable_mystia: d_char.remove("Mystia")
+    if enable_tewi: d_char.remove("Tewi")
+    if enable_aya: d_char.remove("Aya")
+    if enable_medicine: d_char.remove("Medicine")
+    if enable_yuuka: d_char.remove("Yuuka")
+    if enable_komachi: d_char.remove("Komachi")
+    if enable_shikieiki: d_char.remove("Shikieiki")
+
+    e_char = characters.copy() # List of enabled characters
+    if not enable_reimu: e_char.remove("Reimu")
+    if not enable_marisa: e_char.remove("Marisa")
+    if not enable_sakuya: e_char.remove("Sakuya")
+    if not enable_youmu: e_char.remove("Youmu")
+    if not enable_reisen: e_char.remove("Reisen")
+    if not enable_cirno: e_char.remove("Cirno")
+    if not enable_lyrica: e_char.remove("Lyrica")
+    if not enable_merlin or not game_mode: e_char.remove("Merlin")
+    if not enable_lunasa or not game_mode: e_char.remove("Lunasa")
+    if not enable_mystia: e_char.remove("Mystia")
+    if not enable_tewi: e_char.remove("Tewi")
+    if not enable_aya: e_char.remove("Aya")
+    if not enable_medicine: e_char.remove("Medicine")
+    if not enable_yuuka: e_char.remove("Yuuka")
+    if not enable_komachi: e_char.remove("Komachi")
+    if not enable_shikieiki: e_char.remove("Shikieiki")
+
+    world.d_char = d_char.copy() # List of player disabled characters
+    world.e_char = e_char.copy() # List of player enabled characters
+
+    # UT support for randomness
+    if hasattr(multiworld, "generation_is_fake") and hasattr(multiworld, "re_gen_passthrough"):
+        if world.game in multiworld.re_gen_passthrough:
+            slot_data = multiworld.re_gen_passthrough[world.game]
+
+            if match_random and game_mode: world.character_matchups = slot_data["character_matchups"]
+            if len(world.e_char) > character_random_choice: world.in_pool_characters = slot_data["in_pool_characters"]
+    else:
+        # Letting the randomizer choose which character to disable if enabled characters are more than character_random_choice option
+        if len(world.e_char) > character_random_choice:
+            random_choice = world.e_char.copy()
+            world.random.shuffle(random_choice)
+
+            while len(random_choice) > character_random_choice:
+                random_choice.pop()
+            for p1 in world.e_char:
+                if p1 not in random_choice: e_char.remove(p1)
+
+        world.in_pool_characters = e_char # List of randomizer enabled characters
+
+        # Letting the randomizer choose which of your characters fights who if match_random option is enabled
+        if match_random and game_mode:
+            char_mu_random = {}
+            for p1 in e_char:
+                char_mu_random[p1] = characters.copy()
+                world.random.shuffle(char_mu_random[p1])
+                while len(char_mu_random[p1]) > 9: char_mu_random[p1].pop()
+            world.character_matchups = char_mu_random
+    
+    # in_pool_characters stays as list of player enabled characters if enabled characters is not more than character_random_choice
+    if len(world.e_char) <= character_random_choice: world.in_pool_characters = e_char
+
+    time1 = f"{1 + match_difficulty_base} Minutes"
+    time2 = f"{2 + match_difficulty_base} Minutes"
+    time3 = f"{4 + match_difficulty_base} Minutes"
+    time4 = f"{6 + match_difficulty_base} Minutes"
+    time5 = f"{8 + match_difficulty_base} Minutes"
+    if time1 == "1 Minutes": time1 = "1 Minute"
+
+    # Choosing locations not to remove
+    locationNamesToKeep: list[str] = ["Incident Resolved"] # List of location names
+
+    if not game_mode:
+        for p1 in world.in_pool_characters:
+            for i in range(1, 10): locationNamesToKeep.append(f"[{p1}] Stage {i}")
+    else:
+        p2mu = {}
+        for p1 in world.in_pool_characters:
+            p2mu[p1 + "_m1p2"], p2mu[p1 + "_m2p2"], p2mu[p1 + "_m3p2"], p2mu[p1 + "_m4p2"] = world.character_matchups[p1][:4]
+            p2mu[p1 + "_m5p2"], p2mu[p1 + "_m6p2"], p2mu[p1 + "_m7p2"], p2mu[p1 + "_m8p2"], p2mu[p1 + "_m9p2"] = world.character_matchups[p1][4:]
+            locationNamesToKeep.append(f"[{p1}] VS {p2mu[p1 + "_m1p2"]} - {time1}")
+            locationNamesToKeep.append(f"[{p1}] VS {p2mu[p1 + "_m2p2"]} - {time1}")
+            locationNamesToKeep.append(f"[{p1}] VS {p2mu[p1 + "_m3p2"]} - {time2}")
+            locationNamesToKeep.append(f"[{p1}] VS {p2mu[p1 + "_m4p2"]} - {time2}")
+            locationNamesToKeep.append(f"[{p1}] VS {p2mu[p1 + "_m5p2"]} - {time3}")
+            locationNamesToKeep.append(f"[{p1}] VS {p2mu[p1 + "_m6p2"]} - {time3}")
+            locationNamesToKeep.append(f"[{p1}] VS {p2mu[p1 + "_m7p2"]} - {time4}")
+            locationNamesToKeep.append(f"[{p1}] VS {p2mu[p1 + "_m8p2"]} - {time4}")
+            locationNamesToKeep.append(f"[{p1}] Finale: VS {p2mu[p1 + "_m9p2"]} - {time5}")
 
     # Add your code here to calculate which locations to remove
-
     for region in multiworld.regions:
         if region.player == player:
             for location in list(region.locations):
-                if location.name in locationNamesToRemove:
+                if location.name not in locationNamesToKeep:
                     region.locations.remove(location)
 
 # This hook allows you to access the item names & counts before the items are created. Use this to increase/decrease the amount of a specific item in the pool
@@ -66,6 +209,28 @@ def before_create_items_all(item_config: dict[str, int|dict], world: World, mult
 
 # The item pool before starting items are processed, in case you want to see the raw item pool at that stage
 def before_create_items_starting(item_pool: list, world: World, multiworld: MultiWorld, player: int) -> list:
+    # Use this hook to remove items from the item pool
+    itemNamesToRemove: list[str] = [] # List of item names
+    
+    # Removing items from characters if they have been disabled by character_random_choice option
+    game_mode = get_option_value(multiworld, player, "game_mode")
+    characters = ["Reimu", "Marisa", "Sakuya", "Youmu", "Reisen", "Cirno", "Lyrica", "Merlin", "Lunasa", "Mystia", "Tewi", "Aya", "Medicine", "Yuuka", "Komachi", "Shikieiki"]
+    
+    for p1 in characters:
+        if p1 not in world.in_pool_characters and p1 not in world.d_char:
+            itemNamesToRemove.append(f"Character Unlock - {p1}")
+            if game_mode == 0:
+                for _ in range(7):
+                    itemNamesToRemove.append(f"+1 Life - {p1}")
+            else:
+                for _ in range(7):
+                    itemNamesToRemove.append(f"-1 Minute - {p1}")
+            itemNamesToRemove.append(f"Ending - {p1}")
+
+    for itemName in itemNamesToRemove:
+        item = next(i for i in item_pool if i.name == itemName)
+        item_pool.remove(item)
+
     return item_pool
 
 # The item pool after starting items are processed but before filler is added, in case you want to see the raw item pool at that stage
@@ -104,34 +269,22 @@ def before_set_rules(world: World, multiworld: MultiWorld, player: int):
 def after_set_rules(world: World, multiworld: MultiWorld, player: int):
     # Use this hook to modify the access rules for a given location
 
-    # Yaml option values
-    game_mode = get_option_value(multiworld, player, "mode")
+    # Getting option values
+    game_mode = get_option_value(multiworld, player, "game_mode")
     endings_required = get_option_value(multiworld, player, "endings_required")
     story_difficulty_mid = get_option_value(multiworld, player, "story_difficulty_mid")
     story_difficulty_end = get_option_value(multiworld, player, "story_difficulty_end")
-    match_difficulty = get_option_value(multiworld, player, "match_difficulty")
+    match_difficulty_minimum = get_option_value(multiworld, player, "match_difficulty_minimum")
+    match_difficulty_base = get_option_value(multiworld, player, "match_difficulty_base")
     ayamedi_difficulty = get_option_value(multiworld, player, "ayamedi_difficulty")
-    # th_prac = get_option_value(multiworld, player, "thprac")
 
-    enable_reimu = get_option_value(multiworld, player, "enable_reimu")
-    enable_marisa = get_option_value(multiworld, player, "enable_marisa")
-    enable_sakuya = get_option_value(multiworld, player, "enable_sakuya")
-    enable_youmu = get_option_value(multiworld, player, "enable_youmu")
-    enable_reisen = get_option_value(multiworld, player, "enable_reisen")
-    enable_cirno = get_option_value(multiworld, player, "enable_cirno")
-    enable_lyrica = get_option_value(multiworld, player, "enable_lyrica")
-    enable_mystia = get_option_value(multiworld, player, "enable_mystia")
-    enable_tewi = get_option_value(multiworld, player, "enable_tewi")
-    enable_aya = get_option_value(multiworld, player, "enable_aya")
-    enable_medicine = get_option_value(multiworld, player, "enable_medicine")
-    enable_yuuka = get_option_value(multiworld, player, "enable_yuuka")
-    enable_komachi = get_option_value(multiworld, player, "enable_komachi")
-    enable_shikieiki = get_option_value(multiworld, player, "enable_shikieiki")
-    enable_merlin = get_option_value(multiworld, player, "enable_merlin")
-    enable_lunasa = get_option_value(multiworld, player, "enable_lunasa")
-
+    time2 = f"{2 + match_difficulty_base} Minutes"
+    time3 = f"{4 + match_difficulty_base} Minutes"
+    time4 = f"{6 + match_difficulty_base} Minutes"
+    time5 = f"{8 + match_difficulty_base} Minutes"
+    
     # Goal access rules
-    ending = multiworld.get_location("Resolve Incident", player)
+    ending = multiworld.get_location("Incident Resolved", player)
     ending.access_rule = lambda state: (state.count_group("Endings", world.player) >= endings_required)
 
     # Story Mode access rules
@@ -157,119 +310,92 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
         else:
             s9access = story_difficulty_end
 
-        if enable_reimu == True:
-            s6reimu = multiworld.get_location("[Reimu] Stage 6 Clear", player)
-            s7reimu = multiworld.get_location("[Reimu] Stage 7 Clear", player)
-            s8reimu = multiworld.get_location("[Reimu] Stage 8 Clear", player)
-            s9reimu = multiworld.get_location("[Reimu] Stage 9 Clear", player)
+        if "Reimu" in world.in_pool_characters:
+            s6reimu = multiworld.get_location("[Reimu] Stage 6", player)
+            s7reimu = multiworld.get_location("[Reimu] Stage 7", player)
+            s8reimu = multiworld.get_location("[Reimu] Stage 8", player)
+            s9reimu = multiworld.get_location("[Reimu] Stage 9", player)
             s6reimu.access_rule = lambda state: (state.count("+1 Life - Reimu", world.player) >= s6access)
             s7reimu.access_rule = lambda state: (state.count("+1 Life - Reimu", world.player) >= s7access)
             s8reimu.access_rule = lambda state: (state.count("+1 Life - Reimu", world.player) >= s8access)
             s9reimu.access_rule = lambda state: (state.count("+1 Life - Reimu", world.player) >= s9access)
-        if enable_marisa == True:
-            s6marisa = multiworld.get_location("[Marisa] Stage 6 Clear", player)
-            s7marisa = multiworld.get_location("[Marisa] Stage 7 Clear", player)
-            s8marisa = multiworld.get_location("[Marisa] Stage 8 Clear", player)
-            s9marisa = multiworld.get_location("[Marisa] Stage 9 Clear", player)
+        if "Marisa" in world.in_pool_characters:
+            s6marisa = multiworld.get_location("[Marisa] Stage 6", player)
+            s7marisa = multiworld.get_location("[Marisa] Stage 7", player)
+            s8marisa = multiworld.get_location("[Marisa] Stage 8", player)
+            s9marisa = multiworld.get_location("[Marisa] Stage 9", player)
             s6marisa.access_rule = lambda state: (state.count("+1 Life - Marisa", world.player) >= s6access)
             s7marisa.access_rule = lambda state: (state.count("+1 Life - Marisa", world.player) >= s7access)
             s8marisa.access_rule = lambda state: (state.count("+1 Life - Marisa", world.player) >= s8access)
             s9marisa.access_rule = lambda state: (state.count("+1 Life - Marisa", world.player) >= s9access)
-        if enable_sakuya == True:
-            s6sakuya = multiworld.get_location("[Sakuya] Stage 6 Clear", player)
-            s7sakuya = multiworld.get_location("[Sakuya] Stage 7 Clear", player)
-            s8sakuya = multiworld.get_location("[Sakuya] Stage 8 Clear", player)
-            s9sakuya = multiworld.get_location("[Sakuya] Stage 9 Clear", player)
+        if "Sakuya" in world.in_pool_characters:
+            s6sakuya = multiworld.get_location("[Sakuya] Stage 6", player)
+            s7sakuya = multiworld.get_location("[Sakuya] Stage 7", player)
+            s8sakuya = multiworld.get_location("[Sakuya] Stage 8", player)
+            s9sakuya = multiworld.get_location("[Sakuya] Stage 9", player)
             s6sakuya.access_rule = lambda state: (state.count("+1 Life - Sakuya", world.player) >= s6access)
             s7sakuya.access_rule = lambda state: (state.count("+1 Life - Sakuya", world.player) >= s7access)
             s8sakuya.access_rule = lambda state: (state.count("+1 Life - Sakuya", world.player) >= s8access)
             s9sakuya.access_rule = lambda state: (state.count("+1 Life - Sakuya", world.player) >= s9access)
-        if enable_youmu == True:
-            s6youmu = multiworld.get_location("[Youmu] Stage 6 Clear", player)
-            s7youmu = multiworld.get_location("[Youmu] Stage 7 Clear", player)
-            s8youmu = multiworld.get_location("[Youmu] Stage 8 Clear", player)
-            s9youmu = multiworld.get_location("[Youmu] Stage 9 Clear", player)
+        if "Youmu" in world.in_pool_characters:
+            s6youmu = multiworld.get_location("[Youmu] Stage 6", player)
+            s7youmu = multiworld.get_location("[Youmu] Stage 7", player)
+            s8youmu = multiworld.get_location("[Youmu] Stage 8", player)
+            s9youmu = multiworld.get_location("[Youmu] Stage 9", player)
             s6youmu.access_rule = lambda state: (state.count("+1 Life - Youmu", world.player) >= s6access)
             s7youmu.access_rule = lambda state: (state.count("+1 Life - Youmu", world.player) >= s7access)
             s8youmu.access_rule = lambda state: (state.count("+1 Life - Youmu", world.player) >= s8access)
             s9youmu.access_rule = lambda state: (state.count("+1 Life - Youmu", world.player) >= s9access)
-        if enable_reisen == True:
-            s6reisen = multiworld.get_location("[Reisen] Stage 6 Clear", player)
-            s7reisen = multiworld.get_location("[Reisen] Stage 7 Clear", player)
-            s8reisen = multiworld.get_location("[Reisen] Stage 8 Clear", player)
-            s9reisen = multiworld.get_location("[Reisen] Stage 9 Clear", player)
+        if "Reisen" in world.in_pool_characters:
+            s6reisen = multiworld.get_location("[Reisen] Stage 6", player)
+            s7reisen = multiworld.get_location("[Reisen] Stage 7", player)
+            s8reisen = multiworld.get_location("[Reisen] Stage 8", player)
+            s9reisen = multiworld.get_location("[Reisen] Stage 9", player)
             s6reisen.access_rule = lambda state: (state.count("+1 Life - Reisen", world.player) >= s6access)
             s7reisen.access_rule = lambda state: (state.count("+1 Life - Reisen", world.player) >= s7access)
             s8reisen.access_rule = lambda state: (state.count("+1 Life - Reisen", world.player) >= s8access)
             s9reisen.access_rule = lambda state: (state.count("+1 Life - Reisen", world.player) >= s9access)
-        if enable_cirno == True:
-            s6cirno = multiworld.get_location("[Cirno] Stage 6 Clear", player)
-            s7cirno = multiworld.get_location("[Cirno] Stage 7 Clear", player)
-            s8cirno = multiworld.get_location("[Cirno] Stage 8 Clear", player)
-            s9cirno = multiworld.get_location("[Cirno] Stage 9 Clear", player)
+        if "Cirno" in world.in_pool_characters:
+            s6cirno = multiworld.get_location("[Cirno] Stage 6", player)
+            s7cirno = multiworld.get_location("[Cirno] Stage 7", player)
+            s8cirno = multiworld.get_location("[Cirno] Stage 8", player)
+            s9cirno = multiworld.get_location("[Cirno] Stage 9", player)
             s6cirno.access_rule = lambda state: (state.count("+1 Life - Cirno", world.player) >= s6access)
             s7cirno.access_rule = lambda state: (state.count("+1 Life - Cirno", world.player) >= s7access)
             s8cirno.access_rule = lambda state: (state.count("+1 Life - Cirno", world.player) >= s8access)
             s9cirno.access_rule = lambda state: (state.count("+1 Life - Cirno", world.player) >= s9access)
-        if enable_lyrica == True:
-            s6lyrica = multiworld.get_location("[Lyrica] Stage 6 Clear", player)
-            s7lyrica = multiworld.get_location("[Lyrica] Stage 7 Clear", player)
-            s8lyrica = multiworld.get_location("[Lyrica] Stage 8 Clear", player)
-            s9lyrica = multiworld.get_location("[Lyrica] Stage 9 Clear", player)
+        if "Lyrica" in world.in_pool_characters:
+            s6lyrica = multiworld.get_location("[Lyrica] Stage 6", player)
+            s7lyrica = multiworld.get_location("[Lyrica] Stage 7", player)
+            s8lyrica = multiworld.get_location("[Lyrica] Stage 8", player)
+            s9lyrica = multiworld.get_location("[Lyrica] Stage 9", player)
             s6lyrica.access_rule = lambda state: (state.count("+1 Life - Lyrica", world.player) >= s6access)
             s7lyrica.access_rule = lambda state: (state.count("+1 Life - Lyrica", world.player) >= s7access)
             s8lyrica.access_rule = lambda state: (state.count("+1 Life - Lyrica", world.player) >= s8access)
             s9lyrica.access_rule = lambda state: (state.count("+1 Life - Lyrica", world.player) >= s9access)
-        if enable_mystia == True:
-            s6mystia = multiworld.get_location("[Mystia] Stage 6 Clear", player)
-            s7mystia = multiworld.get_location("[Mystia] Stage 7 Clear", player)
-            s8mystia = multiworld.get_location("[Mystia] Stage 8 Clear", player)
-            s9mystia = multiworld.get_location("[Mystia] Stage 9 Clear", player)
+        if "Mystia" in world.in_pool_characters:
+            s6mystia = multiworld.get_location("[Mystia] Stage 6", player)
+            s7mystia = multiworld.get_location("[Mystia] Stage 7", player)
+            s8mystia = multiworld.get_location("[Mystia] Stage 8", player)
+            s9mystia = multiworld.get_location("[Mystia] Stage 9", player)
             s6mystia.access_rule = lambda state: (state.count("+1 Life - Mystia", world.player) >= s6access)
             s7mystia.access_rule = lambda state: (state.count("+1 Life - Mystia", world.player) >= s7access)
             s8mystia.access_rule = lambda state: (state.count("+1 Life - Mystia", world.player) >= s8access)
             s9mystia.access_rule = lambda state: (state.count("+1 Life - Mystia", world.player) >= s9access)
-        if enable_tewi == True:
-            s6tewi = multiworld.get_location("[Tewi] Stage 6 Clear", player)
-            s7tewi = multiworld.get_location("[Tewi] Stage 7 Clear", player)
-            s8tewi = multiworld.get_location("[Tewi] Stage 8 Clear", player)
-            s9tewi = multiworld.get_location("[Tewi] Stage 9 Clear", player)
+        if "Tewi" in world.in_pool_characters:
+            s6tewi = multiworld.get_location("[Tewi] Stage 6", player)
+            s7tewi = multiworld.get_location("[Tewi] Stage 7", player)
+            s8tewi = multiworld.get_location("[Tewi] Stage 8", player)
+            s9tewi = multiworld.get_location("[Tewi] Stage 9", player)
             s6tewi.access_rule = lambda state: (state.count("+1 Life - Tewi", world.player) >= s6access)
             s7tewi.access_rule = lambda state: (state.count("+1 Life - Tewi", world.player) >= s7access)
             s8tewi.access_rule = lambda state: (state.count("+1 Life - Tewi", world.player) >= s8access)
             s9tewi.access_rule = lambda state: (state.count("+1 Life - Tewi", world.player) >= s9access)
-        if enable_yuuka == True:
-            s6yuuka = multiworld.get_location("[Yuuka] Stage 6 Clear", player)
-            s7yuuka = multiworld.get_location("[Yuuka] Stage 7 Clear", player)
-            s8yuuka = multiworld.get_location("[Yuuka] Stage 8 Clear", player)
-            s9yuuka = multiworld.get_location("[Yuuka] Stage 9 Clear", player)
-            s6yuuka.access_rule = lambda state: (state.count("+1 Life - Yuuka", world.player) >= s6access)
-            s7yuuka.access_rule = lambda state: (state.count("+1 Life - Yuuka", world.player) >= s7access)
-            s8yuuka.access_rule = lambda state: (state.count("+1 Life - Yuuka", world.player) >= s8access)
-            s9yuuka.access_rule = lambda state: (state.count("+1 Life - Yuuka", world.player) >= s9access)
-        if enable_komachi == True:
-            s6komachi = multiworld.get_location("[Komachi] Stage 6 Clear", player)
-            s7komachi = multiworld.get_location("[Komachi] Stage 7 Clear", player)
-            s8komachi = multiworld.get_location("[Komachi] Stage 8 Clear", player)
-            s9komachi = multiworld.get_location("[Komachi] Stage 9 Clear", player)
-            s6komachi.access_rule = lambda state: (state.count("+1 Life - Komachi", world.player) >= s6access)
-            s7komachi.access_rule = lambda state: (state.count("+1 Life - Komachi", world.player) >= s7access)
-            s8komachi.access_rule = lambda state: (state.count("+1 Life - Komachi", world.player) >= s8access)
-            s9komachi.access_rule = lambda state: (state.count("+1 Life - Komachi", world.player) >= s9access)
-        if enable_shikieiki == True:
-            s6shikieiki = multiworld.get_location("[Shikieiki] Stage 6 Clear", player)
-            s7shikieiki = multiworld.get_location("[Shikieiki] Stage 7 Clear", player)
-            s8shikieiki = multiworld.get_location("[Shikieiki] Stage 8 Clear", player)
-            s9shikieiki = multiworld.get_location("[Shikieiki] Stage 9 Clear", player)
-            s6shikieiki.access_rule = lambda state: (state.count("+1 Life - Shikieiki", world.player) >= s6access)
-            s7shikieiki.access_rule = lambda state: (state.count("+1 Life - Shikieiki", world.player) >= s7access)
-            s8shikieiki.access_rule = lambda state: (state.count("+1 Life - Shikieiki", world.player) >= s8access)
-            s9shikieiki.access_rule = lambda state: (state.count("+1 Life - Shikieiki", world.player) >= s9access)
-        if enable_aya == True:
-            s6aya = multiworld.get_location("[Aya] Stage 6 Clear", player)
-            s7aya = multiworld.get_location("[Aya] Stage 7 Clear", player)
-            s8aya = multiworld.get_location("[Aya] Stage 8 Clear", player)
-            s9aya = multiworld.get_location("[Aya] Stage 9 Clear", player)
+        if "Aya" in world.in_pool_characters:
+            s6aya = multiworld.get_location("[Aya] Stage 6", player)
+            s7aya = multiworld.get_location("[Aya] Stage 7", player)
+            s8aya = multiworld.get_location("[Aya] Stage 8", player)
+            s9aya = multiworld.get_location("[Aya] Stage 9", player)
             if ayamedi_difficulty == False:
                 s6aya.access_rule = lambda state: (state.count("+1 Life - Aya", world.player) >= 0)
                 s7aya.access_rule = lambda state: (state.count("+1 Life - Aya", world.player) >= 0)
@@ -280,11 +406,11 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
                 s7aya.access_rule = lambda state: (state.count("+1 Life - Aya", world.player) >= s7access)
                 s8aya.access_rule = lambda state: (state.count("+1 Life - Aya", world.player) >= s8access)
                 s9aya.access_rule = lambda state: (state.count("+1 Life - Aya", world.player) >= s9access)
-        if enable_medicine == True:
-            s6medicine = multiworld.get_location("[Medicine] Stage 6 Clear", player)
-            s7medicine = multiworld.get_location("[Medicine] Stage 7 Clear", player)
-            s8medicine = multiworld.get_location("[Medicine] Stage 8 Clear", player)
-            s9medicine = multiworld.get_location("[Medicine] Stage 9 Clear", player)
+        if "Medicine" in world.in_pool_characters:
+            s6medicine = multiworld.get_location("[Medicine] Stage 6", player)
+            s7medicine = multiworld.get_location("[Medicine] Stage 7", player)
+            s8medicine = multiworld.get_location("[Medicine] Stage 8", player)
+            s9medicine = multiworld.get_location("[Medicine] Stage 9", player)
             if ayamedi_difficulty == False:
                 s6medicine.access_rule = lambda state: (state.count("+1 Life - Medicine", world.player) >= 0)
                 s7medicine.access_rule = lambda state: (state.count("+1 Life - Medicine", world.player) >= 0)
@@ -295,272 +421,320 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
                 s7medicine.access_rule = lambda state: (state.count("+1 Life - Medicine", world.player) >= s7access)
                 s8medicine.access_rule = lambda state: (state.count("+1 Life - Medicine", world.player) >= s8access)
                 s9medicine.access_rule = lambda state: (state.count("+1 Life - Medicine", world.player) >= s9access)
-    
+        if "Yuuka" in world.in_pool_characters:
+            s6yuuka = multiworld.get_location("[Yuuka] Stage 6", player)
+            s7yuuka = multiworld.get_location("[Yuuka] Stage 7", player)
+            s8yuuka = multiworld.get_location("[Yuuka] Stage 8", player)
+            s9yuuka = multiworld.get_location("[Yuuka] Stage 9", player)
+            s6yuuka.access_rule = lambda state: (state.count("+1 Life - Yuuka", world.player) >= s6access)
+            s7yuuka.access_rule = lambda state: (state.count("+1 Life - Yuuka", world.player) >= s7access)
+            s8yuuka.access_rule = lambda state: (state.count("+1 Life - Yuuka", world.player) >= s8access)
+            s9yuuka.access_rule = lambda state: (state.count("+1 Life - Yuuka", world.player) >= s9access)
+        if "Komachi" in world.in_pool_characters:
+            s6komachi = multiworld.get_location("[Komachi] Stage 6", player)
+            s7komachi = multiworld.get_location("[Komachi] Stage 7", player)
+            s8komachi = multiworld.get_location("[Komachi] Stage 8", player)
+            s9komachi = multiworld.get_location("[Komachi] Stage 9", player)
+            s6komachi.access_rule = lambda state: (state.count("+1 Life - Komachi", world.player) >= s6access)
+            s7komachi.access_rule = lambda state: (state.count("+1 Life - Komachi", world.player) >= s7access)
+            s8komachi.access_rule = lambda state: (state.count("+1 Life - Komachi", world.player) >= s8access)
+            s9komachi.access_rule = lambda state: (state.count("+1 Life - Komachi", world.player) >= s9access)
+        if "Shikieiki" in world.in_pool_characters:
+            s6shikieiki = multiworld.get_location("[Shikieiki] Stage 6", player)
+            s7shikieiki = multiworld.get_location("[Shikieiki] Stage 7", player)
+            s8shikieiki = multiworld.get_location("[Shikieiki] Stage 8", player)
+            s9shikieiki = multiworld.get_location("[Shikieiki] Stage 9", player)
+            s6shikieiki.access_rule = lambda state: (state.count("+1 Life - Shikieiki", world.player) >= s6access)
+            s7shikieiki.access_rule = lambda state: (state.count("+1 Life - Shikieiki", world.player) >= s7access)
+            s8shikieiki.access_rule = lambda state: (state.count("+1 Life - Shikieiki", world.player) >= s8access)
+            s9shikieiki.access_rule = lambda state: (state.count("+1 Life - Shikieiki", world.player) >= s9access)
+
     # Match Mode access rules
     if game_mode == 1:
-        m1access = match_difficulty - 6
-        m2access = match_difficulty - 4
-        m3access = match_difficulty - 2
-        m4access = match_difficulty
+        match match_difficulty_minimum:
+            case 1: matchTimer = 7
+            case 2: matchTimer = 6
+            case 3: matchTimer = 5
+            case 4: matchTimer = 4
+        m2access = matchTimer + (match_difficulty_base - 6)
+        m3access = matchTimer + (match_difficulty_base - 4)
+        m4access = matchTimer + (match_difficulty_base - 2)
+        m5access = matchTimer + match_difficulty_base
 
-        if enable_reimu == True:
-            m3rei = multiworld.get_location("[Reimu] VS Lyrica - 2:00", player)
-            m4rei = multiworld.get_location("[Reimu] VS Youmu - 2:00", player)
-            m5rei = multiworld.get_location("[Reimu] VS Sakuya - 4:00", player)
-            m6rei = multiworld.get_location("[Reimu] VS Marisa - 4:00", player)
-            m7rei = multiworld.get_location("[Reimu] VS Aya - 6:00", player)
-            m8rei = multiworld.get_location("[Reimu] VS Komachi - 6:00", player)
-            m9rei = multiworld.get_location("[Reimu] Finale: VS Shikieiki - 8:00", player)
-            m3rei.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m1access)
-            m4rei.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m1access)
-            m5rei.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m2access)
-            m6rei.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m2access)
-            m7rei.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m3access)
-            m8rei.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m3access)
-            m9rei.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m4access)
-        if enable_marisa == True:
-            m3mar = multiworld.get_location("[Marisa] VS Tewi - 2:00", player)
-            m4mar = multiworld.get_location("[Marisa] VS Reisen - 2:00", player)
-            m5mar = multiworld.get_location("[Marisa] VS Youmu - 4:00", player)
-            m6mar = multiworld.get_location("[Marisa] VS Reimu - 4:00", player)
-            m7mar = multiworld.get_location("[Marisa] VS Aya - 6:00", player)
-            m8mar = multiworld.get_location("[Marisa] VS Komachi - 6:00", player)
-            m9mar = multiworld.get_location("[Marisa] Finale: VS Shikieiki - 8:00", player)
-            m3mar.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m1access)
-            m4mar.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m1access)
-            m5mar.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m2access)
-            m6mar.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m2access)
-            m7mar.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m3access)
-            m8mar.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m3access)
-            m9mar.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m4access)
-        if enable_sakuya == True:
-            m3sak = multiworld.get_location("[Sakuya] VS Lyrica - 2:00", player)
-            m4sak = multiworld.get_location("[Sakuya] VS Reisen - 2:00", player)
-            m5sak = multiworld.get_location("[Sakuya] VS Reimu - 4:00", player)
-            m6sak = multiworld.get_location("[Sakuya] VS Tewi - 4:00", player)
-            m7sak = multiworld.get_location("[Sakuya] VS Medicine - 6:00", player)
-            m8sak = multiworld.get_location("[Sakuya] VS Komachi - 6:00", player)
-            m9sak = multiworld.get_location("[Sakuya] Finale: VS Shikieiki - 8:00", player)
-            m3sak.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m1access)
-            m4sak.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m1access)
-            m5sak.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m2access)
-            m6sak.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m2access)
-            m7sak.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m3access)
-            m8sak.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m3access)
-            m9sak.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m4access)
-        if enable_youmu == True:
-            m3you = multiworld.get_location("[Youmu] VS Lyrica - 2:00", player)
-            m4you = multiworld.get_location("[Youmu] VS Marisa - 2:00", player)
-            m5you = multiworld.get_location("[Youmu] VS Reisen - 4:00", player)
-            m6you = multiworld.get_location("[Youmu] VS Sakuya - 4:00", player)
-            m7you = multiworld.get_location("[Youmu] VS Aya - 6:00", player)
-            m8you = multiworld.get_location("[Youmu] VS Komachi - 6:00", player)
-            m9you = multiworld.get_location("[Youmu] Finale: VS Shikieiki - 8:00", player)
-            m3you.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m1access)
-            m4you.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m1access)
-            m5you.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m2access)
-            m6you.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m2access)
-            m7you.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m3access)
-            m8you.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m3access)
-            m9you.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m4access)
-        if enable_reisen == True:
-            m3udo = multiworld.get_location("[Reisen] VS Tewi - 2:00", player)
-            m4udo = multiworld.get_location("[Reisen] VS Marisa - 2:00", player)
-            m5udo = multiworld.get_location("[Reisen] VS Youmu - 4:00", player)
-            m6udo = multiworld.get_location("[Reisen] VS Sakuya - 4:00", player)
-            m7udo = multiworld.get_location("[Reisen] VS Medicine - 6:00", player)
-            m8udo = multiworld.get_location("[Reisen] VS Komachi - 6:00", player)
-            m9udo = multiworld.get_location("[Reisen] Finale: VS Shikieiki - 8:00", player)
-            m3udo.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m1access)
-            m4udo.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m1access)
-            m5udo.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m2access)
-            m6udo.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m2access)
-            m7udo.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m3access)
-            m8udo.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m3access)
-            m9udo.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m4access)
-        if enable_cirno == True:
-            m3cir = multiworld.get_location("[Cirno] VS Marisa - 2:00", player)
-            m4cir = multiworld.get_location("[Cirno] VS Sakuya - 2:00", player)
-            m5cir = multiworld.get_location("[Cirno] VS Reimu - 4:00", player)
-            m6cir = multiworld.get_location("[Cirno] VS Reisen - 4:00", player)
-            m7cir = multiworld.get_location("[Cirno] VS Aya - 6:00", player)
-            m8cir = multiworld.get_location("[Cirno] VS Yuuka - 6:00", player)
-            m9cir = multiworld.get_location("[Cirno] Finale: VS Shikieiki - 8:00", player)
-            m3cir.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m1access)
-            m4cir.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m1access)
-            m5cir.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m2access)
-            m6cir.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m2access)
-            m7cir.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m3access)
-            m8cir.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m3access)
-            m9cir.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m4access)
-        if enable_lyrica == True:
-            m3lyr = multiworld.get_location("[Lyrica] VS Tewi - 2:00", player)
-            m4lyr = multiworld.get_location("[Lyrica] VS Reisen - 2:00", player)
-            m5lyr = multiworld.get_location("[Lyrica] VS Marisa - 4:00", player)
-            m6lyr = multiworld.get_location("[Lyrica] VS Youmu - 4:00", player)
-            m7lyr = multiworld.get_location("[Lyrica] VS Aya - 6:00", player)
-            m8lyr = multiworld.get_location("[Lyrica] VS Yuuka - 6:00", player)
-            m9lyr = multiworld.get_location("[Lyrica] Finale: VS Shikieiki - 8:00", player)
-            m3lyr.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m1access)
-            m4lyr.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m1access)
-            m5lyr.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m2access)
-            m6lyr.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m2access)
-            m7lyr.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m3access)
-            m8lyr.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m3access)
-            m9lyr.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m4access)
-        if enable_merlin == True:
-            m3mer = multiworld.get_location("[Merlin] VS Tewi - 2:00", player)
-            m4mer = multiworld.get_location("[Merlin] VS Reisen - 2:00", player)
-            m5mer = multiworld.get_location("[Merlin] VS Sakuya - 4:00", player)
-            m6mer = multiworld.get_location("[Merlin] VS Youmu - 4:00", player)
-            m7mer = multiworld.get_location("[Merlin] VS Aya - 6:00", player)
-            m8mer = multiworld.get_location("[Merlin] VS Yuuka - 6:00", player)
-            m9mer = multiworld.get_location("[Merlin] Finale: VS Shikieiki - 8:00", player)
-            m3mer.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m1access)
-            m4mer.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m1access)
-            m5mer.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m2access)
-            m6mer.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m2access)
-            m7mer.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m3access)
-            m8mer.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m3access)
-            m9mer.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m4access)
-        if enable_lunasa == True:
-            m3lun = multiworld.get_location("[Lunasa] VS Tewi - 2:00", player)
-            m4lun = multiworld.get_location("[Lunasa] VS Reisen - 2:00", player)
-            m5lun = multiworld.get_location("[Lunasa] VS Reimu - 4:00", player)
-            m6lun = multiworld.get_location("[Lunasa] VS Youmu - 4:00", player)
-            m7lun = multiworld.get_location("[Lunasa] VS Aya - 6:00", player)
-            m8lun = multiworld.get_location("[Lunasa] VS Yuuka - 6:00", player)
-            m9lun = multiworld.get_location("[Lunasa] Finale: VS Shikieiki - 8:00", player)
-            m3lun.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m1access)
-            m4lun.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m1access)
-            m5lun.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m2access)
-            m6lun.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m2access)
-            m7lun.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m3access)
-            m8lun.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m3access)
-            m9lun.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m4access)
-        if enable_mystia == True:
-            m3mys = multiworld.get_location("[Mystia] VS Lyrica - 2:00", player)
-            m4mys = multiworld.get_location("[Mystia] VS Marisa - 2:00", player)
-            m5mys = multiworld.get_location("[Mystia] VS Sakuya - 4:00", player)
-            m6mys = multiworld.get_location("[Mystia] VS Reimu - 4:00", player)
-            m7mys = multiworld.get_location("[Mystia] VS Medicine - 6:00", player)
-            m8mys = multiworld.get_location("[Mystia] VS Yuuka - 6:00", player)
-            m9mys = multiworld.get_location("[Mystia] Finale: VS Shikieiki - 8:00", player)
-            m3mys.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m1access)
-            m4mys.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m1access)
-            m5mys.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m2access)
-            m6mys.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m2access)
-            m7mys.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m3access)
-            m8mys.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m3access)
-            m9mys.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m4access)
-        if enable_tewi == True:
-            m3tew = multiworld.get_location("[Tewi] VS Lyrica - 2:00", player)
-            m4tew = multiworld.get_location("[Tewi] VS Sakuya - 2:00", player)
-            m5tew = multiworld.get_location("[Tewi] VS Marisa - 4:00", player)
-            m6tew = multiworld.get_location("[Tewi] VS Reisen - 4:00", player)
-            m7tew = multiworld.get_location("[Tewi] VS Medicine - 6:00", player)
-            m8tew = multiworld.get_location("[Tewi] VS Komachi - 6:00", player)
-            m9tew = multiworld.get_location("[Tewi] Finale: VS Shikieiki - 8:00", player)
-            m3tew.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m1access)
-            m4tew.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m1access)
-            m5tew.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m2access)
-            m6tew.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m2access)
-            m7tew.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m3access)
-            m8tew.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m3access)
-            m9tew.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m4access)
-        if enable_yuuka == True:
-            m3yuu = multiworld.get_location("[Yuuka] VS Marisa - 2:00", player)
-            m4yuu = multiworld.get_location("[Yuuka] VS Sakuya - 2:00", player)
-            m5yuu = multiworld.get_location("[Yuuka] VS Youmu - 4:00", player)
-            m6yuu = multiworld.get_location("[Yuuka] VS Reimu - 4:00", player)
-            m7yuu = multiworld.get_location("[Yuuka] VS Aya - 6:00", player)
-            m8yuu = multiworld.get_location("[Yuuka] VS Komachi - 6:00", player)
-            m9yuu = multiworld.get_location("[Yuuka] Finale: VS Shikieiki - 8:00", player)
-            m3yuu.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m1access)
-            m4yuu.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m1access)
-            m5yuu.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m2access)
-            m6yuu.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m2access)
-            m7yuu.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m3access)
-            m8yuu.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m3access)
-            m9yuu.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m4access)
-        if enable_komachi == True:
-            m3kom = multiworld.get_location("[Komachi] VS Sakuya - 2:00", player)
-            m4kom = multiworld.get_location("[Komachi] VS Tewi - 2:00", player)
-            m5kom = multiworld.get_location("[Komachi] VS Youmu - 4:00", player)
-            m6kom = multiworld.get_location("[Komachi] VS Marisa - 4:00", player)
-            m7kom = multiworld.get_location("[Komachi] VS Yuuka - 6:00", player)
-            m8kom = multiworld.get_location("[Komachi] VS Reimu - 6:00", player)
-            m9kom = multiworld.get_location("[Komachi] Finale: VS Shikieiki - 8:00", player)
-            m3kom.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m1access)
-            m4kom.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m1access)
-            m5kom.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m2access)
-            m6kom.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m2access)
-            m7kom.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m3access)
-            m8kom.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m3access)
-            m9kom.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m4access)
-        if enable_shikieiki == True:
-            m3shi = multiworld.get_location("[Shikieiki] VS Tewi - 2:00", player)
-            m4shi = multiworld.get_location("[Shikieiki] VS Reisen - 2:00", player)
-            m5shi = multiworld.get_location("[Shikieiki] VS Sakuya - 4:00", player)
-            m6shi = multiworld.get_location("[Shikieiki] VS Marisa - 4:00", player)
-            m7shi = multiworld.get_location("[Shikieiki] VS Aya - 6:00", player)
-            m8shi = multiworld.get_location("[Shikieiki] VS Komachi - 6:00", player)
-            m9shi = multiworld.get_location("[Shikieiki] Finale: VS Reimu - 8:00", player)
-            m3shi.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m1access)
-            m4shi.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m1access)
-            m5shi.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m2access)
-            m6shi.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m2access)
-            m7shi.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m3access)
-            m8shi.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m3access)
-            m9shi.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m4access)
-        if enable_aya == True:
-            m3ay = multiworld.get_location("[Aya] VS Lyrica - 2:00", player)
-            m4ay = multiworld.get_location("[Aya] VS Reimu - 2:00", player)
-            m5ay = multiworld.get_location("[Aya] VS Reisen - 4:00", player)
-            m6ay = multiworld.get_location("[Aya] VS Marisa - 4:00", player)
-            m7ay = multiworld.get_location("[Aya] VS Medicine - 6:00", player)
-            m8ay = multiworld.get_location("[Aya] VS Komachi - 6:00", player)
-            m9ay = multiworld.get_location("[Aya] Finale: VS Shikieiki - 8:00", player)
+        if "Reimu" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Reimu"][2:]
+            m3reimu = multiworld.get_location(f"[Reimu] VS {m3p2} - {time2}", player)
+            m4reimu = multiworld.get_location(f"[Reimu] VS {m4p2} - {time2}", player)
+            m5reimu = multiworld.get_location(f"[Reimu] VS {m5p2} - {time3}", player)
+            m6reimu = multiworld.get_location(f"[Reimu] VS {m6p2} - {time3}", player)
+            m7reimu = multiworld.get_location(f"[Reimu] VS {m7p2} - {time4}", player)
+            m8reimu = multiworld.get_location(f"[Reimu] VS {m8p2} - {time4}", player)
+            m9reimu = multiworld.get_location(f"[Reimu] Finale: VS {m9p2} - {time5}", player)
+            m3reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m2access)
+            m4reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m2access)
+            m5reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m3access)
+            m6reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m3access)
+            m7reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m4access)
+            m8reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m4access)
+            m9reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m5access)
+        if "Marisa" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Marisa"][2:]
+            m3marisa = multiworld.get_location(f"[Marisa] VS {m3p2} - {time2}", player)
+            m4marisa = multiworld.get_location(f"[Marisa] VS {m4p2} - {time2}", player)
+            m5marisa = multiworld.get_location(f"[Marisa] VS {m5p2} - {time3}", player)
+            m6marisa = multiworld.get_location(f"[Marisa] VS {m6p2} - {time3}", player)
+            m7marisa = multiworld.get_location(f"[Marisa] VS {m7p2} - {time4}", player)
+            m8marisa = multiworld.get_location(f"[Marisa] VS {m8p2} - {time4}", player)
+            m9marisa = multiworld.get_location(f"[Marisa] Finale: VS {m9p2} - {time5}", player)
+            m3marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m2access)
+            m4marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m2access)
+            m5marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m3access)
+            m6marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m3access)
+            m7marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m4access)
+            m8marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m4access)
+            m9marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m5access)
+        if "Sakuya" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Sakuya"][2:]
+            m3sakuya = multiworld.get_location(f"[Sakuya] VS {m3p2} - {time2}", player)
+            m4sakuya = multiworld.get_location(f"[Sakuya] VS {m4p2} - {time2}", player)
+            m5sakuya = multiworld.get_location(f"[Sakuya] VS {m5p2} - {time3}", player)
+            m6sakuya = multiworld.get_location(f"[Sakuya] VS {m6p2} - {time3}", player)
+            m7sakuya = multiworld.get_location(f"[Sakuya] VS {m7p2} - {time4}", player)
+            m8sakuya = multiworld.get_location(f"[Sakuya] VS {m8p2} - {time4}", player)
+            m9sakuya = multiworld.get_location(f"[Sakuya] Finale: VS {m9p2} - {time5}", player)
+            m3sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m2access)
+            m4sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m2access)
+            m5sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m3access)
+            m6sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m3access)
+            m7sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m4access)
+            m8sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m4access)
+            m9sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m5access)
+        if "Youmu" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Youmu"][2:]
+            m3youmu = multiworld.get_location(f"[Youmu] VS {m3p2} - {time2}", player)
+            m4youmu = multiworld.get_location(f"[Youmu] VS {m4p2} - {time2}", player)
+            m5youmu = multiworld.get_location(f"[Youmu] VS {m5p2} - {time3}", player)
+            m6youmu = multiworld.get_location(f"[Youmu] VS {m6p2} - {time3}", player)
+            m7youmu = multiworld.get_location(f"[Youmu] VS {m7p2} - {time4}", player)
+            m8youmu = multiworld.get_location(f"[Youmu] VS {m8p2} - {time4}", player)
+            m9youmu = multiworld.get_location(f"[Youmu] Finale: VS {m9p2} - {time5}", player)
+            m3youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m2access)
+            m4youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m2access)
+            m5youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m3access)
+            m6youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m3access)
+            m7youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m4access)
+            m8youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m4access)
+            m9youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m5access)
+        if "Reisen" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Reisen"][2:]
+            m3reisen = multiworld.get_location(f"[Reisen] VS {m3p2} - {time2}", player)
+            m4reisen = multiworld.get_location(f"[Reisen] VS {m4p2} - {time2}", player)
+            m5reisen = multiworld.get_location(f"[Reisen] VS {m5p2} - {time3}", player)
+            m6reisen = multiworld.get_location(f"[Reisen] VS {m6p2} - {time3}", player)
+            m7reisen = multiworld.get_location(f"[Reisen] VS {m7p2} - {time4}", player)
+            m8reisen = multiworld.get_location(f"[Reisen] VS {m8p2} - {time4}", player)
+            m9reisen = multiworld.get_location(f"[Reisen] Finale: VS {m9p2} - {time5}", player)
+            m3reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m2access)
+            m4reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m2access)
+            m5reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m3access)
+            m6reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m3access)
+            m7reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m4access)
+            m8reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m4access)
+            m9reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m5access)
+        if "Cirno" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Cirno"][2:]
+            m3cirno = multiworld.get_location(f"[Cirno] VS {m3p2} - {time2}", player)
+            m4cirno = multiworld.get_location(f"[Cirno] VS {m4p2} - {time2}", player)
+            m5cirno = multiworld.get_location(f"[Cirno] VS {m5p2} - {time3}", player)
+            m6cirno = multiworld.get_location(f"[Cirno] VS {m6p2} - {time3}", player)
+            m7cirno = multiworld.get_location(f"[Cirno] VS {m7p2} - {time4}", player)
+            m8cirno = multiworld.get_location(f"[Cirno] VS {m8p2} - {time4}", player)
+            m9cirno = multiworld.get_location(f"[Cirno] Finale: VS {m9p2} - {time5}", player)
+            m3cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m2access)
+            m4cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m2access)
+            m5cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m3access)
+            m6cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m3access)
+            m7cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m4access)
+            m8cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m4access)
+            m9cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m5access)
+        if "Lyrica" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Lyrica"][2:]
+            m3lyrica = multiworld.get_location(f"[Lyrica] VS {m3p2} - {time2}", player)
+            m4lyrica = multiworld.get_location(f"[Lyrica] VS {m4p2} - {time2}", player)
+            m5lyrica = multiworld.get_location(f"[Lyrica] VS {m5p2} - {time3}", player)
+            m6lyrica = multiworld.get_location(f"[Lyrica] VS {m6p2} - {time3}", player)
+            m7lyrica = multiworld.get_location(f"[Lyrica] VS {m7p2} - {time4}", player)
+            m8lyrica = multiworld.get_location(f"[Lyrica] VS {m8p2} - {time4}", player)
+            m9lyrica = multiworld.get_location(f"[Lyrica] Finale: VS {m9p2} - {time5}", player)
+            m3lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m2access)
+            m4lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m2access)
+            m5lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m3access)
+            m6lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m3access)
+            m7lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m4access)
+            m8lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m4access)
+            m9lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m5access)
+        if "Merlin" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Merlin"][2:]
+            m3merlin = multiworld.get_location(f"[Merlin] VS {m3p2} - {time2}", player)
+            m4merlin = multiworld.get_location(f"[Merlin] VS {m4p2} - {time2}", player)
+            m5merlin = multiworld.get_location(f"[Merlin] VS {m5p2} - {time3}", player)
+            m6merlin = multiworld.get_location(f"[Merlin] VS {m6p2} - {time3}", player)
+            m7merlin = multiworld.get_location(f"[Merlin] VS {m7p2} - {time4}", player)
+            m8merlin = multiworld.get_location(f"[Merlin] VS {m8p2} - {time4}", player)
+            m9merlin = multiworld.get_location(f"[Merlin] Finale: VS {m9p2} - {time5}", player)
+            m3merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m2access)
+            m4merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m2access)
+            m5merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m3access)
+            m6merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m3access)
+            m7merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m4access)
+            m8merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m4access)
+            m9merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m5access)
+        if "Lunasa" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Lunasa"][2:]
+            m3lunasa = multiworld.get_location(f"[Lunasa] VS {m3p2} - {time2}", player)
+            m4lunasa = multiworld.get_location(f"[Lunasa] VS {m4p2} - {time2}", player)
+            m5lunasa = multiworld.get_location(f"[Lunasa] VS {m5p2} - {time3}", player)
+            m6lunasa = multiworld.get_location(f"[Lunasa] VS {m6p2} - {time3}", player)
+            m7lunasa = multiworld.get_location(f"[Lunasa] VS {m7p2} - {time4}", player)
+            m8lunasa = multiworld.get_location(f"[Lunasa] VS {m8p2} - {time4}", player)
+            m9lunasa = multiworld.get_location(f"[Lunasa] Finale: VS {m9p2} - {time5}", player)
+            m3lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m2access)
+            m4lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m2access)
+            m5lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m3access)
+            m6lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m3access)
+            m7lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m4access)
+            m8lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m4access)
+            m9lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m5access)
+        if "Mystia" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Mystia"][2:]
+            m3mystia = multiworld.get_location(f"[Mystia] VS {m3p2} - {time2}", player)
+            m4mystia = multiworld.get_location(f"[Mystia] VS {m4p2} - {time2}", player)
+            m5mystia = multiworld.get_location(f"[Mystia] VS {m5p2} - {time3}", player)
+            m6mystia = multiworld.get_location(f"[Mystia] VS {m6p2} - {time3}", player)
+            m7mystia = multiworld.get_location(f"[Mystia] VS {m7p2} - {time4}", player)
+            m8mystia = multiworld.get_location(f"[Mystia] VS {m8p2} - {time4}", player)
+            m9mystia = multiworld.get_location(f"[Mystia] Finale: VS {m9p2} - {time5}", player)
+            m3mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m2access)
+            m4mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m2access)
+            m5mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m3access)
+            m6mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m3access)
+            m7mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m4access)
+            m8mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m4access)
+            m9mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m5access)
+        if "Tewi" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Tewi"][2:]
+            m3tewi = multiworld.get_location(f"[Tewi] VS {m3p2} - {time2}", player)
+            m4tewi = multiworld.get_location(f"[Tewi] VS {m4p2} - {time2}", player)
+            m5tewi = multiworld.get_location(f"[Tewi] VS {m5p2} - {time3}", player)
+            m6tewi = multiworld.get_location(f"[Tewi] VS {m6p2} - {time3}", player)
+            m7tewi = multiworld.get_location(f"[Tewi] VS {m7p2} - {time4}", player)
+            m8tewi = multiworld.get_location(f"[Tewi] VS {m8p2} - {time4}", player)
+            m9tewi = multiworld.get_location(f"[Tewi] Finale: VS {m9p2} - {time5}", player)
+            m3tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m2access)
+            m4tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m2access)
+            m5tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m3access)
+            m6tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m3access)
+            m7tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m4access)
+            m8tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m4access)
+            m9tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m5access)
+        if "Aya" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Aya"][2:]
+            m3aya = multiworld.get_location(f"[Aya] VS {m3p2} - {time2}", player)
+            m4aya = multiworld.get_location(f"[Aya] VS {m4p2} - {time2}", player)
+            m5aya = multiworld.get_location(f"[Aya] VS {m5p2} - {time3}", player)
+            m6aya = multiworld.get_location(f"[Aya] VS {m6p2} - {time3}", player)
+            m7aya = multiworld.get_location(f"[Aya] VS {m7p2} - {time4}", player)
+            m8aya = multiworld.get_location(f"[Aya] VS {m8p2} - {time4}", player)
+            m9aya = multiworld.get_location(f"[Aya] Finale: VS {m9p2} - {time5}", player)
             if ayamedi_difficulty == False:
-                m3ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
-                m4ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
-                m5ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
-                m6ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
-                m7ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
-                m8ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
-                m9ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
+                m3aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
+                m4aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
+                m5aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
+                m6aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
+                m7aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
+                m8aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
+                m9aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
             else:
-                m3ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m1access)
-                m4ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m1access)
-                m5ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m2access)
-                m6ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m2access)
-                m7ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m3access)
-                m8ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m3access)
-                m9ay.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m4access)
-        if enable_medicine == True:
-            m3med = multiworld.get_location("[Medicine] VS Tewi - 2:00", player)
-            m4med = multiworld.get_location("[Medicine] VS Reimu - 2:00", player)
-            m5med = multiworld.get_location("[Medicine] VS Reisen - 4:00", player)
-            m6med = multiworld.get_location("[Medicine] VS Sakuya - 4:00", player)
-            m7med = multiworld.get_location("[Medicine] VS Yuuka - 6:00", player)
-            m8med = multiworld.get_location("[Medicine] VS Komachi - 6:00", player)
-            m9med = multiworld.get_location("[Medicine] Finale: VS Shikieiki - 8:00", player)
+                m3aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m2access)
+                m4aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m2access)
+                m5aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m3access)
+                m6aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m3access)
+                m7aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m4access)
+                m8aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m4access)
+                m9aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m5access)
+        if "Medicine" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Medicine"][2:]
+            m3medicine = multiworld.get_location(f"[Medicine] VS {m3p2} - {time2}", player)
+            m4medicine = multiworld.get_location(f"[Medicine] VS {m4p2} - {time2}", player)
+            m5medicine = multiworld.get_location(f"[Medicine] VS {m5p2} - {time3}", player)
+            m6medicine = multiworld.get_location(f"[Medicine] VS {m6p2} - {time3}", player)
+            m7medicine = multiworld.get_location(f"[Medicine] VS {m7p2} - {time4}", player)
+            m8medicine = multiworld.get_location(f"[Medicine] VS {m8p2} - {time4}", player)
+            m9medicine = multiworld.get_location(f"[Medicine] Finale: VS {m9p2} - {time5}", player)
             if ayamedi_difficulty == False:
-                m3med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
-                m4med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
-                m5med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
-                m6med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
-                m7med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
-                m8med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
-                m9med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
+                m3medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
+                m4medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
+                m5medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
+                m6medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
+                m7medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
+                m8medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
+                m9medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
             else:
-                m3med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m1access)
-                m4med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m1access)
-                m5med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m2access)
-                m6med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m2access)
-                m7med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m3access)
-                m8med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m3access)
-                m9med.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m4access)
+                m3medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m2access)
+                m4medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m2access)
+                m5medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m3access)
+                m6medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m3access)
+                m7medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m4access)
+                m8medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m4access)
+                m9medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m5access)
+        if "Yuuka" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Yuuka"][2:]
+            m3yuuka = multiworld.get_location(f"[Yuuka] VS {m3p2} - {time2}", player)
+            m4yuuka = multiworld.get_location(f"[Yuuka] VS {m4p2} - {time2}", player)
+            m5yuuka = multiworld.get_location(f"[Yuuka] VS {m5p2} - {time3}", player)
+            m6yuuka = multiworld.get_location(f"[Yuuka] VS {m6p2} - {time3}", player)
+            m7yuuka = multiworld.get_location(f"[Yuuka] VS {m7p2} - {time4}", player)
+            m8yuuka = multiworld.get_location(f"[Yuuka] VS {m8p2} - {time4}", player)
+            m9yuuka = multiworld.get_location(f"[Yuuka] Finale: VS {m9p2} - {time5}", player)
+            m3yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m2access)
+            m4yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m2access)
+            m5yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m3access)
+            m6yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m3access)
+            m7yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m4access)
+            m8yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m4access)
+            m9yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m5access)
+        if "Komachi" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Komachi"][2:]
+            m3komachi = multiworld.get_location(f"[Komachi] VS {m3p2} - {time2}", player)
+            m4komachi = multiworld.get_location(f"[Komachi] VS {m4p2} - {time2}", player)
+            m5komachi = multiworld.get_location(f"[Komachi] VS {m5p2} - {time3}", player)
+            m6komachi = multiworld.get_location(f"[Komachi] VS {m6p2} - {time3}", player)
+            m7komachi = multiworld.get_location(f"[Komachi] VS {m7p2} - {time4}", player)
+            m8komachi = multiworld.get_location(f"[Komachi] VS {m8p2} - {time4}", player)
+            m9komachi = multiworld.get_location(f"[Komachi] Finale: VS {m9p2} - {time5}", player)
+            m3komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m2access)
+            m4komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m2access)
+            m5komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m3access)
+            m6komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m3access)
+            m7komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m4access)
+            m8komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m4access)
+            m9komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m5access)
+        if "Shikieiki" in world.in_pool_characters:
+            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Shikieiki"][2:]
+            m3shikieiki = multiworld.get_location(f"[Shikieiki] VS {m3p2} - {time2}", player)
+            m4shikieiki = multiworld.get_location(f"[Shikieiki] VS {m4p2} - {time2}", player)
+            m5shikieiki = multiworld.get_location(f"[Shikieiki] VS {m5p2} - {time3}", player)
+            m6shikieiki = multiworld.get_location(f"[Shikieiki] VS {m6p2} - {time3}", player)
+            m7shikieiki = multiworld.get_location(f"[Shikieiki] VS {m7p2} - {time4}", player)
+            m8shikieiki = multiworld.get_location(f"[Shikieiki] VS {m8p2} - {time4}", player)
+            m9shikieiki = multiworld.get_location(f"[Shikieiki] Finale: VS {m9p2} - {time5}", player)
+            m3shikieiki.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m2access)
+            m4shikieiki.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m2access)
+            m5shikieiki.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m3access)
+            m6shikieiki.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m3access)
+            m7shikieiki.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m4access)
+            m8shikieiki.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m4access)
+            m9shikieiki.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m5access)
 
     def Example_Rule(state: CollectionState) -> bool:
         # Calculated rules take a CollectionState object and return a boolean
@@ -613,6 +787,10 @@ def after_remove_item(world: World, state: CollectionState, Changed: bool, item:
 
 # This is called before slot data is set and provides an empty dict ({}), in case you want to modify it before Manual does
 def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
+    if get_option_value(multiworld, player, "game_mode") and get_option_value(multiworld, player, "match_random"):
+        slot_data["character_matchups"] = world.character_matchups
+    if len(world.e_char) > get_option_value(multiworld, player, "character_random_choice"):
+        slot_data["in_pool_characters"] = world.in_pool_characters
     return slot_data
 
 # This is called after slot data is set and provides the slot data at the time, in case you want to check and modify it after Manual is done with it

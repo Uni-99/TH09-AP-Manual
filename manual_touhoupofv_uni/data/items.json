@@ -276,91 +276,6 @@
     "progression_skip_balancing": true
   },
   {
-    "count": 1,
-    "name": "Fumo Reimu",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Marisa",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Sakuya",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Youmu",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Reisen",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Cirno",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Lyrica",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Merlin",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Lunasa",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Mystia",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Tewi",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Aya",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Medicine",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Yuuka",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Komachi",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Shikieiki",
-    "filler": true
-  },
-  {
-    "count": 1,
-    "name": "Fumo Lily",
-    "filler": true
-  },
-  {
     "count": "7",
     "name": "-1 Minute - Reimu",
     "category": ["Resources", "EReimu", "Match Mode"],
@@ -455,5 +370,90 @@
     "name": "-1 Minute - Shikieiki",
     "category": ["Resources", "EShikieiki", "Match Mode"],
     "progression_skip_balancing": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Reimu",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Marisa",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Sakuya",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Youmu",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Reisen",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Cirno",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Lyrica",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Merlin",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Lunasa",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Mystia",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Tewi",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Aya",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Medicine",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Yuuka",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Komachi",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Shikieiki",
+    "filler": true
+  },
+  {
+    "count": 1,
+    "name": "Fumo Lily",
+    "filler": true
   }
 ]

@@ -25,13 +25,18 @@ from typing import Type, Any
 # To add an option, use the before_options_defined hook below and something like this:
 #   options["total_characters_to_win_with"] = TotalCharactersToWinWith
 #
-class Mode(Choice):
+class GameMode(Choice):
     """Which mode would you like to play on?
-    Story Mode: Go through each stages to clear stage 9. Restart from stage 1 if you die more times than you have life items.
-    Match Mode: Survive long enough against computer opponents in a similar structure to story mode. Time reduction items reduce time needed to survive."""
-    display_name = "mode"
+    Story Mode: Played in story mode. Restart from stage 1 if you die more times than you have life items. Clear stage 9 to receive ending items.
+    Match Mode: Played in match mode vs computers. Survive a specified amount of time against opponents. Defeat final opponents to receive ending items."""
+    display_name = "game mode"
     option_story_mode = 0
     option_match_mode = 1
+    default = 0
+
+class MatchRandom(Toggle):
+    """[Match Mode] Should character opponents be randomized? If false, characters you fight will be ordered similar to story mode."""
+    display_name = "random match opponents"
     default = 0
 
 class EndingsRequired(Range):
@@ -42,46 +47,58 @@ class EndingsRequired(Range):
     default = 1
 
 class StoryDifficultyMid(Choice):
-    """[For Story Mode] Should clearing stage 6, 7 and 8 require life items to be in logic?
-    3 Lives: 1 life item makes stage 6 in logic, 2 life items for stage 7, 3 life items for stage 8.
-    2 Lives: 1 life item makes stage 6 in logic, 2 life items for stage 7 and 8.
-    1 Lives: 1 life item makes all 3 stages in logic.
-    None: All 3 stages are in logic without the need of life items."""
+    """[Story Mode] Should life items be required to make stage 6, 7 and 8 in-logic?
+    3 Lives: 1 life item makes stage 6 in-logic, 2 life items for stage 7, 3 life items for stage 8.
+    2 Lives: 1 life item makes stage 6 in-logic, 2 life items for stage 7 and 8.
+    1 Life: 1 life item makes all 3 stages in-logic.
+    None: All 3 stages are in-logic without the need of life items."""
     display_name = "story mid game lives"
     option_3_lives = 3
     option_2_lives = 2
-    option_1_lives = 1
+    option_1_life = 1
     option_none = 0
     default = 3
 
 class StoryDifficultyEnd(Range):
-    """[For Story Mode] How many life items should be required for clearing stage 9 to be in logic?"""
+    """[Story Mode] How many life items should be required to make stage 9 in-logic?"""
     display_name = "story end game lives"
     range_start = 1
     range_end = 7
     default = 6
 
-class MatchDifficulty(Choice):
-    """[For Match Mode] How long should lasting against opponents be required for them to be in logic?"""
-    display_name = "match time"
-    option_4min = 4
-    option_3min = 5
-    option_2min = 6
-    option_1min = 7
-    default = 6
+class MatchDifficultyMinimum(Choice):
+    """[Match Mode] What should be the minimum required survival time to make opponents in-logic?"""
+    display_name = "match minimum time"
+    option_4_minutes = 4
+    option_3_minutes = 3
+    option_2_minutes = 2
+    option_1_minute = 1
+    default = 2
+
+class MatchDifficultyBase(Choice):
+    """[Match Mode] Increase base survival time?
+    By default, 1 minute is the shortest time for starting opponents and the shortest possible time for final opponents.
+    match_difficulty_minimum may need to be increased to compensate."""
+    display_name = "match base time"
+    option_add_2_minutes = 2
+    option_add_1_minute = 1
+    option_default = 0
+    default = 0
 
 class AyaMediDifficulty(Toggle):
-    """Should Aya and Medicine require any of their progressive items for their stage clears to be in logic?"""
+    """Should Aya and Medicine require any of their progressive items to make their locations in-logic?"""
     display_name = "aya and medicine progression"
     default = 1
 
 # This is called before any manual options are defined, in case you want to define your own with a clean slate or let Manual define over them
 def before_options_defined(options: dict[str, Type[Option[Any]]]) -> dict[str, Type[Option[Any]]]:
-    # options["mode"] = Mode
+    # options["game_mode"] = GameMode
+    # options["match_random"] = MatchRandom
     # options["endings_required"] = EndingsRequired
     # options["story_difficulty_mid"] = StoryDifficultyMid
     # options["story_difficulty_end"] = StoryDifficultyEnd
-    # options["match_difficulty"] = MatchDifficulty
+    # options["match_difficulty_minimum"] = MatchDifficultyMinimum
+    # options["match_difficulty_base"] = MatchDifficultyBase
     # options["ayamedi_difficulty"] = AyaMediDifficulty
     return options
 
