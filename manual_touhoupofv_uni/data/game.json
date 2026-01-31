@@ -6,6 +6,7 @@
   "starting_items": [
     {
       "item_categories": ["Characters"],
+      "yaml_option": ["character_items"],
       "random": 1
     }
   ]

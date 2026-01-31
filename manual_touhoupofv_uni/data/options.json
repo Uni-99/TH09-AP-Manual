@@ -25,8 +25,18 @@
             "type": "Choice",
             "description": [
                 "Which mode would you like to play on?",
-                "Story Mode: Played in story mode. Restart from stage 1 if you die more times than you have life items. Clear stage 9 to receive ending items.",
-                "Match Mode: Played in match mode vs computers. Survive a specified amount of time against opponents. Defeat final opponents to receive ending items."
+                "",
+                "Story Mode:",
+                "  Played in story mode.",
+                "  Clear stages to send checks.",
+                "  Exit out of the run if you die more times than you have life items.",
+                "  Clear stage 9 to receive ending items.",
+                "",
+                "Match Mode:",
+                "  Played in match mode vs cpu opponents.",
+                "  Defeat opponents by surviving a specified amount of time against them to send checks.",
+                "  Reduced Timer items reduces time needed to survive opponents.",
+                "  Defeat your characters' final opponent to receive ending items."
             ],
             "values": {
                 "story_mode":0,
@@ -35,25 +45,36 @@
             "default": 0,
             "allow_custom_value": false
         },
-        "match_random":{
-            "display_name": "random match opponents",
-            "description": "[Match Mode] Should character opponents be randomized? If false, characters you fight will be ordered similar to story mode.",
-            "type": "Toggle",
-            "default": false
-        },
         "endings_required":{
-            "display_name": "endings to goal",
+            "display_name": "endings required",
             "type": "Range",
             "description": "How many ending items should be required to goal?",
             "range_start": 1,
-            "default": 1,
+            "default": 3,
             "range_end": 16
         },
-        "story_difficulty_mid":{
+        "character_items":{
+            "display_name": "character items",
+            "description": [
+                "Should playable characters be locked behind items?",
+                "If false, character items are replaced with resource items.",
+                "For Match Mode, base survival time is also increased to compensate for more resources."
+            ],
+            "type": "Toggle",
+            "default": true
+        },
+        "match_random_opponents":{
+            "display_name": "match random opponents",
+            "description": "[Match Mode] Should character opponents be randomized? If false, characters you fight will be ordered like story mode.",
+            "type": "Toggle",
+            "default": false
+        },
+        "story_mid_game_lives":{
             "display_name": "story mid game lives",
             "type": "Choice",
             "description": [
                 "[Story Mode] Should life items be required to make stage 6, 7 and 8 in-logic?",
+                "",
                 "3 Lives: 1 life item makes stage 6 in-logic, 2 life items for stage 7, 3 life items for stage 8.",
                 "2 Lives: 1 life item makes stage 6 in-logic, 2 life items for stage 7 and 8.",
                 "1 Life: 1 life item makes all 3 stages in-logic.",
@@ -69,7 +90,7 @@
             "allow_custom_value": false,
             "group": "Logic Difficulty Options"
         },
-        "story_difficulty_end":{
+        "story_end_game_lives":{
             "display_name": "story end game lives",
             "type": "Range",
             "description": "[Story Mode] How many life items should be required to make stage 9 in-logic?",
@@ -78,7 +99,7 @@
             "range_end": 7,
             "group": "Logic Difficulty Options"
         },
-        "match_difficulty_minimum":{
+        "match_minimum_time":{
             "display_name": "match minimum time",
             "type": "Choice",
             "description": "[Match Mode] What should be the minimum required survival time to make opponents in-logic?",
@@ -92,13 +113,12 @@
             "allow_custom_value": false,
             "group": "Logic Difficulty Options"
         },
-        "match_difficulty_base":{
+        "match_base_time":{
             "display_name": "match base time",
             "type": "Choice",
             "description": [
-                "[Match Mode] Increase base survival time?",
-                "By default, 1 minute is the shortest time for starting opponents and the shortest possible time for final opponents.",
-                "match_difficulty_minimum may need to be increased to compensate."
+                "[Match Mode] Increase base survival time? By default, 1 minute is the shortest possible time for starter and final opponents.",
+                "match_minimum_time may need to be increased to compensate."
             ],
             "values": {
                 "add_2_minutes":2,
@@ -109,132 +129,132 @@
             "allow_custom_value": false,
             "group": "Logic Difficulty Options"
         },
-        "ayamedi_difficulty":{
+        "ayamedi_progression":{
             "display_name": "aya and medicine progression",
-            "description": "Should Aya and Medicine require any of their progressive items to make their locations in-logic?",
+            "description": "Should Aya and Medicine require any of their resource items to make their locations in-logic?",
             "type": "Toggle",
             "default": true,
             "group": "Logic Difficulty Options"
         },
-        "character_random_choice":{
-            "display_name": "random characters",
+        "random_enabled_characters":{
+            "display_name": "random enabled characters",
             "type": "Range",
             "description": [
-                "Out of the enabled ones, how many characters do you want the randomizer to pick and choose who stays enabled and disable the rest?",
-                "Do note that having too many characters enabled can make sessions take some time to complete."
+                "Out of the enabled ones, how many characters do you want the randomizer to pick and choose who stays enabled, and disable the rest?",
+                "Set to 0 to disable this feature."
             ],
-            "range_start": 1,
-            "default": 6,
-            "range_end": 16,
+            "range_start": 0,
+            "default": 9,
+            "range_end": 15,
             "group": "Character Options"
         },
         "enable_reimu":{
-            "display_name": "reimu enabled",
+            "display_name": "enable reimu",
             "description": "Include Reimu with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_marisa":{
-            "display_name": "marisa enabled",
+            "display_name": "enable marisa",
             "description": "Include Marisa with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_sakuya":{
-            "display_name": "sakuya enabled",
+            "display_name": "enable sakuya",
             "description": "Include Sakuya with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_youmu":{
-            "display_name": "youmu enabled",
+            "display_name": "enable youmu",
             "description": "Include Youmu with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_reisen":{
-            "display_name": "reisen enabled",
+            "display_name": "enable reisen",
             "description": "Include Reisen with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_cirno":{
-            "display_name": "cirno enabled",
+            "display_name": "enable cirno",
             "description": "Include Cirno with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_lyrica":{
-            "display_name": "lyrica enabled",
+            "display_name": "enable lyrica",
             "description": "Include Lyrica with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_mystia":{
-            "display_name": "mystia enabled",
+            "display_name": "enable mystia",
             "description": "Include Mystia with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_tewi":{
-            "display_name": "tewi enabled",
+            "display_name": "enable tewi",
             "description": "Include Tewi with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_aya":{
-            "display_name": "aya enabled",
+            "display_name": "enable aya",
             "description": "Include Aya with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_medicine":{
-            "display_name": "medicine enabled",
+            "display_name": "enable medicine",
             "description": "Include Medicine with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_yuuka":{
-            "display_name": "yuuka enabled",
+            "display_name": "enable yuuka",
             "description": "Include Yuuka with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_komachi":{
-            "display_name": "komachi enabled",
+            "display_name": "enable komachi",
             "description": "Include Komachi with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_shikieiki":{
-            "display_name": "shikieiki enabled",
+            "display_name": "enable shikieiki",
             "description": "Include Shikieiki with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_merlin":{
-            "display_name": "merlin enabled",
+            "display_name": "enable merlin",
             "description": "[Match Mode] Include Merlin with her items and locations?",
             "type": "Toggle",
             "default": true,
             "group": "Character Options"
         },
         "enable_lunasa":{
-            "display_name": "lunasa enabled",
+            "display_name": "enable lunasa",
             "description": "[Match Mode] Include Lunasa with her items and locations?",
             "type": "Toggle",
             "default": true,

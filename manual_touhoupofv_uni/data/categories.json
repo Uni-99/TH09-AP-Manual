@@ -7,6 +7,9 @@
         "yaml_option": ["game_mode"],
         "hidden": true
     },
+    "Characters": {
+        "yaml_option": ["character_items"]
+    },
     "EReimu": {
         "yaml_option": ["enable_reimu"],
         "hidden": true
@@ -69,6 +72,9 @@
     },
     "ELunasa": {
         "yaml_option": ["enable_lunasa"],
+        "hidden": true
+    },
+    "AyaMedi": {
         "hidden": true
     }
 }

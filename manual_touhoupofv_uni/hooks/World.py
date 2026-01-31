@@ -43,10 +43,12 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
 
     # Getting option values
     game_mode = get_option_value(multiworld, player, "game_mode")
-    match_difficulty_base = get_option_value(multiworld, player, "match_difficulty_base")
-    match_random = get_option_value(multiworld, player, "match_random")
-    character_random_choice = get_option_value(multiworld, player, "character_random_choice")
+    character_items = get_option_value(multiworld, player, "character_items")
+    match_random_opponents = get_option_value(multiworld, player, "match_random_opponents")
 
+    match_base_time = get_option_value(multiworld, player, "match_base_time")
+
+    random_enabled_characters = get_option_value(multiworld, player, "random_enabled_characters")
     enable_reimu = get_option_value(multiworld, player, "enable_reimu")
     enable_marisa = get_option_value(multiworld, player, "enable_marisa")
     enable_sakuya = get_option_value(multiworld, player, "enable_sakuya")
@@ -64,33 +66,9 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     enable_merlin = get_option_value(multiworld, player, "enable_merlin")
     enable_lunasa = get_option_value(multiworld, player, "enable_lunasa")
 
-    # I don't know, I just feel like doing this just incase
-    world.character_matchups = {}
-    world.in_pool_characters = []
-    world.d_char = []
-    world.e_char = []
-
-    # Character matchups for Match Mode
     characters = ["Reimu", "Marisa", "Sakuya", "Youmu", "Reisen", "Cirno", "Lyrica", "Merlin", "Lunasa", "Mystia", "Tewi", "Aya", "Medicine", "Yuuka", "Komachi", "Shikieiki"]
-    if not match_random:
-        world.character_matchups["Reimu"] = ["Cirno", "Mystia", "Lyrica", "Youmu", "Sakuya", "Marisa", "Aya", "Komachi", "Shikieiki"]
-        world.character_matchups["Marisa"] = ["Cirno", "Mystia", "Tewi", "Reisen", "Youmu", "Reimu", "Aya", "Komachi", "Shikieiki"]
-        world.character_matchups["Sakuya"] = ["Cirno", "Mystia", "Lyrica", "Reisen", "Reimu", "Tewi", "Medicine", "Komachi", "Shikieiki"]
-        world.character_matchups["Youmu"] = ["Cirno", "Mystia", "Lyrica", "Marisa", "Reisen", "Sakuya", "Aya", "Komachi", "Shikieiki"]
-        world.character_matchups["Reisen"] = ["Cirno", "Mystia", "Tewi", "Marisa", "Youmu", "Sakuya", "Medicine", "Komachi", "Shikieiki"]
-        world.character_matchups["Cirno"] = ["Mystia", "Lyrica", "Marisa", "Sakuya", "Reimu", "Reisen", "Aya", "Yuuka", "Shikieiki"]
-        world.character_matchups["Lyrica"] = ["Cirno", "Mystia", "Tewi", "Reisen", "Marisa", "Youmu", "Aya", "Yuuka", "Shikieiki"]
-        world.character_matchups["Merlin"] = ["Cirno", "Mystia", "Tewi", "Reisen", "Sakuya", "Youmu", "Aya", "Yuuka", "Shikieiki"]
-        world.character_matchups["Lunasa"] = ["Cirno", "Mystia", "Tewi", "Reisen", "Reimu", "Youmu", "Aya", "Yuuka", "Shikieiki"]
-        world.character_matchups["Mystia"] = ["Cirno", "Tewi", "Lyrica", "Marisa", "Sakuya", "Reimu", "Medicine", "Yuuka", "Shikieiki"]
-        world.character_matchups["Tewi"] = ["Cirno", "Mystia", "Lyrica", "Sakuya", "Marisa", "Reisen", "Medicine", "Komachi", "Shikieiki"]
-        world.character_matchups["Aya"] = ["Cirno", "Mystia", "Lyrica", "Reimu", "Reisen", "Marisa", "Medicine", "Komachi", "Shikieiki"]
-        world.character_matchups["Medicine"] = ["Mystia", "Lyrica", "Tewi", "Reimu", "Reisen", "Sakuya", "Yuuka", "Komachi", "Shikieiki"]
-        world.character_matchups["Yuuka"] = ["Cirno", "Mystia", "Marisa", "Sakuya", "Youmu", "Reimu", "Aya", "Komachi", "Shikieiki"]
-        world.character_matchups["Komachi"] = ["Cirno", "Reisen", "Sakuya", "Tewi", "Youmu", "Marisa", "Yuuka", "Reimu", "Shikieiki"]
-        world.character_matchups["Shikieiki"] = ["Cirno", "Mystia", "Tewi", "Reisen", "Sakuya", "Marisa", "Aya", "Komachi", "Reimu"]
 
-    d_char = characters.copy() # List of disabled characters
+    d_char = characters.copy()
     if enable_reimu: d_char.remove("Reimu")
     if enable_marisa: d_char.remove("Marisa")
     if enable_sakuya: d_char.remove("Sakuya")
@@ -108,7 +86,7 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     if enable_komachi: d_char.remove("Komachi")
     if enable_shikieiki: d_char.remove("Shikieiki")
 
-    e_char = characters.copy() # List of enabled characters
+    e_char = characters.copy()
     if not enable_reimu: e_char.remove("Reimu")
     if not enable_marisa: e_char.remove("Marisa")
     if not enable_sakuya: e_char.remove("Sakuya")
@@ -134,39 +112,306 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
         if world.game in multiworld.re_gen_passthrough:
             slot_data = multiworld.re_gen_passthrough[world.game]
 
-            if match_random and game_mode: world.character_matchups = slot_data["character_matchups"]
-            if len(world.e_char) > character_random_choice: world.in_pool_characters = slot_data["in_pool_characters"]
+            if game_mode: world.character_matchups = slot_data["character_matchups"]
+            if len(world.e_char) > random_enabled_characters and random_enabled_characters != 0: world.in_pool_characters = slot_data["in_pool_characters"]
     else:
-        # Letting the randomizer choose which character to disable if enabled characters are more than character_random_choice option
-        if len(world.e_char) > character_random_choice:
+        # Letting the randomizer choose which character to disable if enabled characters are more than random_enabled_characters option value
+        if len(world.e_char) > random_enabled_characters and random_enabled_characters != 0:
             random_choice = world.e_char.copy()
             world.random.shuffle(random_choice)
 
-            while len(random_choice) > character_random_choice:
+            while len(random_choice) > random_enabled_characters:
                 random_choice.pop()
             for p1 in world.e_char:
                 if p1 not in random_choice: e_char.remove(p1)
 
         world.in_pool_characters = e_char # List of randomizer enabled characters
 
-        # Letting the randomizer choose which of your characters fights who if match_random option is enabled
-        if match_random and game_mode:
-            char_mu_random = {}
-            for p1 in e_char:
-                char_mu_random[p1] = characters.copy()
-                world.random.shuffle(char_mu_random[p1])
-                while len(char_mu_random[p1]) > 9: char_mu_random[p1].pop()
-            world.character_matchups = char_mu_random
-    
-    # in_pool_characters stays as list of player enabled characters if enabled characters is not more than character_random_choice
-    if len(world.e_char) <= character_random_choice: world.in_pool_characters = e_char
+        # Character matchups for match mode
+        if game_mode:
+            world.character_matchups = {}
+            
+            if match_random_opponents: # Randomize character matchups if match_random_opponents option is enabled
+                char_mu_random = {}
+                for p1 in e_char:
+                    char_mu_random[p1] = characters.copy()
+                    world.random.shuffle(char_mu_random[p1])
+                    while len(char_mu_random[p1]) > 9: char_mu_random[p1].pop()
+                world.character_matchups = char_mu_random
+            else:
+                # Imitate matchups from story mode if match_random_opponents option is disabled
+                story_opponents = {}
+                def story_opps():
+                    world.character_matchups[p1].append(sm)
+                    story_opponents[p1].remove(sm)
 
-    time1 = f"{1 + match_difficulty_base} Minutes"
-    time2 = f"{2 + match_difficulty_base} Minutes"
-    time3 = f"{4 + match_difficulty_base} Minutes"
-    time4 = f"{6 + match_difficulty_base} Minutes"
-    time5 = f"{8 + match_difficulty_base} Minutes"
-    if time1 == "1 Minutes": time1 = "1 Minute"
+                for p1 in e_char:
+                    world.character_matchups[p1] = []
+                    story_opponents[p1] = characters.copy()
+                    world.random.shuffle(story_opponents[p1])
+                    for stage in range (1, 10):
+                        for sm in story_opponents[p1]:
+                            match stage:
+                                # Stage 1 Opponents
+                                case 1 if p1 != "Cirno" and p1 != "Lyrica" and p1 != "Merlin" and p1 != "Lunasa" and p1 != "Mystia" and p1 != "Medicine" and p1 != "Komachi":
+                                    if sm == "Cirno" or sm == "Mystia":
+                                        story_opps()
+                                        break
+                                case 1 if p1 == "Cirno":
+                                    if sm == "Mystia":
+                                        story_opps()
+                                        break
+                                case 1 if p1 == "Lyrica" or p1 == "Merlin" or p1 == "Lunasa" or p1 == "Mystia" or p1 == "Komachi":
+                                    if sm == "Cirno":
+                                        story_opps()
+                                        break
+                                case 1 if p1 == "Medicine":
+                                    if sm == "Mystia" or sm == "Lyrica":
+                                        story_opps()
+                                        break
+                                # Stage 2 Opponents
+                                case 2 if p1 != "Cirno" and p1 != "Lyrica" and p1 != "Merlin" and p1 != "Lunasa" and p1 != "Mystia" and p1 != "Tewi" and p1 != "Medicine" and p1 != "Komachi":
+                                    if sm == "Cirno" or sm == "Mystia" or sm == "Lyrica":
+                                        story_opps()
+                                        break
+                                case 2 if p1 == "Cirno":
+                                    if sm == "Lyrica":
+                                        story_opps()
+                                        break
+                                case 2 if p1 == "Lyrica" or p1 == "Merlin" or p1 == "Lunasa":
+                                    if sm == "Mystia" or sm == "Tewi":
+                                        story_opps()
+                                        break
+                                case 2 if p1 == "Mystia":
+                                    if sm == "Tewi" or sm == "Lyrica":
+                                        story_opps()
+                                        break
+                                case 2 if p1 == "Tewi":
+                                    if sm == "Cirno" or sm == "Mystia":
+                                        story_opps()
+                                        break
+                                case 2 if p1 == "Medicine":
+                                    if sm == "Mystia" or sm == "Lyrica":
+                                        story_opps()
+                                        break
+                                case 2 if p1 == "Komachi":
+                                    if sm == "Tewi" or sm == "Reisen":
+                                        story_opps()
+                                        break
+                                # Stage 3 Opponents
+                                case 3 if p1 == "Reimu" or p1 == "Reisen":
+                                    if sm == "Lyrica" or sm == "Tewi":
+                                        story_opps()
+                                        break
+                                case 3 if p1 == "Marisa" or p1 == "Mystia" or p1 == "Shikieiki":
+                                    if sm == "Lyrica" or sm == "Tewi" or sm == "Reisen" or sm == "Youmu":
+                                        story_opps()
+                                        break
+                                case 3 if p1 == "Sakuya":
+                                    if sm == "Lyrica" or sm == "Youmu" or sm == "Reisen":
+                                        story_opps()
+                                        break
+                                case 3 if p1 == "Youmu":
+                                    if sm == "Mystia" or sm == "Lyrica" or sm == "Tewi" or sm == "Reimu" or sm == "Marisa":
+                                        story_opps()
+                                        break
+                                case 3 if p1 == "Cirno":
+                                    if sm == "Marisa" or sm == "Sakuya" or sm == "Tewi":
+                                        story_opps()
+                                        break
+                                case 3 if p1 == "Lyrica" or p1 == "Merlin" or p1 == "Lunasa":
+                                    if sm == "Mystia" or sm == "Tewi" or sm == "Reisen":
+                                        story_opps()
+                                        break
+                                case 3 if p1 == "Tewi":
+                                    if sm == "Sakuya" or sm == "Lyrica":
+                                        story_opps()
+                                        break
+                                case 3 if p1 == "Aya":
+                                    if sm == "Lyrica" or sm == "Tewi" or sm == "Reimu" or sm == "Sakuya":
+                                        story_opps()
+                                        break
+                                case 3 if p1 == "Medicine":
+                                    if sm == "Tewi":
+                                        story_opps()
+                                        break
+                                case 3 if p1 == "Yuuka":
+                                    if sm == "Lyrica" or sm == "Tewi" or sm == "Marisa" or sm == "Sakuya" or sm == "Youmu" or sm == "Reisen":
+                                        story_opps()
+                                        break
+                                case 3 if p1 == "Komachi":
+                                    if sm == "Sakuya":
+                                        story_opps()
+                                        break
+                                # Stage 4 Opponents
+                                case 4 if p1 == "Reimu":
+                                    if sm == "Lyrica" or sm == "Tewi" or sm == "Reisen":
+                                        story_opps()
+                                        break
+                                case 4 if p1 == "Marisa" or p1 == "Mystia":
+                                    if sm == "Lyrica" or sm == "Tewi" or sm == "Reisen" or sm == "Youmu":
+                                        story_opps()
+                                        break
+                                case 4 if p1 == "Sakuya":
+                                    if sm == "Lyrica" or sm == "Youmu" or sm == "Reisen" or sm == "Reimu" or sm == "Marisa":
+                                        story_opps()
+                                        break
+                                case 4 if p1 == "Youmu":
+                                    if sm == "Lyrica" or sm == "Tewi" or sm == "Reimu" or sm == "Marisa" or sm == "Reisen":
+                                        story_opps()
+                                        break
+                                case 4 if p1 == "Reisen":
+                                    if sm == "Lyrica" or sm == "Tewi" or sm == "Reimu" or sm == "Marisa" or sm == "Youmu":
+                                        story_opps()
+                                        break
+                                case 4 if p1 == "Cirno":
+                                    if sm == "Marisa" or sm == "Sakuya" or sm == "Tewi" or sm == "Reimu" or sm == "Youmu":
+                                        story_opps()
+                                        break
+                                case 4 if p1 == "Lyrica" or p1 == "Merlin" or p1 == "Lunasa":
+                                    if sm == "Tewi" or sm == "Reisen" or sm == "Reimu" or sm == "Marisa" or sm == "Sakuya":
+                                        story_opps()
+                                        break
+                                case 4 if p1 == "Tewi":
+                                    if sm == "Lyrica" or sm == "Marisa" or sm == "Youmu":
+                                        story_opps()
+                                        break
+                                case 4 if p1 == "Aya":
+                                    if sm == "Tewi" or sm == "Reimu" or sm == "Sakuya" or sm == "Youmu" or sm == "Reisen":
+                                        story_opps()
+                                        break
+                                case 4 if p1 == "Medicine":
+                                    if sm == "Reimu" or sm == "Marisa" or sm == "Reisen":
+                                        story_opps()
+                                        break
+                                case 4 if p1 == "Yuuka":
+                                    if sm == "Tewi" or sm == "Marisa" or sm == "Sakuya" or sm == "Youmu" or sm == "Reisen":
+                                        story_opps()
+                                        break
+                                case 4 if p1 == "Komachi" or p1 == "Shikieiki":
+                                    if sm == "Tewi" or sm == "Reisen" or sm == "Youmu":
+                                        story_opps()
+                                        break
+                                # Stage 5 Opponents
+                                case 5 if p1 == "Reimu" or p1 == "Yuuka":
+                                    if sm == "Reisen" or sm == "Youmu" or sm == "Marisa" or sm == "Sakuya":
+                                        story_opps()
+                                        break
+                                case 5 if p1 == "Marisa":
+                                    if sm == "Reisen" or sm == "Youmu" or sm == "Reimu" or sm == "Sakuya":
+                                        story_opps()
+                                        break
+                                case 5 if p1 == "Sakuya":
+                                    if sm == "Youmu" or sm == "Reisen" or sm == "Reimu" or sm == "Marisa":
+                                        story_opps()
+                                        break
+                                case 5 if p1 == "Youmu" or p1 == "Medicine":
+                                    if sm == "Reimu" or sm == "Marisa" or sm == "Reisen":
+                                        story_opps()
+                                        break
+                                case 5 if p1 == "Reisen":
+                                    if sm == "Reimu" or sm == "Marisa" or sm == "Youmu":
+                                        story_opps()
+                                        break
+                                case 5 if p1 == "Cirno":
+                                    if sm == "Marisa" or sm == "Sakuya" or sm == "Tewi" or sm == "Reimu" or sm == "Youmu":
+                                        story_opps()
+                                        break
+                                case 5 if p1 == "Lyrica" or p1 == "Merlin" or p1 == "Lunasa":
+                                    if sm == "Reimu" or sm == "Marisa" or sm == "Sakuya":
+                                        story_opps()
+                                        break
+                                case 5 if p1 == "Mystia":
+                                    if sm == "Marisa" or sm == "Sakuya":
+                                        story_opps()
+                                        break
+                                case 5 if p1 == "Tewi":
+                                    if sm == "Sakuya" or sm == "Marisa" or sm == "Youmu" or sm == "Reimu":
+                                        story_opps()
+                                        break
+                                case 5 if p1 == "Aya":
+                                    if sm == "Tewi" or sm == "Reimu" or sm == "Sakuya" or sm == "Youmu" or sm == "Reisen":
+                                        story_opps()
+                                        break
+                                case 5 if p1 == "Komachi":
+                                    if sm == "Tewi" or sm == "Reisen" or sm == "Youmu":
+                                        story_opps()
+                                        break
+                                case 5 if p1 == "Shikieiki":
+                                    if sm == "Youmu" or sm == "Reisen" or sm == "Sakuya":
+                                        story_opps()
+                                        break
+                                # Stage 6 Opponents
+                                case 6 if p1 == "Reimu":
+                                    if sm == "Marisa" or sm == "Sakuya":
+                                        story_opps()
+                                        break
+                                case 6 if p1 == "Marisa":
+                                    if sm == "Reimu" or sm == "Sakuya":
+                                        story_opps()
+                                        break
+                                case 6 if p1 == "Sakuya":
+                                    if sm == "Tewi":
+                                        story_opps()
+                                        break
+                                case 6 if p1 == "Youmu" or p1 == "Reisen" or p1 == "Medicine":
+                                    if sm == "Sakuya":
+                                        story_opps()
+                                        break
+                                case 6 if p1 == "Cirno" or p1 == "Tewi":
+                                    if sm == "Reisen":
+                                        story_opps()
+                                        break
+                                case 6 if p1 == "Lyrica" or p1 == "Merlin" or p1 == "Lunasa":
+                                    if sm == "Youmu":
+                                        story_opps()
+                                        break
+                                case 6 if p1 == "Mystia" or p1 == "Yuuka":
+                                    if sm == "Reimu":
+                                        story_opps()
+                                        break
+                                case 6 if p1 == "Aya" or p1 == "Komachi" or p1 == "Shikieiki":
+                                    if sm == "Marisa":
+                                        story_opps()
+                                        break
+                                # Stage 7 Opponents
+                                case 7 if p1 != "Sakuya" and p1 != "Reisen" and p1 != "Mystia" and p1 != "Tewi" and p1 != "Aya" and p1 != "Medicine" and p1 != "Komachi":
+                                    if sm == "Aya":
+                                        story_opps()
+                                        break
+                                case 7 if p1 == "Sakuya" or p1 == "Reisen" or p1 == "Mystia" or p1 == "Tewi" or p1 == "Aya":
+                                    if sm == "Medicine":
+                                        story_opps()
+                                        break
+                                case 7 if p1 == "Medicine" or p1 == "Komachi":
+                                    if sm == "Yuuka":
+                                        story_opps()
+                                        break
+                                # Stage 8 Opponents
+                                case 8 if p1 != "Cirno" and p1 != "Lyrica" and p1 != "Merlin" and p1 != "Lunasa" and p1 != "Mystia" and p1 != "Komachi":
+                                    if sm == "Komachi":
+                                        story_opps()
+                                        break
+                                case 8 if p1 == "Cirno" or p1 == "Lyrica" or p1 == "Merlin" or p1 == "Lunasa" or p1 == "Mystia":
+                                    if sm == "Yuuka":
+                                        story_opps()
+                                        break
+                                case 8 if p1 == "Komachi":
+                                    if sm == "Reimu":
+                                        story_opps()
+                                        break
+                                # Stage 9 Opponents
+                                case 9 if p1 != "Shikieiki":
+                                    if sm == "Shikieiki":
+                                        story_opps()
+                                        break
+                                case 9 if p1 == "Shikieiki":
+                                    if sm == "Reimu":
+                                        story_opps()
+                                        break
+
+    # in_pool_characters stays as list of player enabled characters if enabled characters is not more than random_enabled_characters
+    if len(world.e_char) <= random_enabled_characters or random_enabled_characters == 0: world.in_pool_characters = e_char
 
     # Choosing locations not to remove
     locationNamesToKeep: list[str] = ["Incident Resolved"] # List of location names
@@ -176,6 +421,20 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
             for i in range(1, 10): locationNamesToKeep.append(f"[{p1}] Stage {i}")
     else:
         p2mu = {}
+
+        time1 = f"{1 + match_base_time} Minutes"
+        if time1 == "1 Minutes": time1 = "1 Minute"
+        if character_items:
+            time2 = f"{2 + match_base_time} Minutes"
+            time3 = f"{4 + match_base_time} Minutes"
+            time4 = f"{6 + match_base_time} Minutes"
+            time5 = f"{8 + match_base_time} Minutes"
+        else:
+            time2 = f"{3 + match_base_time} Minutes"
+            time3 = f"{5 + match_base_time} Minutes"
+            time4 = f"{7 + match_base_time} Minutes"
+            time5 = f"{9 + match_base_time} Minutes"
+
         for p1 in world.in_pool_characters:
             p2mu[p1 + "_m1p2"], p2mu[p1 + "_m2p2"], p2mu[p1 + "_m3p2"], p2mu[p1 + "_m4p2"] = world.character_matchups[p1][:4]
             p2mu[p1 + "_m5p2"], p2mu[p1 + "_m6p2"], p2mu[p1 + "_m7p2"], p2mu[p1 + "_m8p2"], p2mu[p1 + "_m9p2"] = world.character_matchups[p1][4:]
@@ -212,20 +471,26 @@ def before_create_items_starting(item_pool: list, world: World, multiworld: Mult
     # Use this hook to remove items from the item pool
     itemNamesToRemove: list[str] = [] # List of item names
     
-    # Removing items from characters if they have been disabled by character_random_choice option
+    # Removing items from characters if they have been disabled by random_enabled_characters option
     game_mode = get_option_value(multiworld, player, "game_mode")
+    character_items = get_option_value(multiworld, player, "character_items")
     characters = ["Reimu", "Marisa", "Sakuya", "Youmu", "Reisen", "Cirno", "Lyrica", "Merlin", "Lunasa", "Mystia", "Tewi", "Aya", "Medicine", "Yuuka", "Komachi", "Shikieiki"]
     
     for p1 in characters:
         if p1 not in world.in_pool_characters and p1 not in world.d_char:
-            itemNamesToRemove.append(f"Character Unlock - {p1}")
+            if character_items: itemNamesToRemove.append(f"Character Unlock - {p1}")
             if game_mode == 0:
-                for _ in range(7):
+                for _ in range(8):
                     itemNamesToRemove.append(f"+1 Life - {p1}")
             else:
-                for _ in range(7):
+                for _ in range(8):
                     itemNamesToRemove.append(f"-1 Minute - {p1}")
             itemNamesToRemove.append(f"Ending - {p1}")
+        elif p1 not in world.d_char and character_items:
+            if game_mode == 0:
+                itemNamesToRemove.append(f"+1 Life - {p1}")
+            else:
+                itemNamesToRemove.append(f"-1 Minute - {p1}")
 
     for itemName in itemNamesToRemove:
         item = next(i for i in item_pool if i.name == itemName)
@@ -272,16 +537,19 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
     # Getting option values
     game_mode = get_option_value(multiworld, player, "game_mode")
     endings_required = get_option_value(multiworld, player, "endings_required")
-    story_difficulty_mid = get_option_value(multiworld, player, "story_difficulty_mid")
-    story_difficulty_end = get_option_value(multiworld, player, "story_difficulty_end")
-    match_difficulty_minimum = get_option_value(multiworld, player, "match_difficulty_minimum")
-    match_difficulty_base = get_option_value(multiworld, player, "match_difficulty_base")
-    ayamedi_difficulty = get_option_value(multiworld, player, "ayamedi_difficulty")
+    character_items = get_option_value(multiworld, player, "character_items")
 
-    time2 = f"{2 + match_difficulty_base} Minutes"
-    time3 = f"{4 + match_difficulty_base} Minutes"
-    time4 = f"{6 + match_difficulty_base} Minutes"
-    time5 = f"{8 + match_difficulty_base} Minutes"
+    story_mid_game_lives = get_option_value(multiworld, player, "story_mid_game_lives")
+    story_end_game_lives = get_option_value(multiworld, player, "story_end_game_lives")
+    match_minimum_time = get_option_value(multiworld, player, "match_minimum_time")
+    match_base_time = get_option_value(multiworld, player, "match_base_time")
+    ayamedi_progression = get_option_value(multiworld, player, "ayamedi_progression")
+
+    # Character items aren't needed if character_items option is disabled
+    if not character_items:
+        for region in multiworld.get_regions(player):
+            for region_entrance in region.entrances:
+                region_entrance.access_rule = lambda state: True
     
     # Goal access rules
     ending = multiworld.get_location("Incident Resolved", player)
@@ -289,26 +557,32 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
 
     # Story Mode access rules
     if game_mode == 0:
-        if story_difficulty_mid == 0:
+        early_game = {}
+        for p1 in world.in_pool_characters:
+            for stage in range(1, 6):
+                early_game[f"c{p1}s{stage}"] = world.get_location(f"[{p1}] Stage {stage}")
+                early_game[f"c{p1}s{stage}"].access_rule = lambda state: True
+
+        if story_mid_game_lives == 0:
             s6access = 0
             s7access = 0
             s8access = 0
         else:
             s6access = 1
-            if story_difficulty_mid == 1:
+            if story_mid_game_lives == 1:
                 s7access = 1
                 s8access = 1
             else:
                 s7access = 2
-                if story_difficulty_mid == 2:
+                if story_mid_game_lives == 2:
                     s8access = 2
                 else:
                     s8access = 3
 
-        if story_difficulty_mid >= story_difficulty_end:
-            s9access = story_difficulty_mid + 1
+        if story_mid_game_lives >= story_end_game_lives:
+            s9access = story_mid_game_lives + 1
         else:
-            s9access = story_difficulty_end
+            s9access = story_end_game_lives
 
         if "Reimu" in world.in_pool_characters:
             s6reimu = multiworld.get_location("[Reimu] Stage 6", player)
@@ -396,11 +670,11 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             s7aya = multiworld.get_location("[Aya] Stage 7", player)
             s8aya = multiworld.get_location("[Aya] Stage 8", player)
             s9aya = multiworld.get_location("[Aya] Stage 9", player)
-            if ayamedi_difficulty == False:
-                s6aya.access_rule = lambda state: (state.count("+1 Life - Aya", world.player) >= 0)
-                s7aya.access_rule = lambda state: (state.count("+1 Life - Aya", world.player) >= 0)
-                s8aya.access_rule = lambda state: (state.count("+1 Life - Aya", world.player) >= 0)
-                s9aya.access_rule = lambda state: (state.count("+1 Life - Aya", world.player) >= 0)
+            if ayamedi_progression == False:
+                s6aya.access_rule = lambda state: True
+                s7aya.access_rule = lambda state: True
+                s8aya.access_rule = lambda state: True
+                s9aya.access_rule = lambda state: True
             else:
                 s6aya.access_rule = lambda state: (state.count("+1 Life - Aya", world.player) >= s6access)
                 s7aya.access_rule = lambda state: (state.count("+1 Life - Aya", world.player) >= s7access)
@@ -411,11 +685,11 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             s7medicine = multiworld.get_location("[Medicine] Stage 7", player)
             s8medicine = multiworld.get_location("[Medicine] Stage 8", player)
             s9medicine = multiworld.get_location("[Medicine] Stage 9", player)
-            if ayamedi_difficulty == False:
-                s6medicine.access_rule = lambda state: (state.count("+1 Life - Medicine", world.player) >= 0)
-                s7medicine.access_rule = lambda state: (state.count("+1 Life - Medicine", world.player) >= 0)
-                s8medicine.access_rule = lambda state: (state.count("+1 Life - Medicine", world.player) >= 0)
-                s9medicine.access_rule = lambda state: (state.count("+1 Life - Medicine", world.player) >= 0)
+            if ayamedi_progression == False:
+                s6medicine.access_rule = lambda state: True
+                s7medicine.access_rule = lambda state: True
+                s8medicine.access_rule = lambda state: True
+                s9medicine.access_rule = lambda state: True
             else:
                 s6medicine.access_rule = lambda state: (state.count("+1 Life - Medicine", world.player) >= s6access)
                 s7medicine.access_rule = lambda state: (state.count("+1 Life - Medicine", world.player) >= s7access)
@@ -451,18 +725,38 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
 
     # Match Mode access rules
     if game_mode == 1:
-        match match_difficulty_minimum:
-            case 1: matchTimer = 7
-            case 2: matchTimer = 6
-            case 3: matchTimer = 5
-            case 4: matchTimer = 4
-        m2access = matchTimer + (match_difficulty_base - 6)
-        m3access = matchTimer + (match_difficulty_base - 4)
-        m4access = matchTimer + (match_difficulty_base - 2)
-        m5access = matchTimer + match_difficulty_base
+        match match_minimum_time:
+            case 1: match_timer = 7
+            case 2: match_timer = 6
+            case 3: match_timer = 5
+            case 4: match_timer = 4
+        m1access = match_timer + (match_base_time - 7)
+        m2access = match_timer + (match_base_time - 6)
+        m3access = match_timer + (match_base_time - 4)
+        m4access = match_timer + (match_base_time - 2)
+        m5access = match_timer + match_base_time
+
+        time1 = f"{1 + match_base_time} Minutes"
+        if time1 == "1 Minutes": time1 = "1 Minute"
+        if character_items:
+            time2 = f"{2 + match_base_time} Minutes"
+            time3 = f"{4 + match_base_time} Minutes"
+            time4 = f"{6 + match_base_time} Minutes"
+            time5 = f"{8 + match_base_time} Minutes"
+        else:
+            m2access += 1
+            m3access += 1
+            m4access += 1
+            m5access += 1
+            time2 = f"{3 + match_base_time} Minutes"
+            time3 = f"{5 + match_base_time} Minutes"
+            time4 = f"{7 + match_base_time} Minutes"
+            time5 = f"{9 + match_base_time} Minutes"
 
         if "Reimu" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Reimu"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Reimu"]
+            m1reimu = multiworld.get_location(f"[Reimu] VS {m1p2} - {time1}", player)
+            m2reimu = multiworld.get_location(f"[Reimu] VS {m2p2} - {time1}", player)
             m3reimu = multiworld.get_location(f"[Reimu] VS {m3p2} - {time2}", player)
             m4reimu = multiworld.get_location(f"[Reimu] VS {m4p2} - {time2}", player)
             m5reimu = multiworld.get_location(f"[Reimu] VS {m5p2} - {time3}", player)
@@ -470,6 +764,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7reimu = multiworld.get_location(f"[Reimu] VS {m7p2} - {time4}", player)
             m8reimu = multiworld.get_location(f"[Reimu] VS {m8p2} - {time4}", player)
             m9reimu = multiworld.get_location(f"[Reimu] Finale: VS {m9p2} - {time5}", player)
+            m1reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m1access)
+            m2reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m1access)
             m3reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m2access)
             m4reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m2access)
             m5reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m3access)
@@ -478,7 +774,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m4access)
             m9reimu.access_rule = lambda state: (state.count("-1 Minute - Reimu", world.player) >= m5access)
         if "Marisa" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Marisa"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Marisa"]
+            m1marisa = multiworld.get_location(f"[Marisa] VS {m1p2} - {time1}", player)
+            m2marisa = multiworld.get_location(f"[Marisa] VS {m2p2} - {time1}", player)
             m3marisa = multiworld.get_location(f"[Marisa] VS {m3p2} - {time2}", player)
             m4marisa = multiworld.get_location(f"[Marisa] VS {m4p2} - {time2}", player)
             m5marisa = multiworld.get_location(f"[Marisa] VS {m5p2} - {time3}", player)
@@ -486,6 +784,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7marisa = multiworld.get_location(f"[Marisa] VS {m7p2} - {time4}", player)
             m8marisa = multiworld.get_location(f"[Marisa] VS {m8p2} - {time4}", player)
             m9marisa = multiworld.get_location(f"[Marisa] Finale: VS {m9p2} - {time5}", player)
+            m1marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m1access)
+            m2marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m1access)
             m3marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m2access)
             m4marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m2access)
             m5marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m3access)
@@ -494,7 +794,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m4access)
             m9marisa.access_rule = lambda state: (state.count("-1 Minute - Marisa", world.player) >= m5access)
         if "Sakuya" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Sakuya"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Sakuya"]
+            m1sakuya = multiworld.get_location(f"[Sakuya] VS {m1p2} - {time1}", player)
+            m2sakuya = multiworld.get_location(f"[Sakuya] VS {m2p2} - {time1}", player)
             m3sakuya = multiworld.get_location(f"[Sakuya] VS {m3p2} - {time2}", player)
             m4sakuya = multiworld.get_location(f"[Sakuya] VS {m4p2} - {time2}", player)
             m5sakuya = multiworld.get_location(f"[Sakuya] VS {m5p2} - {time3}", player)
@@ -502,6 +804,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7sakuya = multiworld.get_location(f"[Sakuya] VS {m7p2} - {time4}", player)
             m8sakuya = multiworld.get_location(f"[Sakuya] VS {m8p2} - {time4}", player)
             m9sakuya = multiworld.get_location(f"[Sakuya] Finale: VS {m9p2} - {time5}", player)
+            m1sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m1access)
+            m2sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m1access)
             m3sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m2access)
             m4sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m2access)
             m5sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m3access)
@@ -510,7 +814,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m4access)
             m9sakuya.access_rule = lambda state: (state.count("-1 Minute - Sakuya", world.player) >= m5access)
         if "Youmu" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Youmu"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Youmu"]
+            m1youmu = multiworld.get_location(f"[Youmu] VS {m1p2} - {time1}", player)
+            m2youmu = multiworld.get_location(f"[Youmu] VS {m2p2} - {time1}", player)
             m3youmu = multiworld.get_location(f"[Youmu] VS {m3p2} - {time2}", player)
             m4youmu = multiworld.get_location(f"[Youmu] VS {m4p2} - {time2}", player)
             m5youmu = multiworld.get_location(f"[Youmu] VS {m5p2} - {time3}", player)
@@ -518,6 +824,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7youmu = multiworld.get_location(f"[Youmu] VS {m7p2} - {time4}", player)
             m8youmu = multiworld.get_location(f"[Youmu] VS {m8p2} - {time4}", player)
             m9youmu = multiworld.get_location(f"[Youmu] Finale: VS {m9p2} - {time5}", player)
+            m1youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m1access)
+            m2youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m1access)
             m3youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m2access)
             m4youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m2access)
             m5youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m3access)
@@ -526,7 +834,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m4access)
             m9youmu.access_rule = lambda state: (state.count("-1 Minute - Youmu", world.player) >= m5access)
         if "Reisen" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Reisen"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Reisen"]
+            m1reisen = multiworld.get_location(f"[Reisen] VS {m1p2} - {time1}", player)
+            m2reisen = multiworld.get_location(f"[Reisen] VS {m2p2} - {time1}", player)
             m3reisen = multiworld.get_location(f"[Reisen] VS {m3p2} - {time2}", player)
             m4reisen = multiworld.get_location(f"[Reisen] VS {m4p2} - {time2}", player)
             m5reisen = multiworld.get_location(f"[Reisen] VS {m5p2} - {time3}", player)
@@ -534,6 +844,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7reisen = multiworld.get_location(f"[Reisen] VS {m7p2} - {time4}", player)
             m8reisen = multiworld.get_location(f"[Reisen] VS {m8p2} - {time4}", player)
             m9reisen = multiworld.get_location(f"[Reisen] Finale: VS {m9p2} - {time5}", player)
+            m1reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m1access)
+            m2reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m1access)
             m3reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m2access)
             m4reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m2access)
             m5reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m3access)
@@ -542,7 +854,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m4access)
             m9reisen.access_rule = lambda state: (state.count("-1 Minute - Reisen", world.player) >= m5access)
         if "Cirno" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Cirno"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Cirno"]
+            m1cirno = multiworld.get_location(f"[Cirno] VS {m1p2} - {time1}", player)
+            m2cirno = multiworld.get_location(f"[Cirno] VS {m2p2} - {time1}", player)
             m3cirno = multiworld.get_location(f"[Cirno] VS {m3p2} - {time2}", player)
             m4cirno = multiworld.get_location(f"[Cirno] VS {m4p2} - {time2}", player)
             m5cirno = multiworld.get_location(f"[Cirno] VS {m5p2} - {time3}", player)
@@ -550,6 +864,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7cirno = multiworld.get_location(f"[Cirno] VS {m7p2} - {time4}", player)
             m8cirno = multiworld.get_location(f"[Cirno] VS {m8p2} - {time4}", player)
             m9cirno = multiworld.get_location(f"[Cirno] Finale: VS {m9p2} - {time5}", player)
+            m1cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m1access)
+            m2cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m1access)
             m3cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m2access)
             m4cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m2access)
             m5cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m3access)
@@ -558,7 +874,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m4access)
             m9cirno.access_rule = lambda state: (state.count("-1 Minute - Cirno", world.player) >= m5access)
         if "Lyrica" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Lyrica"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Lyrica"]
+            m1lyrica = multiworld.get_location(f"[Lyrica] VS {m1p2} - {time1}", player)
+            m2lyrica = multiworld.get_location(f"[Lyrica] VS {m2p2} - {time1}", player)
             m3lyrica = multiworld.get_location(f"[Lyrica] VS {m3p2} - {time2}", player)
             m4lyrica = multiworld.get_location(f"[Lyrica] VS {m4p2} - {time2}", player)
             m5lyrica = multiworld.get_location(f"[Lyrica] VS {m5p2} - {time3}", player)
@@ -566,6 +884,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7lyrica = multiworld.get_location(f"[Lyrica] VS {m7p2} - {time4}", player)
             m8lyrica = multiworld.get_location(f"[Lyrica] VS {m8p2} - {time4}", player)
             m9lyrica = multiworld.get_location(f"[Lyrica] Finale: VS {m9p2} - {time5}", player)
+            m1lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m1access)
+            m2lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m1access)
             m3lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m2access)
             m4lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m2access)
             m5lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m3access)
@@ -574,7 +894,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m4access)
             m9lyrica.access_rule = lambda state: (state.count("-1 Minute - Lyrica", world.player) >= m5access)
         if "Merlin" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Merlin"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Merlin"]
+            m1merlin = multiworld.get_location(f"[Merlin] VS {m1p2} - {time1}", player)
+            m2merlin = multiworld.get_location(f"[Merlin] VS {m2p2} - {time1}", player)
             m3merlin = multiworld.get_location(f"[Merlin] VS {m3p2} - {time2}", player)
             m4merlin = multiworld.get_location(f"[Merlin] VS {m4p2} - {time2}", player)
             m5merlin = multiworld.get_location(f"[Merlin] VS {m5p2} - {time3}", player)
@@ -582,6 +904,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7merlin = multiworld.get_location(f"[Merlin] VS {m7p2} - {time4}", player)
             m8merlin = multiworld.get_location(f"[Merlin] VS {m8p2} - {time4}", player)
             m9merlin = multiworld.get_location(f"[Merlin] Finale: VS {m9p2} - {time5}", player)
+            m1merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m1access)
+            m2merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m1access)
             m3merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m2access)
             m4merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m2access)
             m5merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m3access)
@@ -590,7 +914,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m4access)
             m9merlin.access_rule = lambda state: (state.count("-1 Minute - Merlin", world.player) >= m5access)
         if "Lunasa" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Lunasa"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Lunasa"]
+            m1lunasa = multiworld.get_location(f"[Lunasa] VS {m1p2} - {time1}", player)
+            m2lunasa = multiworld.get_location(f"[Lunasa] VS {m2p2} - {time1}", player)
             m3lunasa = multiworld.get_location(f"[Lunasa] VS {m3p2} - {time2}", player)
             m4lunasa = multiworld.get_location(f"[Lunasa] VS {m4p2} - {time2}", player)
             m5lunasa = multiworld.get_location(f"[Lunasa] VS {m5p2} - {time3}", player)
@@ -598,6 +924,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7lunasa = multiworld.get_location(f"[Lunasa] VS {m7p2} - {time4}", player)
             m8lunasa = multiworld.get_location(f"[Lunasa] VS {m8p2} - {time4}", player)
             m9lunasa = multiworld.get_location(f"[Lunasa] Finale: VS {m9p2} - {time5}", player)
+            m1lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m1access)
+            m2lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m1access)
             m3lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m2access)
             m4lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m2access)
             m5lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m3access)
@@ -606,7 +934,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m4access)
             m9lunasa.access_rule = lambda state: (state.count("-1 Minute - Lunasa", world.player) >= m5access)
         if "Mystia" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Mystia"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Mystia"]
+            m1mystia = multiworld.get_location(f"[Mystia] VS {m1p2} - {time1}", player)
+            m2mystia = multiworld.get_location(f"[Mystia] VS {m2p2} - {time1}", player)
             m3mystia = multiworld.get_location(f"[Mystia] VS {m3p2} - {time2}", player)
             m4mystia = multiworld.get_location(f"[Mystia] VS {m4p2} - {time2}", player)
             m5mystia = multiworld.get_location(f"[Mystia] VS {m5p2} - {time3}", player)
@@ -614,6 +944,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7mystia = multiworld.get_location(f"[Mystia] VS {m7p2} - {time4}", player)
             m8mystia = multiworld.get_location(f"[Mystia] VS {m8p2} - {time4}", player)
             m9mystia = multiworld.get_location(f"[Mystia] Finale: VS {m9p2} - {time5}", player)
+            m1mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m1access)
+            m2mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m1access)
             m3mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m2access)
             m4mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m2access)
             m5mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m3access)
@@ -622,7 +954,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m4access)
             m9mystia.access_rule = lambda state: (state.count("-1 Minute - Mystia", world.player) >= m5access)
         if "Tewi" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Tewi"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Tewi"]
+            m1tewi = multiworld.get_location(f"[Tewi] VS {m1p2} - {time1}", player)
+            m2tewi = multiworld.get_location(f"[Tewi] VS {m2p2} - {time1}", player)
             m3tewi = multiworld.get_location(f"[Tewi] VS {m3p2} - {time2}", player)
             m4tewi = multiworld.get_location(f"[Tewi] VS {m4p2} - {time2}", player)
             m5tewi = multiworld.get_location(f"[Tewi] VS {m5p2} - {time3}", player)
@@ -630,6 +964,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7tewi = multiworld.get_location(f"[Tewi] VS {m7p2} - {time4}", player)
             m8tewi = multiworld.get_location(f"[Tewi] VS {m8p2} - {time4}", player)
             m9tewi = multiworld.get_location(f"[Tewi] Finale: VS {m9p2} - {time5}", player)
+            m1tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m1access)
+            m2tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m1access)
             m3tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m2access)
             m4tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m2access)
             m5tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m3access)
@@ -638,7 +974,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m4access)
             m9tewi.access_rule = lambda state: (state.count("-1 Minute - Tewi", world.player) >= m5access)
         if "Aya" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Aya"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Aya"]
+            m1aya = multiworld.get_location(f"[Aya] VS {m1p2} - {time1}", player)
+            m2aya = multiworld.get_location(f"[Aya] VS {m2p2} - {time1}", player)
             m3aya = multiworld.get_location(f"[Aya] VS {m3p2} - {time2}", player)
             m4aya = multiworld.get_location(f"[Aya] VS {m4p2} - {time2}", player)
             m5aya = multiworld.get_location(f"[Aya] VS {m5p2} - {time3}", player)
@@ -646,15 +984,19 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7aya = multiworld.get_location(f"[Aya] VS {m7p2} - {time4}", player)
             m8aya = multiworld.get_location(f"[Aya] VS {m8p2} - {time4}", player)
             m9aya = multiworld.get_location(f"[Aya] Finale: VS {m9p2} - {time5}", player)
-            if ayamedi_difficulty == False:
-                m3aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
-                m4aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
-                m5aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
-                m6aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
-                m7aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
-                m8aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
-                m9aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= 0)
+            if ayamedi_progression == False:
+                m1aya.access_rule = lambda state: True
+                m2aya.access_rule = lambda state: True
+                m3aya.access_rule = lambda state: True
+                m4aya.access_rule = lambda state: True
+                m5aya.access_rule = lambda state: True
+                m6aya.access_rule = lambda state: True
+                m7aya.access_rule = lambda state: True
+                m8aya.access_rule = lambda state: True
+                m9aya.access_rule = lambda state: True
             else:
+                m1aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m1access)
+                m2aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m1access)
                 m3aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m2access)
                 m4aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m2access)
                 m5aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m3access)
@@ -663,7 +1005,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
                 m8aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m4access)
                 m9aya.access_rule = lambda state: (state.count("-1 Minute - Aya", world.player) >= m5access)
         if "Medicine" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Medicine"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Medicine"]
+            m1medicine = multiworld.get_location(f"[Medicine] VS {m1p2} - {time1}", player)
+            m2medicine = multiworld.get_location(f"[Medicine] VS {m2p2} - {time1}", player)
             m3medicine = multiworld.get_location(f"[Medicine] VS {m3p2} - {time2}", player)
             m4medicine = multiworld.get_location(f"[Medicine] VS {m4p2} - {time2}", player)
             m5medicine = multiworld.get_location(f"[Medicine] VS {m5p2} - {time3}", player)
@@ -671,15 +1015,19 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7medicine = multiworld.get_location(f"[Medicine] VS {m7p2} - {time4}", player)
             m8medicine = multiworld.get_location(f"[Medicine] VS {m8p2} - {time4}", player)
             m9medicine = multiworld.get_location(f"[Medicine] Finale: VS {m9p2} - {time5}", player)
-            if ayamedi_difficulty == False:
-                m3medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
-                m4medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
-                m5medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
-                m6medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
-                m7medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
-                m8medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
-                m9medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= 0)
+            if ayamedi_progression == False:
+                m1medicine.access_rule = lambda state: True
+                m2medicine.access_rule = lambda state: True
+                m3medicine.access_rule = lambda state: True
+                m4medicine.access_rule = lambda state: True
+                m5medicine.access_rule = lambda state: True
+                m6medicine.access_rule = lambda state: True
+                m7medicine.access_rule = lambda state: True
+                m8medicine.access_rule = lambda state: True
+                m9medicine.access_rule = lambda state: True
             else:
+                m1medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m1access)
+                m2medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m1access)
                 m3medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m2access)
                 m4medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m2access)
                 m5medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m3access)
@@ -688,7 +1036,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
                 m8medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m4access)
                 m9medicine.access_rule = lambda state: (state.count("-1 Minute - Medicine", world.player) >= m5access)
         if "Yuuka" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Yuuka"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Yuuka"]
+            m1yuuka = multiworld.get_location(f"[Yuuka] VS {m1p2} - {time1}", player)
+            m2yuuka = multiworld.get_location(f"[Yuuka] VS {m2p2} - {time1}", player)
             m3yuuka = multiworld.get_location(f"[Yuuka] VS {m3p2} - {time2}", player)
             m4yuuka = multiworld.get_location(f"[Yuuka] VS {m4p2} - {time2}", player)
             m5yuuka = multiworld.get_location(f"[Yuuka] VS {m5p2} - {time3}", player)
@@ -696,6 +1046,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7yuuka = multiworld.get_location(f"[Yuuka] VS {m7p2} - {time4}", player)
             m8yuuka = multiworld.get_location(f"[Yuuka] VS {m8p2} - {time4}", player)
             m9yuuka = multiworld.get_location(f"[Yuuka] Finale: VS {m9p2} - {time5}", player)
+            m1yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m1access)
+            m2yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m1access)
             m3yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m2access)
             m4yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m2access)
             m5yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m3access)
@@ -704,7 +1056,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m4access)
             m9yuuka.access_rule = lambda state: (state.count("-1 Minute - Yuuka", world.player) >= m5access)
         if "Komachi" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Komachi"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Komachi"]
+            m1komachi = multiworld.get_location(f"[Komachi] VS {m1p2} - {time1}", player)
+            m2komachi = multiworld.get_location(f"[Komachi] VS {m2p2} - {time1}", player)
             m3komachi = multiworld.get_location(f"[Komachi] VS {m3p2} - {time2}", player)
             m4komachi = multiworld.get_location(f"[Komachi] VS {m4p2} - {time2}", player)
             m5komachi = multiworld.get_location(f"[Komachi] VS {m5p2} - {time3}", player)
@@ -712,6 +1066,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7komachi = multiworld.get_location(f"[Komachi] VS {m7p2} - {time4}", player)
             m8komachi = multiworld.get_location(f"[Komachi] VS {m8p2} - {time4}", player)
             m9komachi = multiworld.get_location(f"[Komachi] Finale: VS {m9p2} - {time5}", player)
+            m1komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m1access)
+            m2komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m1access)
             m3komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m2access)
             m4komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m2access)
             m5komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m3access)
@@ -720,7 +1076,9 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m8komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m4access)
             m9komachi.access_rule = lambda state: (state.count("-1 Minute - Komachi", world.player) >= m5access)
         if "Shikieiki" in world.in_pool_characters:
-            m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Shikieiki"][2:]
+            m1p2, m2p2, m3p2, m4p2, m5p2, m6p2, m7p2, m8p2, m9p2 = world.character_matchups["Shikieiki"]
+            m1shikieiki = multiworld.get_location(f"[Shikieiki] VS {m1p2} - {time1}", player)
+            m2shikieiki = multiworld.get_location(f"[Shikieiki] VS {m2p2} - {time1}", player)
             m3shikieiki = multiworld.get_location(f"[Shikieiki] VS {m3p2} - {time2}", player)
             m4shikieiki = multiworld.get_location(f"[Shikieiki] VS {m4p2} - {time2}", player)
             m5shikieiki = multiworld.get_location(f"[Shikieiki] VS {m5p2} - {time3}", player)
@@ -728,6 +1086,8 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
             m7shikieiki = multiworld.get_location(f"[Shikieiki] VS {m7p2} - {time4}", player)
             m8shikieiki = multiworld.get_location(f"[Shikieiki] VS {m8p2} - {time4}", player)
             m9shikieiki = multiworld.get_location(f"[Shikieiki] Finale: VS {m9p2} - {time5}", player)
+            m1shikieiki.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m1access)
+            m2shikieiki.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m1access)
             m3shikieiki.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m2access)
             m4shikieiki.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m2access)
             m5shikieiki.access_rule = lambda state: (state.count("-1 Minute - Shikieiki", world.player) >= m3access)
@@ -754,6 +1114,18 @@ def after_set_rules(world: World, multiworld: MultiWorld, player: int):
 
 # The item name to create is provided before the item is created, in case you want to make changes to it
 def before_create_item(item_name: str, world: World, multiworld: MultiWorld, player: int) -> str:
+
+    # Aya and Medicine's resource items are classified as "useful" if ayamedi_progression option is false
+    ayamedi_progression = get_option_value(multiworld, player, "ayamedi_progression")
+    item_from_table = world.item_name_to_item.get(item_name)
+
+    if "AyaMedi" in set(item_from_table.get('category', [])):
+        if not ayamedi_progression:
+            item_from_table['useful'] = True
+            
+            for removing_classification in ['progression', 'progression_skip_balancing']:
+                if removing_classification in item_from_table.keys():
+                    del item_from_table[removing_classification]
     return item_name
 
 # The item that was created is provided after creation, in case you want to modify the item
@@ -787,10 +1159,14 @@ def after_remove_item(world: World, state: CollectionState, Changed: bool, item:
 
 # This is called before slot data is set and provides an empty dict ({}), in case you want to modify it before Manual does
 def before_fill_slot_data(slot_data: dict, world: World, multiworld: MultiWorld, player: int) -> dict:
-    if get_option_value(multiworld, player, "game_mode") and get_option_value(multiworld, player, "match_random"):
+    game_mode = get_option_value(multiworld, player, "game_mode")
+    random_enabled_characters = get_option_value(multiworld, player, "random_enabled_characters")
+
+    if game_mode:
         slot_data["character_matchups"] = world.character_matchups
-    if len(world.e_char) > get_option_value(multiworld, player, "character_random_choice"):
+    if len(world.e_char) > random_enabled_characters and random_enabled_characters != 0:
         slot_data["in_pool_characters"] = world.in_pool_characters
+
     return slot_data
 
 # This is called after slot data is set and provides the slot data at the time, in case you want to check and modify it after Manual is done with it

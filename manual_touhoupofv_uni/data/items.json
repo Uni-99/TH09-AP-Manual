@@ -96,87 +96,183 @@
     "progression": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Reimu",
     "category": ["Resources", "EReimu", "Story Mode"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Marisa",
     "category": ["Resources", "EMarisa", "Story Mode"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Sakuya",
     "category": ["Resources", "ESakuya", "Story Mode"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Youmu",
     "category": ["Resources", "EYoumu", "Story Mode"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Reisen",
     "category": ["Resources", "EReisen", "Story Mode"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Cirno",
     "category": ["Resources", "ECirno", "Story Mode"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Lyrica",
     "category": ["Resources", "ELyrica", "Story Mode"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Mystia",
     "category": ["Resources", "EMystia", "Story Mode"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Tewi",
     "category": ["Resources", "ETewi", "Story Mode"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Aya",
-    "category": ["Resources", "EAya", "Story Mode"],
+    "category": ["Resources", "EAya", "Story Mode", "AyaMedi"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Medicine",
-    "category": ["Resources", "EMedicine", "Story Mode"],
+    "category": ["Resources", "EMedicine", "Story Mode", "AyaMedi"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Yuuka",
     "category": ["Resources", "EYuuka", "Story Mode"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Komachi",
     "category": ["Resources", "EKomachi", "Story Mode"],
     "progression_skip_balancing": true
   },
   {
-    "count": "7",
+    "count": "8",
     "name": "+1 Life - Shikieiki",
     "category": ["Resources", "EShikieiki", "Story Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Reimu",
+    "category": ["Resources", "EReimu", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Marisa",
+    "category": ["Resources", "EMarisa", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Sakuya",
+    "category": ["Resources", "ESakuya", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Youmu",
+    "category": ["Resources", "EYoumu", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Reisen",
+    "category": ["Resources", "EReisen", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Cirno",
+    "category": ["Resources", "ECirno", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Lyrica",
+    "category": ["Resources", "ELyrica", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Merlin",
+    "category": ["Resources", "EMerlin", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Lunasa",
+    "category": ["Resources", "ELunasa", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Mystia",
+    "category": ["Resources", "EMystia", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Tewi",
+    "category": ["Resources", "ETewi", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Aya",
+    "category": ["Resources", "EAya", "Match Mode", "AyaMedi"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Medicine",
+    "category": ["Resources", "EMedicine", "Match Mode", "AyaMedi"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Yuuka",
+    "category": ["Resources", "EYuuka", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Komachi",
+    "category": ["Resources", "EKomachi", "Match Mode"],
+    "progression_skip_balancing": true
+  },
+  {
+    "count": "8",
+    "name": "-1 Minute - Shikieiki",
+    "category": ["Resources", "EShikieiki", "Match Mode"],
     "progression_skip_balancing": true
   },
   {
@@ -273,102 +369,6 @@
     "count": 1,
     "name": "Ending - Shikieiki",
     "category": ["Endings", "EShikieiki"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Reimu",
-    "category": ["Resources", "EReimu", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Marisa",
-    "category": ["Resources", "EMarisa", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Sakuya",
-    "category": ["Resources", "ESakuya", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Youmu",
-    "category": ["Resources", "EYoumu", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Reisen",
-    "category": ["Resources", "EReisen", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Cirno",
-    "category": ["Resources", "ECirno", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Lyrica",
-    "category": ["Resources", "ELyrica", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Merlin",
-    "category": ["Resources", "EMerlin", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Lunasa",
-    "category": ["Resources", "ELunasa", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Mystia",
-    "category": ["Resources", "EMystia", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Tewi",
-    "category": ["Resources", "ETewi", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Aya",
-    "category": ["Resources", "EAya", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Medicine",
-    "category": ["Resources", "EMedicine", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Yuuka",
-    "category": ["Resources", "EYuuka", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Komachi",
-    "category": ["Resources", "EKomachi", "Match Mode"],
-    "progression_skip_balancing": true
-  },
-  {
-    "count": "7",
-    "name": "-1 Minute - Shikieiki",
-    "category": ["Resources", "EShikieiki", "Match Mode"],
     "progression_skip_balancing": true
   },
   {
