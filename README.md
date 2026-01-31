@@ -1,5 +1,7 @@
 # Manual Archipelago implementation for Touhou 9 ~ Phantasmagoria of Flower View
-This is a [Manual Archipelago](https://github.com/ManualForArchipelago/Manual) implementation for the game _Touhou Kaeizuka ~ Phantasmagoria of Flower View_.
+This is a [Manual Archipelago](https://discord.gg/T5bcsVHByx) implementation for the game _Touhou Kaeizuka ~ Phantasmagoria of Flower View_.
+
+Setup guide can be viewed [here](manual_touhoupofv_uni/docs/setup_en.md)
 ## How does this work?
 There are 2 modes to play: Story Mode and Match Mode
 
