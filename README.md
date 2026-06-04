@@ -27,7 +27,8 @@ There are 2 modes to play.
 <sup>- Fumos (There was a single leftover location for a filler item. They do nothing).</sup>
 
 ### Other Notes:
-Difficulty mode is up to the player (Not including Extra Mode).
+The player can decide if they wanna play on Easy, Normal, Hard or Lunatic.  
+Extra Mode isn't intended to be used and hasn't been tested.
 
 ## Match Mode
 This is structured similarly to story mode, kind of as a way to play story mode stages individually.
